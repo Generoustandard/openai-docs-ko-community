@@ -1,0 +1,112 @@
+[
+  {
+    "id": "words.responses-api.name-01",
+    "source_en": "Responses API",
+    "bad_ko": "응답 API",
+    "improved_ko": "Responses API",
+    "notes": [
+      "제품 이름은 억지로 번역하지 않고 공식 표기를 유지하는 편이 검색성과 문맥 파악에 유리합니다.",
+      "주변 설명만 한국어로 자연스럽게 풀고, 고유 명칭은 그대로 두는 것이 기술 문서에서 더 안정적입니다."
+    ],
+    "tags": ["responses-api", "product-name", "terminology"]
+  },
+  {
+    "id": "words.chat-completions.name-01",
+    "source_en": "Chat Completions API",
+    "bad_ko": "채팅 완성 API",
+    "improved_ko": "Chat Completions API",
+    "notes": [
+      "OpenAI API 이름은 직역보다 공식 영문 이름을 유지하는 편이 문서 간 일관성이 좋습니다.",
+      "번역문 안에서는 이름을 그대로 두고 역할만 한국어로 설명하는 방식이 읽기 쉽습니다."
+    ],
+    "tags": ["chat-completions", "product-name", "terminology"]
+  },
+  {
+    "id": "words.agentic.term-01",
+    "source_en": "agentic",
+    "bad_ko": "에이전트적인",
+    "improved_ko": "에이전트형",
+    "notes": [
+      "영어 형용사를 그대로 한국어 어미에 붙인 표현은 어색하게 들리기 쉽습니다.",
+      "문서 문체에서는 '에이전트형'처럼 압축된 표현이 더 자연스럽고 반복 사용에도 견고합니다."
+    ],
+    "tags": ["agentic", "style", "terminology"]
+  },
+  {
+    "id": "words.multimodal.term-01",
+    "source_en": "multimodal",
+    "bad_ko": "다중 양식",
+    "improved_ko": "멀티모달",
+    "notes": [
+      "이 분야에서는 '멀티모달'이 사실상 표준 용어에 가깝습니다.",
+      "억지 직역보다 업계에서 익숙한 표현을 택하는 것이 기술적 정확성과 가독성에 모두 유리합니다."
+    ],
+    "tags": ["multimodal", "terminology", "consistency"]
+  },
+  {
+    "id": "words.built-in-tools.term-01",
+    "source_en": "built-in tools",
+    "bad_ko": "빌트인 도구",
+    "improved_ko": "내장 도구",
+    "notes": [
+      "단순 음차보다 의미가 바로 드러나는 한국어 표현이 문서 독해 속도를 높입니다.",
+      "짧고 명확한 번역이라 다른 문장 구조에도 쉽게 붙일 수 있습니다."
+    ],
+    "tags": ["tools", "readability", "terminology"]
+  },
+  {
+    "id": "words.multi-turn-interactions.term-01",
+    "source_en": "multi-turn interactions",
+    "bad_ko": "멀티턴 인터랙션",
+    "improved_ko": "멀티턴 상호작용",
+    "notes": [
+      "핵심 개념은 유지하되 불필요한 영어 음차를 줄이면 문서가 덜 거칠게 읽힙니다.",
+      "필요하면 문맥에 따라 '여러 턴에 걸친 상호작용'처럼 더 풀어 쓸 수도 있습니다."
+    ],
+    "tags": ["multi-turn", "interaction", "style"]
+  },
+  {
+    "id": "words.reasoning.term-01",
+    "source_en": "reasoning",
+    "bad_ko": "레저닝",
+    "improved_ko": "추론",
+    "notes": [
+      "이미 널리 쓰이는 한국어 대응어가 있으면 그것을 우선 사용하는 편이 자연스럽습니다.",
+      "문장 안에서 '추론 성능', '추론 결과'처럼 안정적으로 확장할 수 있습니다."
+    ],
+    "tags": ["reasoning", "terminology", "technical-accuracy"]
+  },
+  {
+    "id": "words.migrate.term-01",
+    "source_en": "migrate",
+    "bad_ko": "마이그레이트하다",
+    "improved_ko": "이전하다",
+    "notes": [
+      "동사 표현은 한국어 기본 어휘를 쓰는 편이 더 깔끔하고 설명적입니다.",
+      "문맥상 필요할 때만 '마이그레이션'을 명사 형태로 제한적으로 쓰는 것이 좋습니다."
+    ],
+    "tags": ["migration", "verbs", "style"]
+  },
+  {
+    "id": "words.best-practice.term-01",
+    "source_en": "best practice",
+    "bad_ko": "베스트 프랙티스",
+    "improved_ko": "권장 방식",
+    "notes": [
+      "문맥에 따라 '모범 사례'도 가능하지만, 제품 가이드에서는 '권장 방식'이 더 직접적으로 읽히는 경우가 많습니다.",
+      "독자가 바로 행동 지침으로 이해할 수 있도록 뜻을 중심으로 옮긴 표현입니다."
+    ],
+    "tags": ["best-practice", "guidance", "readability"]
+  },
+  {
+    "id": "words.user-flows.term-01",
+    "source_en": "user flows",
+    "bad_ko": "유저 플로우",
+    "improved_ko": "사용 시나리오",
+    "notes": [
+      "문맥에 따라 '사용자 흐름'도 가능하지만, 제품 도입 전략을 설명할 때는 '사용 시나리오'가 더 자연스럽게 읽히는 경우가 많습니다.",
+      "이 표현은 실제 사용 장면과 우선순위를 함께 떠올리게 해, 마이그레이션 문맥에 더 잘 맞습니다."
+    ],
+    "tags": ["user-flows", "readability", "terminology"]
+  }
+]
