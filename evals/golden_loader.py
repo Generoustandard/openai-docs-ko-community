@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 DATA_FILES = ("words.json", "sentences.json", "paragraphs.json")
-REQUIRED_FIELDS = {"id", "source_en", "improved_ko", "notes", "tags"}
+REQUIRED_FIELDS = {"id", "source_en", "bad_ko", "improved_ko", "notes", "tags"}
 
 
 def _resolve_golden_dir(base_dir: str | Path) -> Path:
@@ -28,6 +28,10 @@ def _validate_record(record: dict, path: Path, index: int) -> None:
     missing = sorted(REQUIRED_FIELDS - set(record))
     if missing:
         raise ValueError(f"{path} record #{index} is missing required fields: {missing}")
+    if not isinstance(record["bad_ko"], str):
+        raise ValueError(f"{path} record #{index} must use a string for 'bad_ko'.")
+    if not isinstance(record["improved_ko"], str):
+        raise ValueError(f"{path} record #{index} must use a string for 'improved_ko'.")
     if not isinstance(record["notes"], list) or not all(isinstance(note, str) for note in record["notes"]):
         raise ValueError(f"{path} record #{index} must use a list of strings for 'notes'.")
     if not isinstance(record["tags"], list) or not all(isinstance(tag, str) for tag in record["tags"]):
