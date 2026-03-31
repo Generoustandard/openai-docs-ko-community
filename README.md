@@ -1,60 +1,137 @@
 # OpenAI Docs Korean Community
 
-비공식 커뮤니티 기반 MVP로, OpenAI 문서의 한국어 번역 품질을 작고 명확한 예제로 보여주는 저장소입니다. 전체 문서 사이트를 번역하거나 플랫폼을 만드는 대신, "좋은 한국어 기술 번역이 무엇인지"를 빠르게 이해할 수 있는 샘플과 가벼운 평가 아이디어에 집중합니다.
+이 저장소는 공식 OpenAI 영어-한국어 문서쌍을 사용해 번역 품질 평가 MVP를 구현하는 실험 저장소입니다.
 
-## 이 저장소가 보여주려는 것
+현재 1차 MVP의 중심 경로는 다음과 같습니다.
 
-- 영어 원문을 그대로 옮긴 한국어와, 읽기 쉬운 한국어 기술 문서 번역의 차이
-- 용어 일관성, 자연스러운 문장 흐름, 기술적 정확성을 함께 고려하는 방법
-- 작은 golden dataset과 간단한 cosine similarity 기반 비교로 번역 품질을 점검하는 MVP 방식
+1. 공식 OpenAI 영어 문서를 `source_en`으로 수집한다.
+2. 공식 OpenAI 한국어 문서를 `reference_ko`로 수집한다.
+3. 본문을 paragraph-level 평가 단위로 정렬한다.
+4. `source_en`으로부터 새로운 `candidate_ko`를 생성한다.
+5. `reference_ko`와 `candidate_ko`를 비교 평가한다.
+6. 결과를 JSON과 Markdown report로 저장한다.
 
-## 핵심 구성
+## 1차 MVP 범위
+
+1차 MVP는 `openai.com`의 공식 영어-한국어 문서쌍 기반 평가 데모다.
+
+핵심 역할은 아래처럼 구분한다.
+
+- `source_en`: 공식 영어 원문
+- `reference_ko`: 공식 한국어 번역문
+- `candidate_ko`: LLM이 새로 생성한 한국어 번역
+- `reviewed_golden`: 나중에 사람이 직접 검토해 승격한 소수 샘플
+
+중요한 원칙:
+
+- `reference_ko`는 곧바로 `golden`이 아니다.
+- 사람이 검토하지 않은 LLM 생성 번역은 `golden`으로 저장하지 않는다.
+- 1차 MVP는 `source_en / reference_ko / candidate_ko` 기반 평가 파이프라인이다.
+
+## 2차 확장 범위
+
+아래 항목은 이번 메인 MVP가 아니라 이후 확장 경로다.
+
+- `developers.openai.com` 문서 수집 및 평가
+- reference-less 평가
+- 더 넓은 candidate generation pipeline
+- curated `reviewed_golden` 확장
+
+기존 `docs/golden/` 및 `evals/` 자산은 삭제하지 않고 future expansion 또는 experimental pipeline 성격으로 유지한다.
+
+## 현재 저장소 구조 요약
 
 - [docs/golden/words.json](/C:/Users/user/Documents/Repo/openai-docs-ko-community/docs/golden/words.json)
 - [docs/golden/sentences.json](/C:/Users/user/Documents/Repo/openai-docs-ko-community/docs/golden/sentences.json)
 - [docs/golden/paragraphs.json](/C:/Users/user/Documents/Repo/openai-docs-ko-community/docs/golden/paragraphs.json)
 - [docs/examples/responses-api.md](/C:/Users/user/Documents/Repo/openai-docs-ko-community/docs/examples/responses-api.md)
 - [evals/README.md](/C:/Users/user/Documents/Repo/openai-docs-ko-community/evals/README.md)
+- [guidelines/terminology.md](/C:/Users/user/Documents/Repo/openai-docs-ko-community/guidelines/terminology.md)
+- [guidelines/translation.md](/C:/Users/user/Documents/Repo/openai-docs-ko-community/guidelines/translation.md)
 
-## Golden 예제의 목적
+## 문서화 파일
 
-`docs/golden/` 아래의 예제는 대규모 데이터셋이 아니라, 품질 기준을 설명하는 작은 기준점입니다. 각 항목은 영어 원문, 필요할 때의 직역 또는 어색한 한국어, 개선된 한국어, 그리고 왜 개선 버전이 더 좋은지에 대한 짧은 메모를 포함합니다.
+- [AGENTS.md](/C:/Users/user/Documents/Repo/openai-docs-ko-community/AGENTS.md)
+- [PLAN.md](/C:/Users/user/Documents/Repo/openai-docs-ko-community/PLAN.md)
+- [EVAL_SPEC.md](/C:/Users/user/Documents/Repo/openai-docs-ko-community/EVAL_SPEC.md)
 
-이 예제들은 다음을 돕습니다.
+## 실행 흐름
 
-- 반복적으로 헷갈리는 기술 용어를 일관되게 다듬기
-- 직역체를 줄이고 한국어 문서답게 다시 쓰기
-- 번역 품질 논의를 추상적인 취향이 아니라 구체적인 사례 중심으로 하기
+구현되는 메인 스크립트는 아래 흐름을 따른다.
 
-## MVP 평가 아이디어
+- `collect_pair.py`
+- `align_units.py`
+- `generate_candidate.py`
+- `run_eval.py`
+- `build_report.py`
 
-이 저장소의 평가는 자동 채점 시스템이 아니라, 사람이 빠르게 비교해 볼 수 있는 가벼운 보조 장치입니다.
+## 준비 사항
 
-- Korean-to-Korean cosine similarity:
-  후보 한국어 번역과 curated golden 한국어 번역이 얼마나 비슷한지 봅니다.
-- English-to-back-translation cosine similarity:
-  영어 원문과 `영어 -> 한국어 -> 영어`로 되돌린 문장이 얼마나 의미를 잘 유지하는지 봅니다.
+- Python 3.12+
+- Chrome 설치
+- `OPENAI_API_KEY` 설정
+- `pip install -r requirements.txt`
 
-중요한 점은 두 점수를 하나의 최종 점수로 합치지 않는다는 것입니다. 점수는 비교용 신호일 뿐이고, 최종 판단은 사람이 문맥과 문체를 보고 내려야 합니다. 자세한 설명은 [evals/README.md](/C:/Users/user/Documents/Repo/openai-docs-ko-community/evals/README.md)에 정리합니다.
+중요:
 
-## 기여 방법
+- `collect_pair.py`는 기본적으로 headful Chrome을 사용한다.
+- OpenAI 웹페이지는 headless 브라우저에서 차단될 수 있으므로, 특별한 이유가 없으면 `--headless` 없이 실행한다.
 
-- 더 자연스럽고 정확한 한국어 번역 예제를 제안하기
-- 기존 golden 항목의 메모를 더 명확하게 다듬기
-- 작지만 대표성 있는 문장이나 문단을 추가하기
-- 특정 용어의 번역 기준을 더 일관되게 정리하기
+## 실행 예시
 
-기여는 작고 읽기 쉬운 단위가 가장 좋습니다. 이 저장소는 빠르게 데모하고 토론하기 위한 MVP이므로, 대량 번역이나 복잡한 자동화보다 작은 개선을 선호합니다.
+### 1. 공식 문서쌍 수집
 
-## 현재 MVP 범위 밖
+```bash
+python -X utf8 collect_pair.py ^
+  --slug why-we-no-longer-evaluate-swe-bench-verified ^
+  --source-url https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/ ^
+  --reference-url https://openai.com/ko-KR/index/why-we-no-longer-evaluate-swe-bench-verified/
+```
 
-- OpenAI 문서 전체 sitemap 번역
-- 프로덕션급 평가 플랫폼
-- 자동 리더보드나 대규모 벤치마크
-- 번역, 임베딩, 역번역을 위한 외부 API 호출 자동화
+### 2. 평가 단위 정렬
 
-## 다음 단계
+```bash
+python -X utf8 align_units.py --slug why-we-no-longer-evaluate-swe-bench-verified
+```
 
-- Responses API 외에 1-2개 문서 예제를 더 추가해 구조가 유용한지 확인
-- 반복적으로 문제 되는 용어를 중심으로 golden 예제를 점진적으로 확장
-- 실제 사용자가 생기면 선택적으로 provider adapter나 CI 검증을 검토
+### 3. `candidate_ko` 생성
+
+```bash
+python -X utf8 generate_candidate.py ^
+  --input data/processed/why-we-no-longer-evaluate-swe-bench-verified.aligned.json ^
+  --model gpt-4.1-mini
+```
+
+### 4. 평가 실행
+
+```bash
+python -X utf8 run_eval.py ^
+  --input data/processed/why-we-no-longer-evaluate-swe-bench-verified.aligned.candidates.json ^
+  --backtranslation-model gpt-4.1-mini ^
+  --judge-model gpt-4.1-mini ^
+  --embedding-model text-embedding-3-small
+```
+
+### 5. Markdown report 생성
+
+```bash
+python -X utf8 build_report.py ^
+  --input reports/why-we-no-longer-evaluate-swe-bench-verified.aligned.candidates.eval.json ^
+  --output reports/why-we-no-longer-evaluate-swe-bench-verified.report.md
+```
+
+## 샘플 산출물
+
+이번 작업으로 아래 샘플 산출물을 생성했다.
+
+- [docs/pairs/why-we-no-longer-evaluate-swe-bench-verified/pair_manifest.json](/C:/Users/user/Documents/Repo/openai-docs-ko-community/docs/pairs/why-we-no-longer-evaluate-swe-bench-verified/pair_manifest.json)
+- [data/processed/why-we-no-longer-evaluate-swe-bench-verified.aligned.json](/C:/Users/user/Documents/Repo/openai-docs-ko-community/data/processed/why-we-no-longer-evaluate-swe-bench-verified.aligned.json)
+- [data/processed/why-we-no-longer-evaluate-swe-bench-verified.aligned.candidates.json](/C:/Users/user/Documents/Repo/openai-docs-ko-community/data/processed/why-we-no-longer-evaluate-swe-bench-verified.aligned.candidates.json)
+- [reports/why-we-no-longer-evaluate-swe-bench-verified.aligned.candidates.eval.json](/C:/Users/user/Documents/Repo/openai-docs-ko-community/reports/why-we-no-longer-evaluate-swe-bench-verified.aligned.candidates.eval.json)
+- [reports/why-we-no-longer-evaluate-swe-bench-verified.report.md](/C:/Users/user/Documents/Repo/openai-docs-ko-community/reports/why-we-no-longer-evaluate-swe-bench-verified.report.md)
+
+## 기존 자산의 위치 재정의
+
+- `docs/golden/`: reviewed 또는 curated 예시를 쌓기 위한 실험 자산
+- `evals/`: 기존 cosine 기반 실험 평가 파이프라인
+- 이번 1차 MVP의 메인 경로: 공식 OpenAI 영어-한국어 문서쌍 평가
