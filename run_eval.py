@@ -43,9 +43,10 @@ JUDGE_SCHEMA = {
                         "type": "array",
                         "items": {"type": "string"},
                     },
+                    "needs_human_review": {"type": "boolean"},
                     "suggested_revision": {"type": "string"},
                 },
-                "required": ["id", "llm_judge_score", "issues", "suggested_revision"],
+                "required": ["id", "llm_judge_score", "issues", "needs_human_review", "suggested_revision"],
                 "additionalProperties": False,
             },
         }
@@ -121,8 +122,8 @@ def main() -> None:
         default=None,
         help="Output path. Defaults to reports/<input-stem>.eval.json",
     )
-    parser.add_argument("--backtranslation-model", default="gpt-4.1-mini")
-    parser.add_argument("--judge-model", default="gpt-4.1-mini")
+    parser.add_argument("--backtranslation-model", default="gpt-5.4-mini")
+    parser.add_argument("--judge-model", default="gpt-5.4-mini")
     parser.add_argument("--embedding-model", default="text-embedding-3-small")
     parser.add_argument("--batch-size", type=int, default=8)
     parser.add_argument("--judge-batch-size", type=int, default=5)
@@ -165,6 +166,8 @@ def main() -> None:
         "For each item, compare source_en, reference_ko, candidate_ko, and backtranslated_en. "
         "Assign one llm_judge_score on a 0-100 scale using this rubric: accuracy 40, naturalness 20, terminology consistency 20, style fit 20. "
         "Return at most 3 concise issues. "
+        "Set needs_human_review to true only if the item contains a high-severity wording, terminology, or accuracy problem that should be manually reviewed. "
+        "Set needs_human_review to false for minor style nits or acceptable alternatives. "
         "Return suggested_revision in Korean. If the candidate is already strong, suggested_revision may equal candidate_ko. "
         "Return only the requested JSON schema."
     )
@@ -227,6 +230,7 @@ def main() -> None:
             "terminology_consistency_score": terminology_score,
             "llm_judge_score": round(max(0.0, min(100.0, float(judgment["llm_judge_score"]))), 1),
             "issues": [],
+            "judge_needs_human_review": bool(judgment["needs_human_review"]),
             "suggested_revision": judgment["suggested_revision"].strip(),
             "metadata": {
                 "unit_type": record.get("unit_type"),
@@ -240,6 +244,9 @@ def main() -> None:
         )
         merged["overall_score"] = compute_overall_score(merged)
         merged["review_reasons"] = review_reasons(merged)
+        if merged["judge_needs_human_review"]:
+            merged["review_reasons"].append("llm_judge_flagged")
+        merged["review_reasons"] = list(dict.fromkeys(merged["review_reasons"]))
         merged["needs_human_review"] = bool(merged["review_reasons"])
         evaluated_records.append(merged)
 

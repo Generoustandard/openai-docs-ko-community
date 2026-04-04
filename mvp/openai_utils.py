@@ -3,12 +3,15 @@ from __future__ import annotations
 from datetime import datetime, timezone
 import json
 from pathlib import Path
-from typing import Iterable
+from typing import Iterable, TYPE_CHECKING
 
-from openai import OpenAI
+if TYPE_CHECKING:
+    from openai import OpenAI
 
 
-def build_client() -> OpenAI:
+def build_client() -> "OpenAI":
+    from openai import OpenAI
+
     return OpenAI()
 
 

@@ -39,7 +39,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--model",
-        default="gpt-4.1-mini",
+        default="gpt-5.4-mini",
         help="OpenAI model used for translation.",
     )
     parser.add_argument("--batch-size", type=int, default=8, help="Number of blocks translated per request.")

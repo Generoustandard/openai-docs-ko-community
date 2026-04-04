@@ -6,6 +6,9 @@ from pathlib import Path
 from mvp.openai_utils import load_records_payload
 
 
+RECOMMENDED_MVP_MODEL = "gpt-5.4-mini"
+
+
 def _format_top_items(records: list[dict], *, field: str, limit: int) -> str:
     lines = []
     for record in sorted(records, key=lambda item: item[field])[:limit]:
@@ -32,6 +35,33 @@ def _format_review_list(records: list[dict]) -> str:
         lines.append(
             f"- `{record['id']}` | overall={record['overall_score']:.1f} | reasons: {reasons}"
         )
+    return "\n".join(lines)
+
+
+def _format_provenance(meta: dict, config: dict) -> str:
+    generation_model = meta.get("generation_model", "n/a")
+    backtranslation_model = config.get("backtranslation_model", "n/a")
+    judge_model = config.get("judge_model", "n/a")
+    embedding_model = config.get("embedding_model", "n/a")
+    generated_at = meta.get("generated_at", "n/a")
+    evaluated_at = meta.get("evaluated_at", "n/a")
+
+    lines = [
+        f"- generated_at: `{generated_at}`",
+        f"- evaluated_at: `{evaluated_at}`",
+        f"- generation_model: `{generation_model}`",
+        f"- backtranslation_model: `{backtranslation_model}`",
+        f"- judge_model: `{judge_model}`",
+        f"- embedding_model: `{embedding_model}`",
+    ]
+
+    recorded_models = [generation_model, backtranslation_model, judge_model]
+    if any(model not in {"n/a", RECOMMENDED_MVP_MODEL} for model in recorded_models):
+        lines.append("")
+        lines.append(
+            f"> Note: This report reflects a historical sample run. The current recommended MVP demo configuration uses `{RECOMMENDED_MVP_MODEL}` for generation, backtranslation, and judging."
+        )
+
     return "\n".join(lines)
 
 
@@ -63,6 +93,10 @@ def main() -> None:
 - unit_count: {summary.get("count", len(records))}
 - score_scale: `{config.get("score_scale", "0-100")}`
 - overall_formula: `{config.get("overall_formula", "n/a")}`
+
+## Artifact Provenance
+
+{_format_provenance(meta, config)}
 
 ## Document Summary
 

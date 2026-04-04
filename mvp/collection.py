@@ -23,7 +23,7 @@ if (!article || !body) {
 }
 
 const blocks = [];
-for (const el of body.querySelectorAll('p, li, h2, h3, h4')) {
+for (const el of body.querySelectorAll('p, li, h2, h3')) {
   if (el.closest('pre, code')) {
     continue;
   }

@@ -2,43 +2,27 @@
 
 ## Goal
 
-This repository implements a translation quality evaluation MVP for official OpenAI English and Korean document pairs.
+This repository packages a reviewable Phase 1 MVP for evaluating Korean translation quality on official OpenAI English-Korean document pairs.
 
-The primary demo path for this phase is:
+## Current MVP Scope
 
-1. collect an official `source_en` page and its official `reference_ko` counterpart
-2. extract and clean the body text
-3. align stable evaluation units
-4. generate a new `candidate_ko` from `source_en`
-5. compare `candidate_ko` against `reference_ko`
-6. save machine-readable results and a human-readable report
+- Phase 1 focuses on official `openai.com` EN-KO page pairs.
+- The primary flow is: collect the pair, align paragraph-level units, generate `candidate_ko`, evaluate against `reference_ko`, and build a report.
+- `developers.openai.com` is a Phase 2 expansion track, not the current MVP path.
 
-## Phase 1 MVP Scope
-
-Phase 1 is limited to official OpenAI English-Korean page pairs hosted on `openai.com`.
-
-Current evaluation roles:
+## Evaluation Roles
 
 - `source_en`: official English source text
 - `reference_ko`: official Korean translation published by OpenAI
-- `candidate_ko`: a newly generated Korean translation produced by the pipeline
-- `reviewed_golden`: a small, human-reviewed artifact that may be promoted later for deeper evaluation or regression testing
+- `candidate_ko`: newly generated Korean translation produced by the pipeline
+- `reviewed_golden`: human-reviewed example reserved for future regression or deeper evaluation work
 
-Important constraints:
+## Constraints
 
-- `reference_ko` is not automatically treated as `golden`
-- `candidate_ko` is never stored as `golden`
-- only human-reviewed samples should be promoted to `reviewed_golden`
+- `reference_ko` is a reference, not automatically golden.
+- `candidate_ko` is never stored as golden.
+- Only manual review by the maintainer or community reviewers can promote an item to `reviewed_golden`.
 
-## Phase 2 Expansion
+## Asset Preservation
 
-The following are future-expansion tracks, not the main MVP path for this phase:
-
-- `developers.openai.com` ingestion
-- reference-less evaluation for developer docs
-- broader candidate generation pipelines
-- expansion of curated reviewed examples in `docs/golden/`
-
-## Existing Assets
-
-Existing files under `docs/golden/` and `evals/` remain in the repository as experimental or future-expansion assets. Do not delete them when working on the official document-pair MVP.
+Keep existing files under `docs/golden/` and `evals/` as experimental or future-expansion assets. Do not delete them while working on the Phase 1 official document-pair MVP.

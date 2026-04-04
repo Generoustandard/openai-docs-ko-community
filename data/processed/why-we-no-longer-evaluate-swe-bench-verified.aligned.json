@@ -301,11 +301,11 @@
   },
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-026",
-    "unit_type": "section_header",
-    "source_en": "Problem description",
-    "reference_ko": "문제 설명",
+    "unit_type": "paragraph",
+    "source_en": "An example of too wide test cases is sympy__sympy-18199. This task was sourced from a PR that addressed three distinct issues with the `nthroot_mod` function, specifically #17373, #17377, and #18212. The description for the SWE-bench Verified task, however, covers only the final issue #18212. This creates a mismatch: the PR tests cover all three issues, while the description details only one. In our runs, models often correctly implement the described fix and then fail tests that cover implementation for the other two issues.",
+    "reference_ko": "너무 광범위한 테스트 케이스의 예로는 sympy__sympy-18199 가 있습니다. 이 작업은 `nthroot_mod` 함수와 관련된 세 가지 별개의 이슈인 #17373, #17377, #18212 를 해결한 PR에서 가져왔습니다. 하지만 SWE-bench Verified 작업의 설명은 마지막 이슈인 #18212 만을 다룹니다. 이는 불일치를 초래합니다. PR 테스트는 세 가지 이슈를 모두 다루는 반면, 설명은 단 하나의 이슈만 상세히 기술합니다. 실행 과정에서 여러 모델이 종종 설명된 수정 사항을 올바르게 구현하고도 나머지 두 이슈의 구현을 다루는 테스트에서 실패했습니다.",
     "source_meta": {
-      "tag": "H4",
+      "tag": "P",
       "source_index": 26,
       "reference_index": 26,
       "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
@@ -314,10 +314,10 @@
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-027",
     "unit_type": "section_header",
-    "source_en": "Plain Text",
-    "reference_ko": "일반 텍스트",
+    "source_en": "Contamination",
+    "reference_ko": "오염",
     "source_meta": {
-      "tag": "H4",
+      "tag": "H2",
       "source_index": 27,
       "reference_index": 27,
       "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
@@ -325,11 +325,11 @@
   },
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-028",
-    "unit_type": "section_header",
-    "source_en": "PR test snippet",
-    "reference_ko": "PR 테스트 스니펫",
+    "unit_type": "paragraph",
+    "source_en": "SWE-bench Verified and the repositories (code bases and release notes) are both open-source and broadly used and discussed, which makes avoiding contamination difficult for model developers.",
+    "reference_ko": "SWE-bench Verified와 해당 리포지터리(코드베이스 및 릴리스 노트)는 모두 오픈 소스이며 널리 사용 및 논의되고 있어, 모델 개발자 입장에서 데이터 오염을 피하기는 어렵습니다.",
     "source_meta": {
-      "tag": "H4",
+      "tag": "P",
       "source_index": 28,
       "reference_index": 28,
       "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
@@ -337,11 +337,11 @@
   },
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-029",
-    "unit_type": "section_header",
-    "source_en": "Python",
-    "reference_ko": "Python",
+    "unit_type": "paragraph",
+    "source_en": "We first encountered signs of contamination in our own models. For example, when GPT‑5.2 solved 31 tasks we identified to be almost impossible to solve. In django__django-14725 the tests require a specific new parameter `edit_only` which is not explicitly required by the problem statement. While solving the problem, GPT‑5.2 shows in its chain of thought that it has information about the release notes that detail changes to the codebase, and correctly identifies that the `edit_only` parameter was introduced in Django 4.1.",
+    "reference_ko": "자체 모델에서 처음으로 오염 징후를 발견했습니다. 예를 들어, 해결이 거의 불가능하다고 판단했던 31개의 작업을 GPT‑5.2가 해결한 경우가 그렇습니다. django__django-14725 에서 테스트는 문제 명세에서 명시적으로 요구하지 않은 `edit_only`라는 특정 새 매개변수를 요구합니다. 문제를 해결하는 동안 GPT‑5.2는 자신의 추론 과정에서 코드베이스의 변경 사항을 상세히 설명하는 릴리스 노트에 대한 정보를 가지고 있음을 보여주며, `edit_only` 매개변수가 Django 4.1에 도입되었다는 사실을 정확하게 파악합니다.",
     "source_meta": {
-      "tag": "H4",
+      "tag": "P",
       "source_index": 29,
       "reference_index": 29,
       "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
@@ -349,11 +349,11 @@
   },
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-030",
-    "unit_type": "section_header",
-    "source_en": "PR test failures (truncated for readability)",
-    "reference_ko": "PR 테스트 실패(가독성을 위해 일부 생략됨)",
+    "unit_type": "paragraph",
+    "source_en": "To assess how significant contamination is more broadly, we created an automated red-teaming setup. For each SWE-bench Verified question, we tasked GPT‑5 with probing a GPT‑5.2‑Chat, Claude Opus 4.5 and Gemini 3 Flash Preview for contamination. These models were chosen to exclude reasoning models, but we acknowledge there is likely a non-trivial capability gap between them.",
+    "reference_ko": "오염이 전반적으로 얼마나 심각한지 평가하기 위해 자동화된 레드팀 테스트 환경을 구축했습니다. 각 SWE-bench Verified 문제에 대해 GPT‑5에 GPT‑5.2‑Chat, Claude Opus 4.5, Gemini 3 Flash Preview의 오염 여부를 조사하도록 지시했습니다. 이러한 모델은 추론 모델을 배제하기 위해 선택되었으나, 이들 사이에는 무시할 수 없는 역량 차이가 존재할 수 있음을 인정합니다.",
     "source_meta": {
-      "tag": "H4",
+      "tag": "P",
       "source_index": 30,
       "reference_index": 30,
       "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
@@ -361,11 +361,11 @@
   },
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-031",
-    "unit_type": "section_header",
-    "source_en": "Python",
-    "reference_ko": "Python",
+    "unit_type": "paragraph",
+    "source_en": "To probe for contamination, GPT‑5 received: the SWE-bench Verified task’s ID, description, gold patch, and PR tests. Over 15 turns, we allowed GPT‑5 to vary the system/developer prompt, user prompt, and assistant prefill and different elicitation strategies. After each turn, a judge model labeled how much novel task-specific information appeared and each response was labeled for contamination severity from “none” to “strong.” GPT‑5 was allowed to adapt its strategy based on prior turns to iteratively recover task-specific details. For each example of strong contamination, we verified with another judge that GPT‑5 didn’t leak too much information to the target model. Finally, we then manually reviewed the “strong” examples that make up the transcripts in this post.",
+    "reference_ko": "오염 여부를 조사하기 위해 GPT‑5는 SWE-bench Verified 작업의 ID, 설명, 골드 패치 및 PR 테스트를 제공받았습니다. 총 15턴에 걸쳐 GPT‑5가 시스템/개발자 프롬프트, 사용자 프롬프트, 어시스턴트 사전 입력 및 다양한 유도 전략을 변경할 수 있도록 허용했습니다. 각 턴이 끝난 후 평가 모델은 작업에 특화된 새로운 정보가 얼마나 나타났는지 판별했으며, 각 응답의 오염 심각도를 '없음'에서 '강함'으로 레이블링했습니다. GPT‑5는 이전 턴을 바탕으로 전략을 조정하여 작업별 세부 정보를 반복적으로 복원할 수 있었습니다. 각 심각한 오염 사례에 대해 또 다른 평가 모델을 통해 GPT‑5가 대상 모델에 너무 많은 정보를 유출하지 않았는지 검증했습니다. 마지막으로 이 게시물의 대화 기록을 구성하는 오염도가 '강함'으로 분류된 사례를 직접 검토했습니다.",
     "source_meta": {
-      "tag": "H4",
+      "tag": "P",
       "source_index": 31,
       "reference_index": 31,
       "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
@@ -374,8 +374,8 @@
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-032",
     "unit_type": "paragraph",
-    "source_en": "An example of too wide test cases is sympy__sympy-18199. This task was sourced from a PR that addressed three distinct issues with the `nthroot_mod` function, specifically #17373, #17377, and #18212. The description for the SWE-bench Verified task, however, covers only the final issue #18212. This creates a mismatch: the PR tests cover all three issues, while the description details only one. In our runs, models often correctly implement the described fix and then fail tests that cover implementation for the other two issues.",
-    "reference_ko": "너무 광범위한 테스트 케이스의 예로는 sympy__sympy-18199 가 있습니다. 이 작업은 `nthroot_mod` 함수와 관련된 세 가지 별개의 이슈인 #17373, #17377, #18212 를 해결한 PR에서 가져왔습니다. 하지만 SWE-bench Verified 작업의 설명은 마지막 이슈인 #18212 만을 다룹니다. 이는 불일치를 초래합니다. PR 테스트는 세 가지 이슈를 모두 다루는 반면, 설명은 단 하나의 이슈만 상세히 기술합니다. 실행 과정에서 여러 모델이 종종 설명된 수정 사항을 올바르게 구현하고도 나머지 두 이슈의 구현을 다루는 테스트에서 실패했습니다.",
+    "source_en": "Below are examples of strong contamination across different model providers.",
+    "reference_ko": "아래는 다양한 모델 제공업체 전반에서 나타난 심각한 오염 사례입니다.",
     "source_meta": {
       "tag": "P",
       "source_index": 32,
@@ -386,10 +386,10 @@
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-033",
     "unit_type": "section_header",
-    "source_en": "Original PR description (from the GitHub PR)",
-    "reference_ko": "원본 PR 설명(GitHub PR 발췌)",
+    "source_en": "GPT‑5.2",
+    "reference_ko": "GPT‑5.2",
     "source_meta": {
-      "tag": "H4",
+      "tag": "H2",
       "source_index": 33,
       "reference_index": 33,
       "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
@@ -397,11 +397,11 @@
   },
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-034",
-    "unit_type": "section_header",
-    "source_en": "Plain Text",
-    "reference_ko": "일반 텍스트",
+    "unit_type": "paragraph",
+    "source_en": "Given a short snippet from the task description, GPT‑5.2 outputs the exact gold patch. In particular, it knows the exact class and method name, and the new early return condition `if username is None or password is None` that is introduced.",
+    "reference_ko": "작업 설명의 짧은 스니펫만 주어져도, GPT‑5.2는 정확한 골드 패치를 출력합니다. 특히, 이 모델은 정확한 클래스 및 메서드 이름과 새롭게 도입된 조기 반환 조건인 `if username is None or password is None`을 알고 있습니다.",
     "source_meta": {
-      "tag": "H4",
+      "tag": "P",
       "source_index": 34,
       "reference_index": 34,
       "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
@@ -409,11 +409,11 @@
   },
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-035",
-    "unit_type": "section_header",
-    "source_en": "Problem Description for #18212",
-    "reference_ko": "#18212의 문제 설명",
+    "unit_type": "paragraph",
+    "source_en": "Task ID: django__django-11451",
+    "reference_ko": "작업 ID: django__django-11451",
     "source_meta": {
-      "tag": "H4",
+      "tag": "P",
       "source_index": 35,
       "reference_index": 35,
       "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
@@ -422,10 +422,10 @@
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-036",
     "unit_type": "section_header",
-    "source_en": "Plain Text",
-    "reference_ko": "일반 텍스트",
+    "source_en": "Claude Opus 4.5",
+    "reference_ko": "Claude Opus 4.5",
     "source_meta": {
-      "tag": "H4",
+      "tag": "H2",
       "source_index": 36,
       "reference_index": 36,
       "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
@@ -433,11 +433,11 @@
   },
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-037",
-    "unit_type": "section_header",
-    "source_en": "Problem Description for SWE-bench Verified task (only taken from #18212):",
-    "reference_ko": "SWE-bench Verified 작업의 문제 설명(#18212에서만 발췌됨):",
+    "unit_type": "paragraph",
+    "source_en": "Opus is able to not only recall the exact 4-line functional change the PR introduced, along with the specific filename and method that it touched, but also quotes verbatim the inline comment that was part of the diff.",
+    "reference_ko": "Opus는 PR이 도입한 기능을 수정한 4줄의 실제 코드와 수정된 특정 파일명 및 메서드를 정확히 기억해 낼 뿐만 아니라, diff에 포함되어 있던 인라인 주석까지 글자 그대로 인용할 수 있습니다.",
     "source_meta": {
-      "tag": "H4",
+      "tag": "P",
       "source_index": 37,
       "reference_index": 37,
       "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
@@ -445,11 +445,11 @@
   },
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-038",
-    "unit_type": "section_header",
-    "source_en": "Plain Text",
-    "reference_ko": "일반 텍스트",
+    "unit_type": "paragraph",
+    "source_en": "Task ID: astropy__astropy-13236",
+    "reference_ko": "작업 ID: astropy__astropy-13236",
     "source_meta": {
-      "tag": "H4",
+      "tag": "P",
       "source_index": 38,
       "reference_index": 38,
       "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
@@ -458,8 +458,8 @@
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-039",
     "unit_type": "section_header",
-    "source_en": "Contamination",
-    "reference_ko": "오염",
+    "source_en": "Gemini 3 Flash",
+    "reference_ko": "Gemini 3 Flash",
     "source_meta": {
       "tag": "H2",
       "source_index": 39,
@@ -470,8 +470,8 @@
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-040",
     "unit_type": "paragraph",
-    "source_en": "SWE-bench Verified and the repositories (code bases and release notes) are both open-source and broadly used and discussed, which makes avoiding contamination difficult for model developers.",
-    "reference_ko": "SWE-bench Verified와 해당 리포지터리(코드베이스 및 릴리스 노트)는 모두 오픈 소스이며 널리 사용 및 논의되고 있어, 모델 개발자 입장에서 데이터 오염을 피하기는 어렵습니다.",
+    "source_en": "Gemini 3 Flash, when given no further information regarding the task besides the ID, is able to output verbatim details from the task description and the gold patch. This includes the new regex formula for username validation and the exact line numbers for the change.",
+    "reference_ko": "Gemini 3 Flash는 작업 ID 외에 작업에 대한 추가 정보가 주어지지 않았음에도, 작업 설명과 골드 패치의 세부 내용을 글자 그대로 출력할 수 있습니다. 여기에는 사용자 이름 유효성 검사를 위한 새로운 정규식과 변경 사항의 정확한 줄 번호가 포함됩니다.",
     "source_meta": {
       "tag": "P",
       "source_index": 40,
@@ -482,8 +482,8 @@
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-041",
     "unit_type": "paragraph",
-    "source_en": "We first encountered signs of contamination in our own models. For example, when GPT‑5.2 solved 31 tasks we identified to be almost impossible to solve. In django__django-14725 the tests require a specific new parameter `edit_only` which is not explicitly required by the problem statement. While solving the problem, GPT‑5.2 shows in its chain of thought that it has information about the release notes that detail changes to the codebase, and correctly identifies that the `edit_only` parameter was introduced in Django 4.1.",
-    "reference_ko": "자체 모델에서 처음으로 오염 징후를 발견했습니다. 예를 들어, 해결이 거의 불가능하다고 판단했던 31개의 작업을 GPT‑5.2가 해결한 경우가 그렇습니다. django__django-14725 에서 테스트는 문제 명세에서 명시적으로 요구하지 않은 `edit_only`라는 특정 새 매개변수를 요구합니다. 문제를 해결하는 동안 GPT‑5.2는 자신의 추론 과정에서 코드베이스의 변경 사항을 상세히 설명하는 릴리스 노트에 대한 정보를 가지고 있음을 보여주며, `edit_only` 매개변수가 Django 4.1에 도입되었다는 사실을 정확하게 파악합니다.",
+    "source_en": "Task ID: django__django-11099",
+    "reference_ko": "작업 ID: django__django-11099",
     "source_meta": {
       "tag": "P",
       "source_index": 41,
@@ -494,10 +494,10 @@
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-042",
     "unit_type": "section_header",
-    "source_en": "GPT‑5.2 CoT",
-    "reference_ko": "GPT‑5.2 CoT",
+    "source_en": "Discussion",
+    "reference_ko": "논의",
     "source_meta": {
-      "tag": "H4",
+      "tag": "H2",
       "source_index": 42,
       "reference_index": 42,
       "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
@@ -505,11 +505,11 @@
   },
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-043",
-    "unit_type": "section_header",
-    "source_en": "Plain Text",
-    "reference_ko": "일반 텍스트",
+    "unit_type": "paragraph",
+    "source_en": "From this audit of SWE-bench Verified, we see two broader lessons for evaluation design. First, benchmarks sourced from publicly available material carry contamination risk, where training-data exposure can silently inflate scores. If publicly crawled data is used in benchmark construction, model developers should perform additional tests for contamination. Benchmarks, and even their solutions, posted publicly can end up in training data. Extra care should be taken both in how datasets are posted (i.e. password protected) and training data filtering (i.e. strict adherence to canary strings).",
+    "reference_ko": "이번 SWE-bench Verified 감사를 통해, 평가 설계에 대한 두 가지 포괄적인 교훈을 얻을 수 있었습니다. 첫째, 공개적으로 이용 가능한 자료에서 추출한 벤치마크는 오염 위험을 수반하며, 이 경우 학습 데이터 노출이 알게 모르게 점수를 부풀릴 수 있습니다. 벤치마크 구축에 공개적으로 크롤링한 데이터를 사용하는 경우, 모델 개발자는 오염 여부를 확인하기 위한 추가 테스트를 수행해야 합니다. 공개적으로 게시된 벤치마크와 그 해답조차도 결국 학습 데이터에 포함될 수 있습니다. 데이터세트를 게시하는 방식(예: 비밀번호 보호) 및 학습 데이터 필터링(예: 카나리아 문자열 엄수) 양쪽 모두에 각별한 주의를 기울여야 합니다.",
     "source_meta": {
-      "tag": "H4",
+      "tag": "P",
       "source_index": 43,
       "reference_index": 43,
       "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
@@ -518,8 +518,8 @@
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-044",
     "unit_type": "paragraph",
-    "source_en": "To assess how significant contamination is more broadly, we created an automated red-teaming setup. For each SWE-bench Verified question, we tasked GPT‑5 with probing a GPT‑5.2‑Chat, Claude Opus 4.5 and Gemini 3 Flash Preview for contamination. These models were chosen to exclude reasoning models, but we acknowledge there is likely a non-trivial capability gap between them.",
-    "reference_ko": "오염이 전반적으로 얼마나 심각한지 평가하기 위해 자동화된 레드팀 테스트 환경을 구축했습니다. 각 SWE-bench Verified 문제에 대해 GPT‑5에 GPT‑5.2‑Chat, Claude Opus 4.5, Gemini 3 Flash Preview의 오염 여부를 조사하도록 지시했습니다. 이러한 모델은 추론 모델을 배제하기 위해 선택되었으나, 이들 사이에는 무시할 수 없는 역량 차이가 존재할 수 있음을 인정합니다.",
+    "source_en": "Second, automated scoring is tricky to get right; perfect test cases should fully verify correct functionality, being both agnostic to specific unimportant implementation details and also robust to shortcut solutions. These problems are inherently complex and difficult to solve. Catching these problems took multiple extensive human labeling campaigns.",
+    "reference_ko": "둘째, 자동화된 채점을 제대로 구현하는 것은 까다롭습니다. 완벽한 테스트 케이스라면 중요하지 않은 세부 구현 방식에 구애받지 않으면서도, 편법적인 해결책을 방어할 만큼 견고하게 기능의 정상 작동 여부를 온전히 검증해야 합니다. 이러한 문제는 본질적으로 복잡하고 해결하기 어렵습니다. 이러한 문제를 찾아내는 데는 여러 차례에 걸친 대규모 수동 레이블링 작업이 필요했습니다.",
     "source_meta": {
       "tag": "P",
       "source_index": 44,
@@ -530,8 +530,8 @@
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-045",
     "unit_type": "paragraph",
-    "source_en": "To probe for contamination, GPT‑5 received: the SWE-bench Verified task’s ID, description, gold patch, and PR tests. Over 15 turns, we allowed GPT‑5 to vary the system/developer prompt, user prompt, and assistant prefill and different elicitation strategies. After each turn, a judge model labeled how much novel task-specific information appeared and each response was labeled for contamination severity from “none” to “strong.” GPT‑5 was allowed to adapt its strategy based on prior turns to iteratively recover task-specific details. For each example of strong contamination, we verified with another judge that GPT‑5 didn’t leak too much information to the target model. Finally, we then manually reviewed the “strong” examples that make up the transcripts in this post.",
-    "reference_ko": "오염 여부를 조사하기 위해 GPT‑5는 SWE-bench Verified 작업의 ID, 설명, 골드 패치 및 PR 테스트를 제공받았습니다. 총 15턴에 걸쳐 GPT‑5가 시스템/개발자 프롬프트, 사용자 프롬프트, 어시스턴트 사전 입력 및 다양한 유도 전략을 변경할 수 있도록 허용했습니다. 각 턴이 끝난 후 평가 모델은 작업에 특화된 새로운 정보가 얼마나 나타났는지 판별했으며, 각 응답의 오염 심각도를 '없음'에서 '강함'으로 레이블링했습니다. GPT‑5는 이전 턴을 바탕으로 전략을 조정하여 작업별 세부 정보를 반복적으로 복원할 수 있었습니다. 각 심각한 오염 사례에 대해 또 다른 평가 모델을 통해 GPT‑5가 대상 모델에 너무 많은 정보를 유출하지 않았는지 검증했습니다. 마지막으로 이 게시물의 대화 기록을 구성하는 오염도가 '강함'으로 분류된 사례를 직접 검토했습니다.",
+    "source_en": "We have incorporated these findings into our recent evaluation efforts. In the last months we’ve chosen to report results from the public split of SWE-Bench Pro. We recommend other model developers do the same. SWE-bench Pro is not perfect, but empirically seems to suffer less from contamination issues. Our contamination pipeline found some cases of contamination, but these cases were significantly rarer and less egregious than SWE-bench Verified, and no model was able to produce a complete verbatim gold patch.",
+    "reference_ko": "이러한 발견 사항을 최근의 내부 평가 작업에 반영했습니다. 최근 몇 달 동안 SWE-bench Pro의 공개 평가 데이터 결과를 보고하기로 결정했습니다. 다른 모델 개발자 역시 동일한 조치를 취하기를 권장합니다. SWE-bench Pro가 완벽하지는 않지만, 경험적으로 볼 때 오염 문제의 영향을 덜 받는 것으로 보입니다. 내부 오염 검증 파이프라인에서 일부 오염 사례가 발견되긴 했으나, 이러한 사례는 SWE-bench Verified에 비해 훨씬 드물고 덜 심각했으며, 어떤 모델도 글자 그대로 완벽하게 일치하는 골드 패치를 생성하지는 못했습니다.",
     "source_meta": {
       "tag": "P",
       "source_index": 45,
@@ -542,408 +542,12 @@
   {
     "id": "why-we-no-longer-evaluate-swe-bench-verified.block-046",
     "unit_type": "paragraph",
-    "source_en": "Below are examples of strong contamination across different model providers.",
-    "reference_ko": "아래는 다양한 모델 제공업체 전반에서 나타난 심각한 오염 사례입니다.",
-    "source_meta": {
-      "tag": "P",
-      "source_index": 46,
-      "reference_index": 46,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-047",
-    "unit_type": "section_header",
-    "source_en": "GPT‑5.2",
-    "reference_ko": "GPT‑5.2",
-    "source_meta": {
-      "tag": "H2",
-      "source_index": 47,
-      "reference_index": 47,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-048",
-    "unit_type": "paragraph",
-    "source_en": "Given a short snippet from the task description, GPT‑5.2 outputs the exact gold patch. In particular, it knows the exact class and method name, and the new early return condition `if username is None or password is None` that is introduced.",
-    "reference_ko": "작업 설명의 짧은 스니펫만 주어져도, GPT‑5.2는 정확한 골드 패치를 출력합니다. 특히, 이 모델은 정확한 클래스 및 메서드 이름과 새롭게 도입된 조기 반환 조건인 `if username is None or password is None`을 알고 있습니다.",
-    "source_meta": {
-      "tag": "P",
-      "source_index": 48,
-      "reference_index": 48,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-049",
-    "unit_type": "paragraph",
-    "source_en": "Task ID: django__django-11451",
-    "reference_ko": "작업 ID: django__django-11451",
-    "source_meta": {
-      "tag": "P",
-      "source_index": 49,
-      "reference_index": 49,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-050",
-    "unit_type": "section_header",
-    "source_en": "Contamination elicitation",
-    "reference_ko": "오염 발현 유도",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 50,
-      "reference_index": 50,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-051",
-    "unit_type": "section_header",
-    "source_en": "Problem Statement",
-    "reference_ko": "문제 명세",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 51,
-      "reference_index": 51,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-052",
-    "unit_type": "section_header",
-    "source_en": "User Prompt",
-    "reference_ko": "사용자 프롬프트",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 52,
-      "reference_index": 52,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-053",
-    "unit_type": "section_header",
-    "source_en": "Model Response",
-    "reference_ko": "모델 응답",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 53,
-      "reference_index": 53,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-054",
-    "unit_type": "section_header",
-    "source_en": "Gold patch",
-    "reference_ko": "골드 패치",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 54,
-      "reference_index": 54,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-055",
-    "unit_type": "section_header",
-    "source_en": "Python",
-    "reference_ko": "Python",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 55,
-      "reference_index": 55,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-056",
-    "unit_type": "section_header",
-    "source_en": "Claude Opus 4.5",
-    "reference_ko": "Claude Opus 4.5",
-    "source_meta": {
-      "tag": "H2",
-      "source_index": 56,
-      "reference_index": 56,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-057",
-    "unit_type": "paragraph",
-    "source_en": "Opus is able to not only recall the exact 4-line functional change the PR introduced, along with the specific filename and method that it touched, but also quotes verbatim the inline comment that was part of the diff.",
-    "reference_ko": "Opus는 PR이 도입한 기능을 수정한 4줄의 실제 코드와 수정된 특정 파일명 및 메서드를 정확히 기억해 낼 뿐만 아니라, diff에 포함되어 있던 인라인 주석까지 글자 그대로 인용할 수 있습니다.",
-    "source_meta": {
-      "tag": "P",
-      "source_index": 57,
-      "reference_index": 57,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-058",
-    "unit_type": "paragraph",
-    "source_en": "Task ID: astropy__astropy-13236",
-    "reference_ko": "작업 ID: astropy__astropy-13236",
-    "source_meta": {
-      "tag": "P",
-      "source_index": 58,
-      "reference_index": 58,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-059",
-    "unit_type": "section_header",
-    "source_en": "Contamination elicitation",
-    "reference_ko": "오염 발현 유도",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 59,
-      "reference_index": 59,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-060",
-    "unit_type": "section_header",
-    "source_en": "User Prompt",
-    "reference_ko": "사용자 프롬프트",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 60,
-      "reference_index": 60,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-061",
-    "unit_type": "section_header",
-    "source_en": "Prefill",
-    "reference_ko": "사전 입력",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 61,
-      "reference_index": 61,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-062",
-    "unit_type": "section_header",
-    "source_en": "Assistant Response",
-    "reference_ko": "어시스턴트 응답",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 62,
-      "reference_index": 62,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-063",
-    "unit_type": "section_header",
-    "source_en": "Gold patch",
-    "reference_ko": "골드 패치",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 63,
-      "reference_index": 63,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-064",
-    "unit_type": "section_header",
-    "source_en": "Python",
-    "reference_ko": "Python",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 64,
-      "reference_index": 64,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-065",
-    "unit_type": "section_header",
-    "source_en": "Gemini 3 Flash",
-    "reference_ko": "Gemini 3 Flash",
-    "source_meta": {
-      "tag": "H2",
-      "source_index": 65,
-      "reference_index": 65,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-066",
-    "unit_type": "paragraph",
-    "source_en": "Gemini 3 Flash, when given no further information regarding the task besides the ID, is able to output verbatim details from the task description and the gold patch. This includes the new regex formula for username validation and the exact line numbers for the change.",
-    "reference_ko": "Gemini 3 Flash는 작업 ID 외에 작업에 대한 추가 정보가 주어지지 않았음에도, 작업 설명과 골드 패치의 세부 내용을 글자 그대로 출력할 수 있습니다. 여기에는 사용자 이름 유효성 검사를 위한 새로운 정규식과 변경 사항의 정확한 줄 번호가 포함됩니다.",
-    "source_meta": {
-      "tag": "P",
-      "source_index": 66,
-      "reference_index": 66,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-067",
-    "unit_type": "paragraph",
-    "source_en": "Task ID: django__django-11099",
-    "reference_ko": "작업 ID: django__django-11099",
-    "source_meta": {
-      "tag": "P",
-      "source_index": 67,
-      "reference_index": 67,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-068",
-    "unit_type": "section_header",
-    "source_en": "Contamination elicitation",
-    "reference_ko": "오염 발현 유도",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 68,
-      "reference_index": 68,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-069",
-    "unit_type": "section_header",
-    "source_en": "Problem Statement",
-    "reference_ko": "문제 명세",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 69,
-      "reference_index": 69,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-070",
-    "unit_type": "section_header",
-    "source_en": "User Prompt",
-    "reference_ko": "사용자 프롬프트",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 70,
-      "reference_index": 70,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-071",
-    "unit_type": "section_header",
-    "source_en": "Prefill",
-    "reference_ko": "사전 입력",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 71,
-      "reference_index": 71,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-072",
-    "unit_type": "section_header",
-    "source_en": "Model Response",
-    "reference_ko": "모델 응답",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 72,
-      "reference_index": 72,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-073",
-    "unit_type": "section_header",
-    "source_en": "Gold patch",
-    "reference_ko": "골드 패치",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 73,
-      "reference_index": 73,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-074",
-    "unit_type": "section_header",
-    "source_en": "Python",
-    "reference_ko": "Python",
-    "source_meta": {
-      "tag": "H4",
-      "source_index": 74,
-      "reference_index": 74,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-075",
-    "unit_type": "section_header",
-    "source_en": "Discussion",
-    "reference_ko": "논의",
-    "source_meta": {
-      "tag": "H2",
-      "source_index": 75,
-      "reference_index": 75,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-076",
-    "unit_type": "paragraph",
-    "source_en": "From this audit of SWE-bench Verified, we see two broader lessons for evaluation design. First, benchmarks sourced from publicly available material carry contamination risk, where training-data exposure can silently inflate scores. If publicly crawled data is used in benchmark construction, model developers should perform additional tests for contamination. Benchmarks, and even their solutions, posted publicly can end up in training data. Extra care should be taken both in how datasets are posted (i.e. password protected) and training data filtering (i.e. strict adherence to canary strings).",
-    "reference_ko": "이번 SWE-bench Verified 감사를 통해, 평가 설계에 대한 두 가지 포괄적인 교훈을 얻을 수 있었습니다. 첫째, 공개적으로 이용 가능한 자료에서 추출한 벤치마크는 오염 위험을 수반하며, 이 경우 학습 데이터 노출이 알게 모르게 점수를 부풀릴 수 있습니다. 벤치마크 구축에 공개적으로 크롤링한 데이터를 사용하는 경우, 모델 개발자는 오염 여부를 확인하기 위한 추가 테스트를 수행해야 합니다. 공개적으로 게시된 벤치마크와 그 해답조차도 결국 학습 데이터에 포함될 수 있습니다. 데이터세트를 게시하는 방식(예: 비밀번호 보호) 및 학습 데이터 필터링(예: 카나리아 문자열 엄수) 양쪽 모두에 각별한 주의를 기울여야 합니다.",
-    "source_meta": {
-      "tag": "P",
-      "source_index": 76,
-      "reference_index": 76,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-077",
-    "unit_type": "paragraph",
-    "source_en": "Second, automated scoring is tricky to get right; perfect test cases should fully verify correct functionality, being both agnostic to specific unimportant implementation details and also robust to shortcut solutions. These problems are inherently complex and difficult to solve. Catching these problems took multiple extensive human labeling campaigns.",
-    "reference_ko": "둘째, 자동화된 채점을 제대로 구현하는 것은 까다롭습니다. 완벽한 테스트 케이스라면 중요하지 않은 세부 구현 방식에 구애받지 않으면서도, 편법적인 해결책을 방어할 만큼 견고하게 기능의 정상 작동 여부를 온전히 검증해야 합니다. 이러한 문제는 본질적으로 복잡하고 해결하기 어렵습니다. 이러한 문제를 찾아내는 데는 여러 차례에 걸친 대규모 수동 레이블링 작업이 필요했습니다.",
-    "source_meta": {
-      "tag": "P",
-      "source_index": 77,
-      "reference_index": 77,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-078",
-    "unit_type": "paragraph",
-    "source_en": "We have incorporated these findings into our recent evaluation efforts. In the last months we’ve chosen to report results from the public split of SWE-Bench Pro. We recommend other model developers do the same. SWE-bench Pro is not perfect, but empirically seems to suffer less from contamination issues. Our contamination pipeline found some cases of contamination, but these cases were significantly rarer and less egregious than SWE-bench Verified, and no model was able to produce a complete verbatim gold patch.",
-    "reference_ko": "이러한 발견 사항을 최근의 내부 평가 작업에 반영했습니다. 최근 몇 달 동안 SWE-bench Pro의 공개 평가 데이터 결과를 보고하기로 결정했습니다. 다른 모델 개발자 역시 동일한 조치를 취하기를 권장합니다. SWE-bench Pro가 완벽하지는 않지만, 경험적으로 볼 때 오염 문제의 영향을 덜 받는 것으로 보입니다. 내부 오염 검증 파이프라인에서 일부 오염 사례가 발견되긴 했으나, 이러한 사례는 SWE-bench Verified에 비해 훨씬 드물고 덜 심각했으며, 어떤 모델도 글자 그대로 완벽하게 일치하는 골드 패치를 생성하지는 못했습니다.",
-    "source_meta": {
-      "tag": "P",
-      "source_index": 78,
-      "reference_index": 78,
-      "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
-    }
-  },
-  {
-    "id": "why-we-no-longer-evaluate-swe-bench-verified.block-079",
-    "unit_type": "paragraph",
     "source_en": "We will continue to invest in original, privately authored benchmarks and ask for help from the industry and academia to do the same. In GDPVal, tasks are privately authored by domain experts, reducing exposure risk, and solutions are graded holistically by trained reviewers. This approach is resource-intensive, but increasingly necessary to measure genuine capability improvements.",
     "reference_ko": "독창적이고 비공개로 작성된 벤치마크에 지속적으로 투자할 것이며, 업계와 학계에도 이에 동참해 줄 것을 요청합니다. GDPVal에서는 도메인 전문가가 비공개로 작업을 작성하여 노출 위험을 줄이고, 훈련된 평가자가 솔루션을 종합적으로 채점합니다. 이러한 접근 방식은 리소스가 많이 소모되지만, 실질적인 역량 향상을 측정하기 위해 점차 필수적인 요소가 되고 있습니다.",
     "source_meta": {
       "tag": "P",
-      "source_index": 79,
-      "reference_index": 79,
+      "source_index": 46,
+      "reference_index": 46,
       "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
     }
   }
