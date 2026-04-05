@@ -70,6 +70,98 @@ def _create_embeddings(client, model: str, texts: list[str]) -> list[list[float]
     return [item.embedding for item in response.data]
 
 
+def _backfill_missing_backtranslations(
+    client,
+    *,
+    model: str,
+    instructions: str,
+    batch: list[dict],
+    backtranslated_by_id: dict[str, str],
+    max_attempts: int = 3,
+) -> None:
+    requested_ids = {record["id"] for record in batch}
+    missing_ids = requested_ids - backtranslated_by_id.keys()
+    attempts = 0
+
+    while missing_ids and attempts < max_attempts:
+        payload = {
+            "items": [
+                {
+                    "id": record["id"],
+                    "candidate_ko": record["candidate_ko"],
+                }
+                for record in batch
+                if record["id"] in missing_ids
+            ]
+        }
+        result = invoke_json_model(
+            client,
+            model=model,
+            instructions=instructions,
+            payload=payload,
+            schema_name="backtranslation_retry_batch",
+            schema=BACKTRANSLATION_SCHEMA,
+            max_output_tokens=5000,
+        )
+        for item in result["backtranslations"]:
+            item_id = item["id"]
+            if item_id in missing_ids:
+                backtranslated_by_id[item_id] = item["backtranslated_en"].strip()
+        missing_ids = requested_ids - backtranslated_by_id.keys()
+        attempts += 1
+
+    if missing_ids:
+        raise ValueError(f"Missing backtranslations after retries: {sorted(missing_ids)}")
+
+
+def _backfill_missing_judgments(
+    client,
+    *,
+    model: str,
+    instructions: str,
+    batch: list[dict],
+    backtranslated_by_id: dict[str, str],
+    judgments_by_id: dict[str, dict],
+    max_attempts: int = 3,
+) -> None:
+    requested_ids = {record["id"] for record in batch}
+    missing_ids = requested_ids - judgments_by_id.keys()
+    attempts = 0
+
+    while missing_ids and attempts < max_attempts:
+        payload = {
+            "items": [
+                {
+                    "id": record["id"],
+                    "source_en": record["source_en"],
+                    "reference_ko": record["reference_ko"],
+                    "candidate_ko": record["candidate_ko"],
+                    "backtranslated_en": backtranslated_by_id[record["id"]],
+                }
+                for record in batch
+                if record["id"] in missing_ids
+            ]
+        }
+        result = invoke_json_model(
+            client,
+            model=model,
+            instructions=instructions,
+            payload=payload,
+            schema_name="llm_judge_retry_batch",
+            schema=JUDGE_SCHEMA,
+            max_output_tokens=7000,
+        )
+        for item in result["judgments"]:
+            item_id = item["id"]
+            if item_id in missing_ids:
+                judgments_by_id[item_id] = item
+        missing_ids = requested_ids - judgments_by_id.keys()
+        attempts += 1
+
+    if missing_ids:
+        raise ValueError(f"Missing LLM judgments after retries: {sorted(missing_ids)}")
+
+
 def _filter_issues(issues: list[str]) -> list[str]:
     filtered = []
     for issue in issues:
@@ -160,6 +252,13 @@ def main() -> None:
         )
         for item in result["backtranslations"]:
             backtranslated_by_id[item["id"]] = item["backtranslated_en"].strip()
+        _backfill_missing_backtranslations(
+            client,
+            model=args.backtranslation_model,
+            instructions=backtranslation_instructions,
+            batch=batch,
+            backtranslated_by_id=backtranslated_by_id,
+        )
 
     judge_instructions = (
         "You are evaluating Korean technical translations for an official OpenAI-style publication. "
@@ -196,6 +295,14 @@ def main() -> None:
         )
         for item in result["judgments"]:
             judgments_by_id[item["id"]] = item
+        _backfill_missing_judgments(
+            client,
+            model=args.judge_model,
+            instructions=judge_instructions,
+            batch=batch,
+            backtranslated_by_id=backtranslated_by_id,
+            judgments_by_id=judgments_by_id,
+        )
 
     source_embeddings = _create_embeddings(client, args.embedding_model, [record["source_en"] for record in records])
     reference_embeddings = _create_embeddings(client, args.embedding_model, [record["reference_ko"] for record in records])

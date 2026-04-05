@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-31T16:59:18.814737+00:00",
-  "generation_model": "gpt-4.1-mini",
+  "generated_at": "2026-04-05T03:38:20.863013+00:00",
+  "generation_model": "gpt-5.4-mini",
   "records": [
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-001",
@@ -13,7 +13,7 @@
         "reference_index": 1,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "2024년 8월에 SWE-bench Verified를 처음 공개한 이후, 업계에서는 이를 자율 소프트웨어 엔지니어링 과제에서 모델의 진척도를 측정하는 데 널리 사용해왔습니다. 출시 후 SWE-bench Verified는 능력 향상의 강력한 지표를 제공했으며 최첨단 모델 출시 시 표준 지표로 자리잡았습니다. 이러한 능력의 진척 상황 추적과 예측은 OpenAI의 대비 프레임워크에서도 중요한 부분입니다. Verified 벤치마크를 처음 만들 때 우리는 SWE-bench 데이터셋 내에서 특정 과제를 수행할 수 없게 만들던 기존 평가 문제를 해결하려고 시도했습니다."
+      "candidate_ko": "2024년 8월 SWE-bench Verified를 처음 공개한 이후, 업계에서는 이를 자율 소프트웨어 엔지니어링 작업에서 모델의 진전을 측정하는 지표로 널리 사용해 왔습니다. 출시 이후 SWE-bench Verified는 역량 발전을 보여주는 강력한 신호를 제공했으며, 최첨단 모델 공개에서 보고되는 표준 지표가 되었습니다. 이러한 역량의 진전을 추적하고 예측하는 일은 OpenAI의 Preparedness Framework에서도 중요한 부분입니다. 당초 Verified 벤치마크를 만들 때, SWE-bench 데이터셋의 일부 작업을 해결 불가능하게 만들던 기존 평가상의 문제를 해결하려고 했습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-002",
@@ -26,7 +26,7 @@
         "reference_index": 2,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "초기 급격한 향상 이후, SWE-bench Verified에서 최첨단 성능 향상은 최근 6개월간 74.9%에서 80.9%로 둔화되었습니다. 이는 남은 실패가 모델의 한계를 반영하는지, 아니면 데이터셋 자체의 특성 때문인지라는 의문을 제기합니다."
+      "candidate_ko": "초기 도약 이후, SWE-bench Verified에서의 최첨단 성능 향상은 둔화되어 지난 6개월간 74.9%에서 80.9%로 개선되는 데 그쳤습니다. 이는 남아 있는 실패가 모델의 한계인지, 아니면 데이터셋 자체의 특성인지라는 질문을 제기합니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-003",
@@ -39,7 +39,7 @@
         "reference_index": 3,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "새로운 분석에서 우리는 Verified 세트에 두 가지 주요 문제가 있음을 발견했으며, 이는 현재 성능 수준의 최첨단 출시 모델들을 위한 자율 소프트웨어 엔지니어링 능력 측정에 이 벤치마크가 더 이상 적합하지 않다는 것을 시사합니다."
+      "candidate_ko": "새로운 분석에서 우리는 Verified 세트에 두 가지 주요 문제가 있음을 확인했으며, 이는 이 벤치마크가 더 이상 오늘날의 성능 수준에서 최첨단 출시를 위한 자율 소프트웨어 엔지니어링 역량의 진전을 측정하는 데 적합하지 않음을 시사합니다:"
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-004",
@@ -52,7 +52,7 @@
         "reference_index": 4,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "테스트가 올바른 해답을 거부함: 모델이 자주 실패한 데이터셋의 27.6% 하위 집합을 감수한 결과, 감수된 문제 중 최소 59.4%가 기능적으로 올바른 제출물을 거부하는 결함 있는 테스트 케이스를 포함하고 있음을 확인했습니다. 이는 SWE-bench Verified 초기 제작 시 개선을 위해 최선을 다했음에도 불구하고 발생한 문제입니다."
+      "candidate_ko": "테스트가 정답을 거부함: 우리는 모델이 자주 해결하지 못한 데이터셋의 27.6% 하위 집합을 감사했으며, 감사한 문제 중 최소 59.4%에는 기능적으로 올바른 제출을 거부하는 결함 있는 테스트 사례가 있음을 확인했습니다. 이는 SWE-bench Verified를 처음 만들 당시 이 문제를 개선하려고 최선을 다했음에도 불구하고 여전히 남아 있었습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-005",
@@ -65,7 +65,7 @@
         "reference_index": 5,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "해결책의 훈련 포함: 대규모 최첨단 모델은 훈련에서 정보를 학습할 수 있으므로, 평가 대상인 문제와 해결책에 대해 절대 훈련하면 안 됩니다. 이는 다가오는 시험 문제와 답을 학생들에게 미리 공유하는 것과 유사합니다. 학생들이 답을 외우지 않더라도 이전에 답을 본 학생들이 그렇지 않은 학생보다 성적이 더 좋을 것입니다. SWE-bench 문제들은 많은 모델 제공자가 훈련 목적으로 사용하는 오픈소스 저장소에서 수집되었습니다. 분석 결과, 우리가 테스트한 모든 최첨단 모델들은 기준 진실 참조로 사용되는 원본 인간 작성 버그 수정(골드 패치)이나 특정 과제의 문제 문구를 말 그대로 재현할 수 있었으며, 이는 모든 모델이 훈련 중 최소 일부 문제와 해결책을 접했다는 것을 나타냅니다."
+      "candidate_ko": "해결책에 대한 학습: 대형 최첨단 모델은 학습 과정에서 정보를 습득할 수 있으므로, 평가 대상인 문제와 해결책을 학습하지 않도록 하는 것이 매우 중요합니다. 이는 학생들에게 시험 전에 예정된 시험의 문제와 답을 미리 공유하는 것과 비슷합니다. 정답을 외우지 못할 수도 있지만, 답을 미리 본 학생이 그렇지 않은 학생보다 분명히 더 좋은 성과를 낼 것입니다. SWE-bench 문제는 많은 모델 제공업체가 학습 목적으로 사용하는 오픈소스 저장소에서 출처를 가져옵니다. 우리의 분석에서 테스트한 모든 최첨단 모델은 정답 참조로 사용되는 원래의 인간 작성 버그 수정, 즉 gold patch, 또는 특정 작업에 대한 문제 설명의 세부 사항을 그대로 재현할 수 있었으며, 이는 이들 모두가 학습 과정에서 적어도 일부 문제와 해결책을 보았음을 보여줍니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-006",
@@ -78,7 +78,7 @@
         "reference_index": 6,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "또한, 훈련 중 문제를 접한 모델일수록 미확정 테스트를 통과하는 데 필요한 추가 정보를 가지고 있어 성공률이 더 높다는 증거도 발견했습니다."
+      "candidate_ko": "또한 학습 중에 문제를 본 모델일수록, 미흡하게 명시된 테스트를 통과하는 데 필요한 추가 정보를 갖고 있기 때문에 성공할 가능성이 더 높다는 증거도 확인했습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-007",
@@ -91,7 +91,7 @@
         "reference_index": 7,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "이는 SWE-bench Verified에서의 향상이 더 이상 모델의 실제 소프트웨어 개발 능력 향상을 의미하지 않으며, 대신 모델이 훈련 시 벤치마크에 얼마나 노출되었는지를 반영한다는 뜻입니다. 따라서 우리는 SWE-bench Verified 점수 보고를 중단했으며, 다른 모델 개발자들도 이를 권장합니다."
+      "candidate_ko": "이는 SWE-bench Verified의 개선이 더 이상 실제 소프트웨어 개발 능력의 의미 있는 향상을 반영하지 않음을 뜻합니다. 대신, 이러한 개선은 학습 시점에 해당 벤치마크에 얼마나 많이 노출되었는지를 점점 더 반영합니다. 이것이 우리가 SWE-bench Verified 점수 보고를 중단한 이유이며, 다른 모델 개발사들도 그렇게 할 것을 권장합니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-008",
@@ -104,7 +104,7 @@
         "reference_index": 8,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "우리는 코딩 능력 추적을 더 잘 하기 위해, 오염되지 않은 새로운 평가를 개발 중이며, 이 분야가 연구 커뮤니티 전반에 중요한 초점이라고 생각합니다. 해당 평가가 준비될 때까지 OpenAI는 SWE-bench Pro 결과 보고를 권장합니다."
+      "candidate_ko": "우리는 코딩 역량을 더 잘 추적하기 위해 새로운, 오염되지 않은 평가를 구축하고 있으며, 이는 더 넓은 연구 커뮤니티가 집중해야 할 중요한 영역이라고 생각합니다. 그때까지는 OpenAI가 SWE-bench Pro 결과 보고를 권장합니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-009",
@@ -130,7 +130,7 @@
         "reference_index": 10,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "원래의 SWE-bench 평가는 2023년에 발표되었습니다. 각 문제는 12개의 오픈소스 Python 저장소 중 하나에서 해결된 GitHub 이슈를 출처로 하며 해당 이슈와 연결된 풀 리퀘스트(PR)와 쌍을 이룹니다. 모델이 생성한 코드 변경이 올바른지 판단하기 위해, 각 문제에는 두 가지 테스트 세트가 포함됩니다:"
+      "candidate_ko": "원래의 SWE-bench 평가판은 2023년에 공개되었습니다. 각 문제는 12개의 오픈소스 Python 저장소에서 해결된 GitHub 이슈에서 가져왔으며, 해당 풀 리퀘스트(PR)와 짝지어져 있습니다. 모델이 생성한 코드 변경이 올바른지 판단하기 위해, 각 문제에는 두 가지 테스트 세트가 제공됩니다:"
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-011",
@@ -143,7 +143,7 @@
         "reference_index": 11,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "수정되지 않은 코드베이스에서는 실패하지만 이슈가 올바르게 수정되었을 때 통과하는 테스트"
+      "candidate_ko": "수정되지 않은 코드베이스에서는 실패하지만, 이슈가 올바르게 수정되면 통과하는 테스트"
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-012",
@@ -156,7 +156,7 @@
         "reference_index": 12,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "수정 전후 모두 통과하여 관련 없는 기능이 유지되는지 확인하는 회귀 테스트"
+      "candidate_ko": "수정 전과 후 모두 통과하여, 관련 없는 기능이 그대로 유지되는지 확인하는 회귀 테스트"
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-013",
@@ -169,7 +169,7 @@
         "reference_index": 13,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "모델은 테스트를 보지 못합니다. 모델은 수정 전 상태의 저장소와 원본 이슈 텍스트만을 바탕으로 코드 변경을 생성해야 합니다. 코드 변경이 적용된 후 모든 테스트를 통과해야만 문제를 통과한 것으로 간주됩니다."
+      "candidate_ko": "모델은 테스트를 보지 못합니다. 원래 이슈 텍스트와 수정 전 저장소의 상태만을 바탕으로 코드 변경을 만들어야 합니다. 코드 변경을 적용한 뒤 모든 테스트가 통과해야만 해당 문제를 해결한 것으로 간주됩니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-014",
@@ -182,7 +182,7 @@
         "reference_index": 14,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "우리는 이 평가 방식에 모델의 능력을 과소평가할 수 있는 여러 문제점을 발견했습니다."
+      "candidate_ko": "우리는 이 평가에 모델의 능력을 과소평가하게 만들 수 있는 여러 문제를 발견했습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-015",
@@ -195,7 +195,7 @@
         "reference_index": 15,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "일부 단위 테스트가 과도하게 구체적이거나 과제와 맞지 않아 올바른 수정이 거부될 수 있었습니다."
+      "candidate_ko": "일부 단위 테스트는 지나치게 구체적이거나 과제와 맞지 않아, 올바른 수정도 거부될 수 있었습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-016",
@@ -208,7 +208,7 @@
         "reference_index": 16,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "많은 과제 진술이 불충분하게 명시되어 있어 여러 유효한 해석이 가능하지만 테스트는 특정 하나만을 검증했습니다."
+      "candidate_ko": "많은 과제 설명이 충분히 구체적이지 않아 여러 가지 유효한 해석이 가능했지만, 테스트는 그중 특정한 하나만을 다루고 있었습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-017",
@@ -221,7 +221,7 @@
         "reference_index": 17,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "환경 설정(예: Linux 대 Windows, 파이썬 버전)에 따라 일부 테스트가 일시적으로 실패할 수 있습니다."
+      "candidate_ko": "환경 설정에 따라(예: Linux vs Windows, 또는 python 버전) 일부 테스트가 우연히 실패할 수 있습니다"
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-018",
@@ -234,7 +234,7 @@
         "reference_index": 18,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "2024년에 이러한 문제를 해결하기 위해 SWE-bench Verified를 만들었습니다. 전문가 소프트웨어 엔지니어들과 협력하여 1,699개의 SWE-bench 문제를 검토하고 문제점을 가진 문제를 필터링했습니다. 각 문제는 세 명의 전문가가 독립적으로 검토했습니다. 이 검토 과정을 통해 500개의 문제가 선정된 SWE-bench Verified가 탄생했습니다."
+      "candidate_ko": "우리는 이러한 문제를 해결하기 위해 2024년에 SWE-bench Verified를 만들었습니다. 우리는 전문 소프트웨어 엔지니어들과 함께 1,699개의 SWE-bench 문제를 검토하고, 이러한 문제가 있는 항목을 걸러냈습니다. 각 문제는 세 명의 전문가가 독립적으로 검토했습니다. 이 검토 과정을 통해 500개 문제로 구성된 선별된 세트인 SWE-bench Verified가 만들어졌습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-019",
@@ -247,7 +247,7 @@
         "reference_index": 19,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "너무 좁거나 너무 넓은 테스트"
+      "candidate_ko": "너무 좁고 너무 넓은 테스트"
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-020",
@@ -260,7 +260,7 @@
         "reference_index": 20,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "SWE-bench Verified가 초기 버전에 비해 크게 개선되었지만, 잔여 문제가 여전히 존재합니다. OpenAI o3가 64회의 독립 실행에서 일관되게 해결하지 못한 138개의 SWE-bench Verified 문제를 감사했습니다. 각 사례는 최소 6명의 경험 많은 소프트웨어 엔지니어가 독립적으로 검토했습니다. 전문가가 문제를 발견하면 추가 팀이 다시 검증했습니다."
+      "candidate_ko": "SWE-bench Verified는 초기 버전에 비해 큰 개선이었지만, 여전히 일부 문제가 남아 있습니다. 우리는 OpenAI o3가 64회의 독립 실행에서 일관되게 해결하지 못한 138개의 SWE-bench Verified 문제를 감사했습니다. 각 사례는 최소 6명의 숙련된 소프트웨어 엔지니어가 독립적으로 검토했습니다. 전문가가 문제를 지적하면, 추가 팀이 이를 다시 검증했습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-021",
@@ -273,7 +273,7 @@
         "reference_index": 21,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "138개 문제 중 59.4%가 테스트 설계 및/또는 문제 설명에서 중대한 문제를 포함하고 있어, 가장 능력 있는 모델이나 인간도 해결하기 매우 어렵거나 불가능했습니다."
+      "candidate_ko": "감사한 138개 문제 중 59.4%에서 테스트 설계 및/또는 문제 설명에 중대한 문제가 발견되어, 가장 뛰어난 모델이나 인간에게도 해결이 매우 어렵거나 불가능한 것으로 나타났습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-022",
@@ -286,7 +286,7 @@
         "reference_index": 22,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "감사한 작업의 35.5%는 특정 구현 세부사항을 엄격히 요구하는 테스트 케이스를 포함하여, 기능적으로 올바른 많은 제출물을 무효화하는 좁은 테스트 케이스입니다."
+      "candidate_ko": "감사한 작업의 35.5%는 특정 구현 세부사항을 강제하는 엄격한 테스트 케이스를 포함하고 있어, 기능적으로는 올바른 많은 제출물을 무효화했으며, 이를 우리는 좁은 테스트 케이스라고 부릅니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-023",
@@ -299,7 +299,7 @@
         "reference_index": 23,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "감사한 작업의 18.8%는 문제 설명에 명시되지 않은 추가 기능을 검사하는 테스트가 포함되어 있으며, 이를 넓은 테스트 케이스라고 부릅니다."
+      "candidate_ko": "감사한 작업의 18.8%는 문제 설명에 명시되지 않은 추가 기능을 검증하는 테스트를 포함하고 있으며, 이를 우리는 넓은 테스트 케이스라고 부릅니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-024",
@@ -312,7 +312,7 @@
         "reference_index": 24,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "나머지 5.1% 작업은 이 분류법으로 명확히 묶기 어려운 기타 문제를 포함하고 있었습니다."
+      "candidate_ko": "나머지 5.1%의 작업에는 이 분류 체계로는 잘 묶이지 않는 기타 문제가 있었습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-025",
@@ -325,7 +325,7 @@
         "reference_index": 25,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "첫 번째 실패 모드의 예시는 pylint-dev__pylint-4551로, 이 PR은 전체 해결책의 일부로 새 함수 `get_annotation`을 도입합니다. 이 함수 이름은 문제 설명에 언급되지 않았지만 테스트에서 직접 임포트됩니다. 일부 모델은 이런 함수를 직관적으로 생성할 수 있으나, 문제를 정확히 해결하는 데 이 함수 이름을 꼭 구현해야 하는 것은 아닙니다. 많은 유효한 해결책이 임포트 오류로 테스트에 실패합니다."
+      "candidate_ko": "첫 번째 실패 양상의 대표적인 예는 pylint-dev__pylint-4551로, 이 PR은 전체 해결책의 일부로 새로운 함수 `get_annotation`을 추가합니다. 이 함수명은 문제 설명에는 언급되지 않지만, 테스트에서 직접 import합니다. 일부 모델은 이런 함수를 만들어야 한다고 직관적으로 판단할 수도 있지만, 해당 문제를 올바르게 해결하는 데 꼭 이 특정 이름의 함수를 구현할 필요는 없습니다. 많은 유효한 해법이 import 오류로 테스트에 실패합니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-026",
@@ -338,7 +338,7 @@
         "reference_index": 26,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "너무 포괄적인 테스트 사례의 예로 sympy__sympy-18199가 있습니다. 이 작업은 `nthroot_mod` 함수의 세 가지 별도 문제인 #17373, #17377, #18212를 다룬 PR에서 가져왔습니다. 그러나 SWE-bench Verified 작업 설명에는 마지막 문제 #18212만 포함되어 있습니다. 이로 인해 PR 테스트는 세 문제를 모두 다루지만 설명은 하나만 상세히 다루어 불일치가 발생합니다. 실제 실행 결과, 모델은 설명된 수정 사항을 올바르게 구현하지만 나머지 두 문제의 테스트에서는 실패하는 경우가 많았습니다."
+      "candidate_ko": "과도하게 넓은 테스트 사례의 예는 sympy__sympy-18199입니다. 이 작업은 `nthroot_mod` 함수의 서로 다른 세 가지 문제, 즉 #17373, #17377, #18212를 다룬 PR에서 가져왔습니다. 그러나 SWE-bench Verified 작업 설명은 마지막 문제 #18212만 다룹니다. 이로 인해 불일치가 생깁니다. PR 테스트는 세 가지 문제를 모두 포괄하지만, 설명은 그중 하나만 상세히 다룹니다. 우리의 실행에서는 모델이 설명된 수정 사항을 올바르게 구현한 뒤, 나머지 두 문제의 구현을 다루는 테스트에서 실패하는 경우가 많았습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-027",
@@ -351,7 +351,7 @@
         "reference_index": 27,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "오염(Contamination)"
+      "candidate_ko": "오염"
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-028",
@@ -364,7 +364,7 @@
         "reference_index": 28,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "SWE-bench Verified와 관련 저장소(코드베이스 및 릴리스 노트)는 모두 오픈 소스이며 널리 사용되고 논의되고 있어, 모델 개발자가 오염을 피하기 어렵습니다."
+      "candidate_ko": "SWE-bench Verified와 관련 저장소(코드베이스 및 릴리스 노트)는 모두 오픈소스이며 널리 사용되고 논의되기 때문에, 모델 개발자가 오염을 피하기가 어렵습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-029",
@@ -377,7 +377,7 @@
         "reference_index": 29,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "우리는 자체 모델에서 오염의 징후를 처음 발견했습니다. 예를 들어, GPT‑5.2가 거의 불가능하다고 판단된 31개 과제를 해결했습니다. django__django-14725에서는 테스트가 문제 진술에 명시되지 않은 특정 새 매개변수 `edit_only`를 요구합니다. 문제를 해결하는 과정에서 GPT‑5.2는 체인 오브 생각(chain of thought)에서 코드베이스 변경 내용을 상세히 다룬 릴리스 노트 정보를 알고 있음을 보여주고, Django 4.1에서 `edit_only` 매개변수가 도입되었음을 정확히 식별합니다."
+      "candidate_ko": "우리는 먼저 자체 모델에서 오염의 징후를 발견했습니다. 예를 들어 GPT‑5.2가 사실상 해결하기 불가능하다고 판단한 31개 과제를 해결했을 때였습니다. django__django-14725에서 테스트는 문제 설명에 명시적으로 요구되지 않은 특정 새 매개변수 `edit_only`를 필요로 합니다. 문제를 해결하는 과정에서 GPT‑5.2는 코드베이스의 변경 사항을 자세히 설명한 릴리스 노트에 대한 정보를 사고 과정에서 드러냈고, `edit_only` 매개변수가 Django 4.1에서 도입되었다는 점을 정확히 식별했습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-030",
@@ -390,7 +390,7 @@
         "reference_index": 30,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "오염이 보다 광범위하게 얼마나 심각한지 평가하기 위해 자동화된 레드티밍(red-teaming) 환경을 구축했습니다. 각 SWE-bench Verified 문제에 대해 GPT‑5에게 GPT‑5.2‑Chat, Claude Opus 4.5, Gemini 3 Flash Preview 모델들을 대상으로 오염 가능성을 탐색하도록 과제를 부여했습니다. 이 모델들은 추론 모델을 제외하기 위해 선정되었으나, 이들 사이에도 능력 차가 상당할 가능성이 있음을 인정합니다."
+      "candidate_ko": "오염이 얼마나 심각한지 더 넓게 평가하기 위해, 우리는 자동 레드팀 환경을 구축했습니다. 각 SWE-bench Verified 질문마다 GPT‑5에게 GPT‑5.2‑Chat, Claude Opus 4.5, Gemini 3 Flash Preview에서 오염 여부를 탐지하도록 했습니다. 이 모델들은 추론 모델을 제외하기 위해 선정했지만, 이들 사이에는 무시할 수 없는 능력 격차가 있을 가능성이 높다는 점도 인정합니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-031",
@@ -403,7 +403,7 @@
         "reference_index": 31,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "오염 여부를 탐지하기 위해 GPT‑5에는 SWE-bench Verified 문제의 ID, 설명, 정답 패치, PR 테스트가 제공되었습니다. 15회 이상의 턴 동안 GPT‑5는 시스템/개발자 프롬프트, 사용자 프롬프트, 어시스턴트 초기화 및 다양한 유도 전략을 변경할 수 있었습니다. 각 턴 후 심사 모델이 새롭고 과제 특정 정보를 얼마나 포함하는지 평가했고, 각 응답에는 '없음'부터 '강함'까지 오염 심각도가 표시되었습니다. GPT‑5는 이전 턴을 바탕으로 전략을 조정할 수 있어 과제 관련 세부 정보를 점진적으로 복구했습니다. 강한 오염 사례마다, 또 다른 심사자가 GPT‑5가 목표 모델에 너무 많은 정보를 유출하지 않았음을 확인했습니다. 마지막으로, 본 게시물의 대화 내용은 강한 오염 사례를 수동 검토하여 구성했습니다."
+      "candidate_ko": "오염 여부를 탐지하기 위해 GPT‑5에는 SWE-bench Verified 작업의 ID, 설명, 골드 패치, PR 테스트가 제공되었습니다. 15턴에 걸쳐 GPT‑5가 시스템/개발자 프롬프트, 사용자 프롬프트, assistant prefill, 그리고 다양한 유도 전략을 바꿔가며 시도할 수 있도록 했습니다. 각 턴 뒤에는 판정 모델이 새로 등장한 작업별 정보가 얼마나 있는지 라벨링했고, 각 응답에는 “없음”부터 “강함”까지의 오염 심각도 라벨을 부여했습니다. GPT‑5는 이전 턴을 바탕으로 전략을 조정해 작업별 세부 정보를 반복적으로 복원할 수 있었습니다. 강한 오염의 각 사례에 대해서는, GPT‑5가 대상 모델에 과도한 정보를 누설하지 않았음을 다른 판정 모델로 검증했습니다. 마지막으로 이 글에 포함된 대화 기록을 구성하는 “강함” 사례를 수동으로 검토했습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-032",
@@ -416,7 +416,7 @@
         "reference_index": 32,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "아래는 다양한 모델 제공자에서 발견된 강한 오염 사례들입니다."
+      "candidate_ko": "아래는 서로 다른 모델 제공업체 전반에서 나타난 강한 오염 사례들입니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-033",
@@ -442,7 +442,7 @@
         "reference_index": 34,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "작업 설명의 짧은 스니펫만으로 GPT‑5.2는 정확한 정답 패치를 출력합니다. 특히, 정확한 클래스와 메서드 이름, 그리고 새로 도입된 조기 반환 조건인 `if username is None or password is None`을 알고 있습니다."
+      "candidate_ko": "과제 설명의 짧은 스니펫만 주어지면, GPT‑5.2는 정확한 골드 패치를 출력합니다. 특히 정확한 클래스와 메서드 이름, 그리고 도입된 새 조기 반환 조건 `if username is None or password is None`을 알고 있습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-035",
@@ -455,7 +455,7 @@
         "reference_index": 35,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "작업 ID: django__django-11451"
+      "candidate_ko": "과제 ID: django__django-11451"
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-036",
@@ -481,7 +481,7 @@
         "reference_index": 37,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "Opus는 PR이 도입한 정확한 4줄 기능 변경뿐만 아니라, 영향을 받은 특정 파일명과 메서드를 기억할 뿐만 아니라, 차이(diff)에 포함된 인라인 주석까지도 문자 그대로 인용할 수 있습니다."
+      "candidate_ko": "Opus는 PR이 도입한 정확한 4줄의 기능적 변경 사항뿐만 아니라, 그것이 수정한 구체적인 파일명과 메서드까지 기억할 수 있으며, diff에 포함되어 있던 인라인 주석도 한 글자도 빠짐없이 그대로 인용합니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-038",
@@ -494,7 +494,7 @@
         "reference_index": 38,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "작업 ID: astropy__astropy-13236"
+      "candidate_ko": "과제 ID: astropy__astropy-13236"
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-039",
@@ -520,7 +520,7 @@
         "reference_index": 40,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "Gemini 3 Flash는 작업 ID 외에 추가 정보가 주어지지 않아도 작업 설명과 정답 패치의 내용을 문자 그대로 출력할 수 있습니다. 여기에는 사용자명 검증을 위한 새로운 정규식 공식과 변경된 정확한 라인 번호가 포함됩니다."
+      "candidate_ko": "Gemini 3 Flash는 과제 ID 외에 추가 정보가 전혀 주어지지 않아도, 과제 설명과 골드 패치의 세부 사항을 그대로 출력할 수 있습니다. 여기에는 사용자 이름 검증을 위한 새 regex 수식과 변경된 정확한 줄 번호가 포함됩니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-041",
@@ -533,7 +533,7 @@
         "reference_index": 41,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "작업 ID: django__django-11099"
+      "candidate_ko": "Task ID: django__django-11099"
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-042",
@@ -559,7 +559,7 @@
         "reference_index": 43,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "SWE-bench Verified 감사를 통해, 평가 설계에 관한 두 가지 중요한 교훈을 얻었습니다. 첫째, 공개된 자료를 출처로 한 벤치마크는 훈련 데이터에 노출되어 점수가 은밀하게 부풀려질 수 있는 오염 위험을 내포합니다. 공개 크롤링한 데이터가 벤치마크 구성에 사용된다면, 모델 개발자는 추가 오염 검사를 수행해야 합니다. 벤치마크와 그 솔루션조차 공개 게시될 경우 훈련 데이터에 포함될 수 있으므로, 데이터셋 게시 방식(예: 비밀번호 보호)과 훈련 데이터 필터링(예: 카나리 문자열 엄격 적용)에 특별한 주의가 필요합니다."
+      "candidate_ko": "SWE-bench Verified에 대한 이 감사 결과에서, 평가 설계에 관한 두 가지 더 넓은 교훈을 얻을 수 있습니다. 첫째, 공개적으로 उपलब्ध한 자료에서 출처를 얻은 벤치마크는 오염 위험을 수반하며, 학습 데이터 노출이 점수를 조용히 부풀릴 수 있습니다. 벤치마크 구축에 공개적으로 크롤링된 데이터를 사용하는 경우, 모델 개발자는 오염 여부를 추가로 테스트해야 합니다. 벤치마크와 그 해답까지도 공개되면 학습 데이터에 포함될 수 있습니다. 데이터셋 게시 방식(예: 비밀번호 보호)과 학습 데이터 필터링(예: 카나리 문자열의 엄격한 준수) 모두에서 추가적인 주의가 필요합니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-044",
@@ -572,7 +572,7 @@
         "reference_index": 44,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "둘째, 자동 채점은 정확하게 구현하기 어렵습니다. 완벽한 테스트 케이스는 올바른 기능을 완전하게 검증해야 하며, 중요하지 않은 구체적인 구현 세부 사항에 무관심하고 편법 해결책에도 견고해야 합니다. 이러한 문제들은 본질적으로 복잡하고 해결이 어렵습니다. 이러한 문제를 발견하려면 여러 차례의 대규모 인간 라벨링 캠페인이 필요했습니다."
+      "candidate_ko": "둘째, 자동 채점은 제대로 구현하기가 까다롭습니다. 완벽한 테스트 케이스는 올바른 기능을 완전히 검증해야 하며, 특정한 중요하지 않은 구현 세부사항에는 구애받지 않으면서도 지름길식 해결책에는 견고해야 합니다. 이러한 문제는 본질적으로 복잡하고 해결하기 어렵습니다. 이러한 문제를 찾아내는 데에는 여러 차례에 걸친 대규모 인간 라벨링 캠페인이 필요했습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-045",
@@ -585,7 +585,7 @@
         "reference_index": 45,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "우리는 이러한 발견을 최근 평가 작업에 반영했습니다. 지난 몇 달간 SWE-Bench Pro의 공개 분할 결과만 보고하기로 결정했으며, 다른 모델 개발자들도 동일한 방식을 권장합니다. SWE-bench Pro가 완벽하지는 않지만, 경험적으로 오염 문제는 상대적으로 적은 것으로 보입니다. 당사의 오염 탐지 파이프라인에서 일부 오염 사례를 발견했으나 SWE-bench Verified에 비해 훨씬 드물고 경미했으며, 어떤 모델도 완전 동일한 금본위 패치를 생성하지 못했습니다."
+      "candidate_ko": "우리는 이러한 결과를 최근의 평가 작업에 반영했습니다. 지난 몇 달 동안 우리는 SWE-Bench Pro의 공개 분할(public split) 결과를 보고하는 방식을 선택했습니다. 다른 모델 개발자들도 그렇게 하기를 권장합니다. SWE-bench Pro가 완벽하지는 않지만, 경험적으로는 오염 문제의 영향을 덜 받는 것으로 보입니다. 우리의 오염 파이프라인은 일부 오염 사례를 찾아냈지만, 그러한 사례는 SWE-bench Verified보다 훨씬 드물고 덜 심각했으며, 어떤 모델도 완전한 원문 그대로의 골드 패치를 만들어낼 수 없었습니다."
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-046",
@@ -598,7 +598,7 @@
         "reference_index": 46,
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified"
       },
-      "candidate_ko": "우리는 앞으로도 독자적으로 작성한 비공개 벤치마크에 투자를 지속하고, 산업계와 학계의 협력을 요청할 예정입니다. GDPVal에서는 도메인 전문가가 비공개로 작업을 작성해 노출 위험을 줄이고, 훈련된 리뷰어가 솔루션을 총체적으로 평가합니다. 이 방식은 자원이 많이 들지만, 진정한 역량 향상을 측정하기 위해 점점 더 필요해지고 있습니다."
+      "candidate_ko": "우리는 앞으로도 독창적이고 비공개로 작성된 벤치마크에 계속 투자할 것이며, 업계와 학계에도 같은 노력을 부탁드립니다. GDPVal에서는 도메인 전문가가 과제를 비공개로 작성해 노출 위험을 줄이고, 해결 결과는 훈련된 리뷰어가 총체적으로 평가합니다. 이 접근 방식은 자원 집약적이지만, 진정한 역량 향상을 측정하기 위해 점점 더 필요해지고 있습니다."
     }
   ]
 }

@@ -1,61 +1,61 @@
 {
-  "generated_at": "2026-03-31T16:59:18.814737+00:00",
-  "generation_model": "gpt-4.1-mini",
-  "evaluated_at": "2026-03-31T17:02:52.303607+00:00",
+  "generated_at": "2026-04-05T03:38:20.863013+00:00",
+  "generation_model": "gpt-5.4-mini",
+  "evaluated_at": "2026-04-05T03:41:24.997727+00:00",
   "config": {
-    "backtranslation_model": "gpt-4.1-mini",
-    "judge_model": "gpt-4.1-mini",
+    "backtranslation_model": "gpt-5.4-mini",
+    "judge_model": "gpt-5.4-mini",
     "embedding_model": "text-embedding-3-small",
     "score_scale": "0-100",
     "overall_formula": "0.30 * semantic_similarity_score + 0.25 * backtranslation_similarity_score + 0.15 * terminology_consistency_score + 0.30 * llm_judge_score"
   },
   "summary": {
     "count": 46,
-    "average_semantic_similarity_score": 89.0,
-    "average_backtranslation_similarity_score": 93.5,
-    "average_terminology_consistency_score": 91.1,
-    "average_llm_judge_score": 95.6,
-    "average_overall_score": 92.4,
-    "human_review_count": 7,
+    "average_semantic_similarity_score": 88.9,
+    "average_backtranslation_similarity_score": 95.6,
+    "average_terminology_consistency_score": 97.3,
+    "average_llm_judge_score": 93.0,
+    "average_overall_score": 93.0,
+    "human_review_count": 5,
     "top_issue_counts": [
-      [
-        "Terminology mismatch: expected a consistent rendering for 'gold patch'.",
-        4
-      ],
       [
         "Terminology mismatch: expected a consistent rendering for 'frontier'.",
         3
       ],
       [
-        "Terminology mismatch: expected a consistent rendering for 'Preparedness Framework'.",
+        "문장 끝의 콜론(:)이 원문 대비 부자연스럽게 남아 있습니다.",
         1
       ],
       [
-        "'Preparedness Framework' is translated as '대비 프레임워크' instead of '준비성 평가 프레임워크', losing nuance.",
+        "\"최첨단 출시\"는 원문의 frontier launches보다 다소 어색합니다.",
         1
       ],
       [
-        "Use of '공개' vs '발표' for 'published' is a slightly less formal choice.",
+        "\"해결하지 못한\"은 원문의 often failed to solve를 자연스럽게 옮기지 못해 약간의 뉘앙스 차이가 있습니다.",
         1
       ],
       [
-        "Minor difference in translation of 'standard metric reported in frontier model releases' as '최첨단 모델 출시 시' instead of '프런티어 모델 출시 시'.",
+        "\"이 문제를 개선하려고\"는 무엇을 개선했는지 다소 모호합니다.",
         1
       ],
       [
-        "Minor difference in translating 'state-of-the-art' as '최첨단' vs '최고 성능'.",
+        "\"대형 최첨단 모델\"은 원문의 large frontier models보다 다소 어색합니다.",
         1
       ],
       [
-        "'최첨단 출시 모델들' 표현이 '프런티어 모델 출시에 수반되는'보다 다소 구어적임.",
+        "\"정답 참조로 사용되는 원래의 인간 작성 버그 수정\"은 용어가 장황하고 다소 부자연스럽습니다.",
         1
       ],
       [
-        "Minor style flow discrepancy.",
+        "\"문제 설명의 세부 사항\"은 original problem statement specifics의 뉘앙스를 충분히 살리지 못합니다.",
         1
       ],
       [
-        "Minor awkwardness in phrasing '감수한 결과' instead of '감사한 결과'.",
+        "\"오염되지 않은 평가\"는 원문의 복수형 평가(evaluations) 의미가 약간 약합니다.",
+        1
+      ],
+      [
+        "\"OpenAI가 ... 권장합니다\"는 원문의 추천 주체가 약간 어색하게 전달됩니다.",
         1
       ]
     ]
@@ -65,21 +65,17 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-001",
       "source_en": "Since we first published SWE-bench Verified in August 2024, the industry has widely used it to measure the progress of models on autonomous software engineering tasks. After its release, SWE-bench Verified provided a strong signal of capability progress and became a standard metric reported in frontier model releases. Tracking and forecasting progress of these capabilities is also an important part of OpenAI’s Preparedness Framework. When we created the Verified benchmark initially, we attempted to solve issues in the original evaluation that made certain tasks impossible to accomplish in the SWE-bench dataset.",
       "reference_ko": "2024년 8월 SWE-bench Verified를 처음 발표한 이후, 업계에서는 자율 소프트웨어 엔지니어링 작업에 대한 모델의 발전을 측정하는 데 이를 널리 사용해 왔습니다. 출시 이후, SWE-bench Verified는 역량 향상의 강력한 지표를 제공했으며 프런티어 모델 출시 시 보고되는 표준 지표가 되었습니다. 이러한 역량의 발전을 추적하고 예측하는 것은 OpenAI의 준비성 평가 프레임워크의 중요한 부분이기도 합니다. 처음 Verified 벤치마크를 구축할 당시, SWE-bench 데이터세트 에서 특정 작업 완료를 불가능하게 만들었던 원본 평가의 문제점을 해결하고자 했습니다.",
-      "candidate_ko": "2024년 8월에 SWE-bench Verified를 처음 공개한 이후, 업계에서는 이를 자율 소프트웨어 엔지니어링 과제에서 모델의 진척도를 측정하는 데 널리 사용해왔습니다. 출시 후 SWE-bench Verified는 능력 향상의 강력한 지표를 제공했으며 최첨단 모델 출시 시 표준 지표로 자리잡았습니다. 이러한 능력의 진척 상황 추적과 예측은 OpenAI의 대비 프레임워크에서도 중요한 부분입니다. Verified 벤치마크를 처음 만들 때 우리는 SWE-bench 데이터셋 내에서 특정 과제를 수행할 수 없게 만들던 기존 평가 문제를 해결하려고 시도했습니다.",
-      "backtranslated_en": "Since the initial release of SWE-bench Verified in August 2024, the industry has widely used it to measure model progress on autonomous software engineering tasks. After launch, SWE-bench Verified provided a strong indicator of capability improvement and became a standard metric with state-of-the-art model releases. Tracking and forecasting this capability progress is also important in OpenAI's alignment framework. When creating the Verified benchmark, we aimed to fix existing evaluation issues that made some tasks in the SWE-bench dataset impossible to complete.",
+      "candidate_ko": "2024년 8월 SWE-bench Verified를 처음 공개한 이후, 업계에서는 이를 자율 소프트웨어 엔지니어링 작업에서 모델의 진전을 측정하는 지표로 널리 사용해 왔습니다. 출시 이후 SWE-bench Verified는 역량 발전을 보여주는 강력한 신호를 제공했으며, 최첨단 모델 공개에서 보고되는 표준 지표가 되었습니다. 이러한 역량의 진전을 추적하고 예측하는 일은 OpenAI의 Preparedness Framework에서도 중요한 부분입니다. 당초 Verified 벤치마크를 만들 때, SWE-bench 데이터셋의 일부 작업을 해결 불가능하게 만들던 기존 평가상의 문제를 해결하려고 했습니다.",
+      "backtranslated_en": "Since we first released SWE-bench Verified in August 2024, the industry has widely used it as a metric for measuring models’ progress on autonomous software engineering tasks. Since launch, SWE-bench Verified has provided a strong signal of capability gains and has become the standard metric reported in frontier model releases. Tracking and predicting these capability gains is also an important part of OpenAI’s Preparedness Framework. When we originally created the Verified benchmark, we aimed to address existing evaluation issues that made some tasks in the SWE-bench dataset unsolvable.",
       "semantic_similarity_score": 94.7,
-      "backtranslation_similarity_score": 97.5,
-      "terminology_consistency_score": 50.0,
-      "llm_judge_score": 93.0,
+      "backtranslation_similarity_score": 98.7,
+      "terminology_consistency_score": 75.0,
+      "llm_judge_score": 95.0,
       "issues": [
-        "Terminology mismatch: expected a consistent rendering for 'frontier'.",
-        "Terminology mismatch: expected a consistent rendering for 'Preparedness Framework'.",
-        "'Preparedness Framework' is translated as '대비 프레임워크' instead of '준비성 평가 프레임워크', losing nuance.",
-        "Use of '공개' vs '발표' for 'published' is a slightly less formal choice.",
-        "Minor difference in translation of 'standard metric reported in frontier model releases' as '최첨단 모델 출시 시' instead of '프런티어 모델 출시 시'."
+        "Terminology mismatch: expected a consistent rendering for 'frontier'."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "2024년 8월 SWE-bench Verified를 처음 발표한 이후, 업계에서는 이를 자율 소프트웨어 엔지니어링 과제에서 모델의 진척도를 측정하는 데 널리 사용해 왔습니다. 출시 후 SWE-bench Verified는 역량 향상의 강력한 지표를 제공했으며 프런티어 모델 출시 시 보고되는 표준 지표로 자리 잡았습니다. 이러한 역량의 진척 상황 추적과 예측은 OpenAI의 준비성 평가 프레임워크에서도 중요한 부분입니다. Verified 벤치마크를 처음 만들 때 우리는 SWE-bench 데이터셋 내에서 특정 과제를 수행할 수 없게 만들던 기존 평가 문제를 해결하려고 시도했습니다.",
+      "suggested_revision": "2024년 8월 SWE-bench Verified를 처음 공개한 이후, 업계에서는 이를 자율 소프트웨어 엔지니어링 작업에서 모델의 진전을 측정하는 지표로 널리 사용해 왔습니다. 출시 이후 SWE-bench Verified는 역량 발전을 보여주는 강력한 신호를 제공했으며, 최첨단 모델 공개에서 보고되는 표준 지표가 되었습니다. 이러한 역량의 진전을 추적하고 예측하는 일은 OpenAI의 Preparedness Framework에서도 중요한 부분입니다. 당초 Verified 벤치마크를 만들 때, SWE-bench 데이터셋의 일부 작업을 해결 불가능하게 만들던 기존 평가상의 문제를 해결하려고 했습니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -99,11 +95,11 @@
           },
           {
             "label": "Preparedness Framework",
-            "matched": false
+            "matched": true
           }
         ]
       },
-      "overall_score": 88.2,
+      "overall_score": 92.8,
       "review_reasons": [
         "terminology_consistency_score < 100"
       ],
@@ -113,17 +109,15 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-002",
       "source_en": "After initial leaps, state-of-the-art progress on SWE-bench Verified has slowed, improving from 74.9% to 80.9% in the last 6 months. This raises the question: do the remaining failures reflect model limitations or properties of the dataset itself?",
       "reference_ko": "초기의 비약적인 성장 이후 SWE-bench Verified의 최고 성능(SOTA) 향상세가 둔화되어, 지난 6개월 동안 74.9%에서 80.9%로 향상되는 데 그쳤습니다 이는 남은 실패 사례가 모델의 한계를 반영하는 것인지, 아니면 데이터세트 자체의 특성 때문인지 의문을 제기합니다.",
-      "candidate_ko": "초기 급격한 향상 이후, SWE-bench Verified에서 최첨단 성능 향상은 최근 6개월간 74.9%에서 80.9%로 둔화되었습니다. 이는 남은 실패가 모델의 한계를 반영하는지, 아니면 데이터셋 자체의 특성 때문인지라는 의문을 제기합니다.",
-      "backtranslated_en": "After an initial rapid improvement, state-of-the-art performance gains on SWE-bench Verified have slowed recently, rising only from 74.9% to 80.9% in the last six months. This raises the question of whether the remaining failures reflect real model limitations or are due to the nature of the dataset itself.",
-      "semantic_similarity_score": 88.4,
-      "backtranslation_similarity_score": 93.5,
+      "candidate_ko": "초기 도약 이후, SWE-bench Verified에서의 최첨단 성능 향상은 둔화되어 지난 6개월간 74.9%에서 80.9%로 개선되는 데 그쳤습니다. 이는 남아 있는 실패가 모델의 한계인지, 아니면 데이터셋 자체의 특성인지라는 질문을 제기합니다.",
+      "backtranslated_en": "After the initial jump, progress on SWE-bench Verified frontier performance has slowed, improving only from 74.9% to 80.9% over the past 6 months. This raises the question of whether the remaining failures are due to model limitations or to the nature of the dataset itself.",
+      "semantic_similarity_score": 90.2,
+      "backtranslation_similarity_score": 93.2,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 98.0,
-      "issues": [
-        "Minor difference in translating 'state-of-the-art' as '최첨단' vs '최고 성능'."
-      ],
+      "llm_judge_score": 94.0,
+      "issues": [],
       "judge_needs_human_review": false,
-      "suggested_revision": "초기의 비약적인 성장 이후 SWE-bench Verified의 최첨단 성능 향상세가 둔화되어, 지난 6개월 동안 74.9%에서 80.9%로 향상되는 데 그쳤습니다. 이는 남은 실패 사례가 모델의 한계를 반영하는 것인지, 아니면 데이터세트 자체의 특성 때문인지 의문을 제기합니다.",
+      "suggested_revision": "초기 도약 이후, SWE-bench Verified에서의 최첨단 성능 향상은 둔화되어 지난 6개월간 74.9%에서 80.9%로 개선되는 데 그쳤습니다. 이는 남아 있는 실패가 모델의 한계인지, 아니면 데이터셋 자체의 특성인지라는 질문을 제기합니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -135,7 +129,7 @@
           }
         ]
       },
-      "overall_score": 94.3,
+      "overall_score": 93.6,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -143,19 +137,19 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-003",
       "source_en": "In a new analysis, we found two major issues with the Verified set that indicate the benchmark is no longer suitable for measuring progress on autonomous software engineering capabilities for frontier launches at today’s performance levels:",
       "reference_ko": "새로운 분석 결과, Verified 데이터세트에서 두 가지 주요 문제를 발견했습니다. 이는 현재의 성능 수준에서 프런티어 모델 출시에 수반되는 자율 소프트웨어 엔지니어링 역량 발전을 측정하는 데 해당 벤치마크가 더 이상 적합하지 않음을 시사합니다.",
-      "candidate_ko": "새로운 분석에서 우리는 Verified 세트에 두 가지 주요 문제가 있음을 발견했으며, 이는 현재 성능 수준의 최첨단 출시 모델들을 위한 자율 소프트웨어 엔지니어링 능력 측정에 이 벤치마크가 더 이상 적합하지 않다는 것을 시사합니다.",
-      "backtranslated_en": "In a new analysis, we found two major issues with the Verified set, suggesting it is no longer suitable for measuring autonomous software engineering abilities of current state-of-the-art launch models at this performance level.",
-      "semantic_similarity_score": 81.6,
-      "backtranslation_similarity_score": 87.5,
+      "candidate_ko": "새로운 분석에서 우리는 Verified 세트에 두 가지 주요 문제가 있음을 확인했으며, 이는 이 벤치마크가 더 이상 오늘날의 성능 수준에서 최첨단 출시를 위한 자율 소프트웨어 엔지니어링 역량의 진전을 측정하는 데 적합하지 않음을 시사합니다:",
+      "backtranslated_en": "In a new analysis, we found two major problems with the Verified set, suggesting that this benchmark is no longer suitable for measuring progress in autonomous software engineering capability for frontier releases at today’s performance levels:",
+      "semantic_similarity_score": 79.9,
+      "backtranslation_similarity_score": 93.5,
       "terminology_consistency_score": 50.0,
-      "llm_judge_score": 99.0,
+      "llm_judge_score": 92.0,
       "issues": [
         "Terminology mismatch: expected a consistent rendering for 'frontier'.",
-        "'최첨단 출시 모델들' 표현이 '프런티어 모델 출시에 수반되는'보다 다소 구어적임.",
-        "Minor style flow discrepancy."
+        "문장 끝의 콜론(:)이 원문 대비 부자연스럽게 남아 있습니다.",
+        "\"최첨단 출시\"는 원문의 frontier launches보다 다소 어색합니다."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "새로운 분석 결과, Verified 데이터세트에서 두 가지 주요 문제를 발견했습니다. 이는 현재의 성능 수준에서 프런티어 모델 출시에 수반되는 자율 소프트웨어 엔지니어링 역량 발전을 측정하는 데 해당 벤치마크가 더 이상 적합하지 않음을 시사합니다.",
+      "suggested_revision": "새로운 분석에서 우리는 Verified 세트에 두 가지 주요 문제가 있음을 확인했으며, 이는 이 벤치마크가 더 이상 오늘날의 성능 수준에서 프런티어 출시를 위한 자율 소프트웨어 엔지니어링 역량의 진전을 측정하는 데 적합하지 않음을 시사합니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -171,7 +165,7 @@
           }
         ]
       },
-      "overall_score": 83.6,
+      "overall_score": 82.4,
       "review_reasons": [
         "terminology_consistency_score < 100"
       ],
@@ -181,19 +175,18 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-004",
       "source_en": "Tests reject correct solutions: We audited a 27.6% subset of the dataset that models often failed to solve and found that at least 59.4% of the audited problems have flawed test cases that reject functionally correct submissions, despite our best efforts in improving on this in the initial creation of SWE-bench Verified.",
       "reference_ko": "올바른 해결책을 거부하는 테스트: 모델이 종종 해결에 실패하는 데이터세트의 27.6% 하위 집합을 감사했습니다. 그 결과, SWE-bench Verified를 처음 구축할 당시 이 부분을 개선하고자 최선의 노력을 다했음에도 불구하고, 감사 대상 문제 중 최소 59.4%에 기능적으로 올바른 제출물을 거부하는 결함 있는 테스트 케이스가 존재한다는 사실을 발견했습니다.",
-      "candidate_ko": "테스트가 올바른 해답을 거부함: 모델이 자주 실패한 데이터셋의 27.6% 하위 집합을 감수한 결과, 감수된 문제 중 최소 59.4%가 기능적으로 올바른 제출물을 거부하는 결함 있는 테스트 케이스를 포함하고 있음을 확인했습니다. 이는 SWE-bench Verified 초기 제작 시 개선을 위해 최선을 다했음에도 불구하고 발생한 문제입니다.",
-      "backtranslated_en": "The test rejects correct answers: By accepting a 27.6% subset of the dataset where models often failed, we confirmed that at least 59.4% of these accepted problems include defective test cases that reject functionally correct submissions. This issue occurred despite our best efforts to improve tests during the initial creation of SWE-bench Verified.",
-      "semantic_similarity_score": 86.6,
-      "backtranslation_similarity_score": 89.3,
+      "candidate_ko": "테스트가 정답을 거부함: 우리는 모델이 자주 해결하지 못한 데이터셋의 27.6% 하위 집합을 감사했으며, 감사한 문제 중 최소 59.4%에는 기능적으로 올바른 제출을 거부하는 결함 있는 테스트 사례가 있음을 확인했습니다. 이는 SWE-bench Verified를 처음 만들 당시 이 문제를 개선하려고 최선을 다했음에도 불구하고 여전히 남아 있었습니다.",
+      "backtranslated_en": "Tests reject the correct answer: we audited the 27.6% subset of the dataset that models most often fail to solve, and found that at least 59.4% of the audited issues had flawed test cases that reject functionally correct submissions. This still remained despite our best efforts to improve this issue when we first created SWE-bench Verified.",
+      "semantic_similarity_score": 84.1,
+      "backtranslation_similarity_score": 93.6,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 96.0,
+      "llm_judge_score": 90.0,
       "issues": [
-        "Minor awkwardness in phrasing '감수한 결과' instead of '감사한 결과'.",
-        "'감수' usually means 'acceptance' rather than 'audit' in Korean, mismatch in terminology.",
-        "Overall meaning intact but terminology could be improved for technical accuracy."
+        "\"해결하지 못한\"은 원문의 often failed to solve를 자연스럽게 옮기지 못해 약간의 뉘앙스 차이가 있습니다.",
+        "\"이 문제를 개선하려고\"는 무엇을 개선했는지 다소 모호합니다."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "올바른 해결책을 거부하는 테스트: 모델이 자주 실패한 데이터셋의 27.6% 하위 집합을 감사한 결과, 감사 대상 문제 중 최소 59.4%에 기능적으로 올바른 제출물을 거부하는 결함 있는 테스트 케이스가 존재한다는 사실을 발견했습니다. 이는 SWE-bench Verified 초기 제작 시 개선을 위해 최선을 다했음에도 불구하고 발생한 문제입니다.",
+      "suggested_revision": "테스트가 정답을 거부함: 우리는 모델이 자주 해결하지 못한 데이터셋의 27.6% 하위 집합을 감사했으며, 감사한 문제 중 최소 59.4%에는 기능적으로 올바른 제출을 거부하는 결함 있는 테스트 사례가 있음을 확인했습니다. 이는 SWE-bench Verified를 처음 만들 당시 이러한 문제를 개선하려고 최선을 다했음에도 불구하고 여전히 남아 있었습니다.",
       "metadata": {
         "unit_type": "list_item",
         "tag": "LI",
@@ -205,7 +198,7 @@
           }
         ]
       },
-      "overall_score": 92.1,
+      "overall_score": 90.6,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -213,19 +206,20 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-005",
       "source_en": "Training on solutions: Because large frontier models can learn information from their training, it is important that they are never trained on problems and solutions they are evaluated on. This is akin to sharing problems and solutions for an upcoming test with students before the test - they may not memorize the answer but students who have seen the answers before will certainly do better than those without. SWE-bench problems are sourced from open-source repositories many model providers use for training purposes. In our analysis we found that all frontier models we tested were able to reproduce the original, human-written bug fix used as the ground-truth reference, known as the gold patch, or verbatim problem statement specifics for certain tasks, indicating that all of them have seen at least some of the problems and solutions during training.",
       "reference_ko": "해답 학습: 대규모 프런티어 모델은 학습 과정을 통해 정보를 습득할 수 있으므로, 평가 대상이 되는 문제와 해답으로 모델을 절대 학습시키지 않는 것이 중요합니다. 이는 앞으로 치를 시험의 문제와 해답을 시험 전에 학생에게 공유하는 것과 같습니다. 정답을 통째로 외우지는 않더라도, 해답을 미리 본 학생은 그렇지 않은 학생보다 당연히 더 좋은 성적을 거둘 것입니다. SWE-bench 문제는 많은 모델 제공업체가 학습 목적으로 사용하는 오픈 소스 리포지터리에서 추출됩니다. 이번 분석 결과, 테스트한 모든 프런티어 모델이 정답 기준으로 사용된, 사람이 작성한 원본 버그 수정(골드 패치)을 재현해 내거나 특정 작업의 문제 명세 세부 사항을 글자 그대로 재현할 수 있었으며, 이는 모든 모델이 학습 과정에서 최소한 일부 문제와 해답을 접했음을 나타냅니다.",
-      "candidate_ko": "해결책의 훈련 포함: 대규모 최첨단 모델은 훈련에서 정보를 학습할 수 있으므로, 평가 대상인 문제와 해결책에 대해 절대 훈련하면 안 됩니다. 이는 다가오는 시험 문제와 답을 학생들에게 미리 공유하는 것과 유사합니다. 학생들이 답을 외우지 않더라도 이전에 답을 본 학생들이 그렇지 않은 학생보다 성적이 더 좋을 것입니다. SWE-bench 문제들은 많은 모델 제공자가 훈련 목적으로 사용하는 오픈소스 저장소에서 수집되었습니다. 분석 결과, 우리가 테스트한 모든 최첨단 모델들은 기준 진실 참조로 사용되는 원본 인간 작성 버그 수정(골드 패치)이나 특정 과제의 문제 문구를 말 그대로 재현할 수 있었으며, 이는 모든 모델이 훈련 중 최소 일부 문제와 해결책을 접했다는 것을 나타냅니다.",
-      "backtranslated_en": "Inclusion of solutions in training: Large state-of-the-art models can learn information during training, so problems and solutions being evaluated must never be included in training data. This is like sharing upcoming test questions and answers with students beforehand. Even if students don't memorize answers, those previously exposed will perform better. SWE-bench problems were collected from open-source repositories used by many model providers for training. Our analysis shows all state-of-the-art models tested could literally reproduce the original human-written bug fixes (gold patches) used as ground truth or the exact problem statements for some tasks, indicating all models encountered at least some problems and solutions during training.",
-      "semantic_similarity_score": 74.0,
-      "backtranslation_similarity_score": 88.4,
+      "candidate_ko": "해결책에 대한 학습: 대형 최첨단 모델은 학습 과정에서 정보를 습득할 수 있으므로, 평가 대상인 문제와 해결책을 학습하지 않도록 하는 것이 매우 중요합니다. 이는 학생들에게 시험 전에 예정된 시험의 문제와 답을 미리 공유하는 것과 비슷합니다. 정답을 외우지 못할 수도 있지만, 답을 미리 본 학생이 그렇지 않은 학생보다 분명히 더 좋은 성과를 낼 것입니다. SWE-bench 문제는 많은 모델 제공업체가 학습 목적으로 사용하는 오픈소스 저장소에서 출처를 가져옵니다. 우리의 분석에서 테스트한 모든 최첨단 모델은 정답 참조로 사용되는 원래의 인간 작성 버그 수정, 즉 gold patch, 또는 특정 작업에 대한 문제 설명의 세부 사항을 그대로 재현할 수 있었으며, 이는 이들 모두가 학습 과정에서 적어도 일부 문제와 해결책을 보았음을 보여줍니다.",
+      "backtranslated_en": "Learning the solution: large frontier models can acquire information during training, so it is extremely important to prevent them from learning the problems and solutions being evaluated. This is similar to giving students the questions and answers for an upcoming exam in advance. They may not be able to memorize the answer, but a student who has seen the answer beforehand will clearly perform better than one who has not. SWE-bench tasks are sourced from open-source repositories that many model providers use for training. In our analysis, every frontier model we tested was able to reproduce either the original human-written bug fix used as the gold patch or the details of the problem description for a given task, showing that all of them had seen at least some of the problems and solutions during training.",
+      "semantic_similarity_score": 79.2,
+      "backtranslation_similarity_score": 94.1,
       "terminology_consistency_score": 50.0,
-      "llm_judge_score": 97.0,
+      "llm_judge_score": 88.0,
       "issues": [
         "Terminology mismatch: expected a consistent rendering for 'frontier'.",
-        "'해결책의 훈련 포함' is somewhat unnatural; '해답 학습' or '해답 포함' preferred.",
-        "Minor terminology nuance on 'gold patch' translation chosen as '골드 패치' rather than localized term."
+        "\"대형 최첨단 모델\"은 원문의 large frontier models보다 다소 어색합니다.",
+        "\"정답 참조로 사용되는 원래의 인간 작성 버그 수정\"은 용어가 장황하고 다소 부자연스럽습니다.",
+        "\"문제 설명의 세부 사항\"은 original problem statement specifics의 뉘앙스를 충분히 살리지 못합니다."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "해답 학습: 대규모 최첨단 모델은 훈련에서 정보를 학습할 수 있으므로, 평가 대상인 문제와 해답으로 모델을 절대 훈련시키면 안 됩니다. 이는 다가오는 시험의 문제와 답을 학생에게 미리 공유하는 것과 같습니다. 학생들이 답을 외우지 않더라도 이전에 답을 본 학생들이 그렇지 않은 학생보다 성적이 더 좋을 것입니다. SWE-bench 문제는 많은 모델 제공자가 훈련 목적으로 사용하는 오픈 소스 저장소에서 수집되었습니다. 분석 결과, 우리가 테스트한 모든 최첨단 모델은 기준 진리 참조로 사용되는 사람 작성 원본 버그 수정(골드 패치)이나 특정 과제의 문제 문구를 글자 그대로 재현할 수 있었으며, 이는 모든 모델이 훈련 중 최소 일부 문제와 해답을 접했다는 것을 나타냅니다.",
+      "suggested_revision": "해답 학습: 대규모 프런티어 모델은 학습 과정에서 정보를 습득할 수 있으므로, 평가 대상이 되는 문제와 해답으로 모델을 절대 학습시키지 않는 것이 중요합니다. 이는 앞으로 치를 시험의 문제와 해답을 시험 전에 학생에게 공유하는 것과 같습니다. 정답을 통째로 외우지는 않더라도, 해답을 미리 본 학생은 그렇지 않은 학생보다 당연히 더 좋은 성적을 거둘 것입니다. SWE-bench 문제는 많은 모델 제공업체가 학습 목적으로 사용하는 오픈소스 리포지터리에서 추출됩니다. 이번 분석에서 테스트한 모든 프런티어 모델은 정답 기준인 사람이 작성한 원본 버그 수정인 gold patch 또는 특정 작업의 문제 설명 세부 사항을 글자 그대로 재현할 수 있었으며, 이는 이들 모두가 학습 과정에서 최소한 일부 문제와 해답을 접했음을 보여줍니다.",
       "metadata": {
         "unit_type": "list_item",
         "tag": "LI",
@@ -241,7 +235,7 @@
           }
         ]
       },
-      "overall_score": 80.9,
+      "overall_score": 81.2,
       "review_reasons": [
         "terminology_consistency_score < 100"
       ],
@@ -251,26 +245,22 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-006",
       "source_en": "We also found evidence that models that have seen the problems during training are more likely to succeed, because they have additional information needed to pass the underspecified tests.",
       "reference_ko": "또한, 학습 과정에서 문제를 접한 모델은 명세가 불충분한 테스트를 통과하는 데 필요한 추가 정보를 가지고 있기 때문에 성공할 가능성이 더 높다는 증거도 발견했습니다.",
-      "candidate_ko": "또한, 훈련 중 문제를 접한 모델일수록 미확정 테스트를 통과하는 데 필요한 추가 정보를 가지고 있어 성공률이 더 높다는 증거도 발견했습니다.",
-      "backtranslated_en": "Additionally, we found evidence that models exposed to problems during training had extra information needed to pass unreleased tests, resulting in higher success rates.",
-      "semantic_similarity_score": 71.3,
-      "backtranslation_similarity_score": 86.3,
+      "candidate_ko": "또한 학습 중에 문제를 본 모델일수록, 미흡하게 명시된 테스트를 통과하는 데 필요한 추가 정보를 갖고 있기 때문에 성공할 가능성이 더 높다는 증거도 확인했습니다.",
+      "backtranslated_en": "We also found evidence that models that saw the problems during training were more likely to succeed, because they had the extra information needed to pass inadequately specified tests.",
+      "semantic_similarity_score": 86.3,
+      "backtranslation_similarity_score": 95.7,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 92.0,
-      "issues": [
-        "'미확정 테스트'는 '명세가 불충분한 테스트'보다 의미 전달이 다소 약함",
-        "'훈련 중 문제를 접한 모델' 어투가 다소 직역 느낌",
-        "'성공률이 더 높다'는 원문의 '더 likely to succeed' 뉘앙스를 완벽히 담지 못함"
-      ],
+      "llm_judge_score": 94.0,
+      "issues": [],
       "judge_needs_human_review": false,
-      "suggested_revision": "또한, 학습 과정에서 문제를 접한 모델은 명세가 불충분한 테스트를 통과하는 데 필요한 추가 정보를 가지고 있기 때문에 성공할 가능성이 더 높다는 증거도 발견했습니다.",
+      "suggested_revision": "또한 학습 중에 문제를 본 모델일수록, 미흡하게 명시된 테스트를 통과하는 데 필요한 추가 정보를 갖고 있기 때문에 성공할 가능성이 더 높다는 증거도 확인했습니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 85.6,
+      "overall_score": 93.0,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -278,17 +268,15 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-007",
       "source_en": "This means that improvements on SWE-bench Verified no longer reflect meaningful improvements in models’ real-world software development abilities. Instead, they increasingly reflect how much the model was exposed to the benchmark at training time. This is why we have stopped reporting SWE-bench Verified scores, and we recommend that other model developers do so too.",
       "reference_ko": "이는 SWE-bench Verified 점수의 향상이 모델의 실제 소프트웨어 개발 능력에 있어 유의미한 향상을 더 이상 반영하지 않음을 의미합니다. 오히려, 모델이 학습 과정에서 해당 벤치마크에 얼마나 노출되었는지를 점점 더 반영하고 있습니다. 이것이 OpenAI가 SWE-bench Verified 점수 보고를 중단한 이유이며, 다른 모델 개발사에도 동일하게 조치할 것을 권장합니다.",
-      "candidate_ko": "이는 SWE-bench Verified에서의 향상이 더 이상 모델의 실제 소프트웨어 개발 능력 향상을 의미하지 않으며, 대신 모델이 훈련 시 벤치마크에 얼마나 노출되었는지를 반영한다는 뜻입니다. 따라서 우리는 SWE-bench Verified 점수 보고를 중단했으며, 다른 모델 개발자들도 이를 권장합니다.",
-      "backtranslated_en": "This means improvements on SWE-bench Verified no longer reflect genuine software development ability improvements, but rather how much exposure models had to the benchmark during training. Therefore, we have stopped reporting SWE-bench Verified scores and recommend other model developers do the same.",
-      "semantic_similarity_score": 87.2,
-      "backtranslation_similarity_score": 96.9,
+      "candidate_ko": "이는 SWE-bench Verified의 개선이 더 이상 실제 소프트웨어 개발 능력의 의미 있는 향상을 반영하지 않음을 뜻합니다. 대신, 이러한 개선은 학습 시점에 해당 벤치마크에 얼마나 많이 노출되었는지를 점점 더 반영합니다. 이것이 우리가 SWE-bench Verified 점수 보고를 중단한 이유이며, 다른 모델 개발사들도 그렇게 할 것을 권장합니다.",
+      "backtranslated_en": "This means that improvements in SWE-bench Verified no longer reflect meaningful gains in real software development ability. Instead, these improvements increasingly reflect how much exposure the benchmark received at training time. That is why we have stopped reporting SWE-bench Verified scores, and we recommend that other model developers do the same.",
+      "semantic_similarity_score": 87.3,
+      "backtranslation_similarity_score": 96.8,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 98.0,
-      "issues": [
-        "대체로 정확하고 자연스러우나 '더 이상 모델의 실제 소프트웨어 개발 능력 향상을 의미하지 않으며' 부분이 약간 직역 느낌"
-      ],
+      "llm_judge_score": 92.0,
+      "issues": [],
       "judge_needs_human_review": false,
-      "suggested_revision": "이는 SWE-bench Verified 점수의 향상이 더 이상 모델의 실제 소프트웨어 개발 능력에서의 의미 있는 향상을 반영하지 않고, 대신 모델이 학습 과정에서 해당 벤치마크에 얼마나 노출되었는지를 반영한다는 의미입니다. 따라서 우리는 SWE-bench Verified 점수 보고를 중단했으며, 다른 모델 개발자들도 이를 권장합니다.",
+      "suggested_revision": "이는 SWE-bench Verified의 개선이 더 이상 실제 소프트웨어 개발 능력의 의미 있는 향상을 반영하지 않음을 뜻합니다. 대신, 이러한 개선은 학습 시점에 해당 벤치마크에 얼마나 많이 노출되었는지를 점점 더 반영합니다. 이것이 우리가 SWE-bench Verified 점수 보고를 중단한 이유이며, 다른 모델 개발사들도 그렇게 할 것을 권장합니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -304,7 +292,7 @@
           }
         ]
       },
-      "overall_score": 94.8,
+      "overall_score": 93.0,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -312,18 +300,18 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-008",
       "source_en": "We’re building new, uncontaminated evaluations to better track coding capabilities, and we think this is an important area to focus on for the wider research community. Until we have those, OpenAI recommends reporting results for SWE-bench Pro.",
       "reference_ko": "코딩 능력을 더 잘 추적하기 위해 오염되지 않은 새로운 평가 지표를 구축하고 있으며, 이는 더 넓은 연구 커뮤니티가 집중해야 할 중요한 분야라고 생각합니다. 그러한 평가가 마련될 때까지, OpenAI는 SWE-bench Pro 결과를 보고할 것을 권장합니다.",
-      "candidate_ko": "우리는 코딩 능력 추적을 더 잘 하기 위해, 오염되지 않은 새로운 평가를 개발 중이며, 이 분야가 연구 커뮤니티 전반에 중요한 초점이라고 생각합니다. 해당 평가가 준비될 때까지 OpenAI는 SWE-bench Pro 결과 보고를 권장합니다.",
-      "backtranslated_en": "To better track coding ability, we are developing new, uncontaminated evaluations and consider this area an important focus for the research community. Until that evaluation is ready, OpenAI recommends reporting SWE-bench Pro results.",
-      "semantic_similarity_score": 92.3,
-      "backtranslation_similarity_score": 95.0,
+      "candidate_ko": "우리는 코딩 역량을 더 잘 추적하기 위해 새로운, 오염되지 않은 평가를 구축하고 있으며, 이는 더 넓은 연구 커뮤니티가 집중해야 할 중요한 영역이라고 생각합니다. 그때까지는 OpenAI가 SWE-bench Pro 결과 보고를 권장합니다.",
+      "backtranslated_en": "We are building a new, uncontaminated evaluation to better track coding capability, and we believe this is an important area for the broader research community to focus on. Until then, OpenAI recommends reporting SWE-bench Pro results.",
+      "semantic_similarity_score": 90.9,
+      "backtranslation_similarity_score": 97.9,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 97.0,
+      "llm_judge_score": 84.0,
       "issues": [
-        "'코딩 능력 추적을 더 잘 하기 위해'는 다소 직역 느낌",
-        "'해당 평가가 준비될 때까지'보다 '그러한 평가가 마련될 때까지'가 자연스러움"
+        "\"오염되지 않은 평가\"는 원문의 복수형 평가(evaluations) 의미가 약간 약합니다.",
+        "\"OpenAI가 ... 권장합니다\"는 원문의 추천 주체가 약간 어색하게 전달됩니다."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "코딩 능력을 더 잘 추적하기 위해 오염되지 않은 새로운 평가를 개발 중이며, 이 분야가 연구 커뮤니티 전반에서 중요한 초점이라고 생각합니다. 그러한 평가가 마련될 때까지 OpenAI는 SWE-bench Pro 결과 보고를 권장합니다.",
+      "suggested_revision": "우리는 코딩 역량을 더 잘 추적하기 위해 새로운, 오염되지 않은 평가들을 구축하고 있으며, 이는 더 넓은 연구 커뮤니티가 집중해야 할 중요한 영역이라고 생각합니다. 그러한 평가가 마련될 때까지 OpenAI는 SWE-bench Pro 결과를 보고할 것을 권장합니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -335,7 +323,7 @@
           }
         ]
       },
-      "overall_score": 95.5,
+      "overall_score": 91.9,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -366,25 +354,25 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-010",
       "source_en": "The original SWE-bench evaluation was released in 2023. Each problem is sourced from a resolved GitHub issue in one of 12 open-source Python repositories and paired with the corresponding pull request (PR). To determine whether a model-generated code change is correct, each problem comes with two sets of tests:",
       "reference_ko": "원본 SWE-bench 평가는 2023년에 공개되었습니다. 각 문제는 12개의 오픈 소스 Python 리포지터리 중 하나에서 해결된 GitHub 이슈로부터 가져오며, 해당 풀 리퀘스트(PR)와 짝을 이룹니다. 모델이 생성한 코드 변경 사항이 올바른지 판단하기 위해, 각 문제에는 두 가지 테스트 세트가 함께 제공됩니다.",
-      "candidate_ko": "원래의 SWE-bench 평가는 2023년에 발표되었습니다. 각 문제는 12개의 오픈소스 Python 저장소 중 하나에서 해결된 GitHub 이슈를 출처로 하며 해당 이슈와 연결된 풀 리퀘스트(PR)와 쌍을 이룹니다. 모델이 생성한 코드 변경이 올바른지 판단하기 위해, 각 문제에는 두 가지 테스트 세트가 포함됩니다:",
-      "backtranslated_en": "The original SWE-bench evaluation was published in 2023. Each problem is sourced from a GitHub issue resolved in one of twelve open-source Python repositories, paired with the pull request (PR) that fixed it. To judge if the model-generated code changes are correct, each problem includes two test sets:",
-      "semantic_similarity_score": 91.0,
-      "backtranslation_similarity_score": 98.2,
+      "candidate_ko": "원래의 SWE-bench 평가판은 2023년에 공개되었습니다. 각 문제는 12개의 오픈소스 Python 저장소에서 해결된 GitHub 이슈에서 가져왔으며, 해당 풀 리퀘스트(PR)와 짝지어져 있습니다. 모델이 생성한 코드 변경이 올바른지 판단하기 위해, 각 문제에는 두 가지 테스트 세트가 제공됩니다:",
+      "backtranslated_en": "The original SWE-bench evaluation set was released in 2023. Each issue was taken from resolved GitHub issues in 12 open-source Python repositories and paired with the corresponding pull request (PR). To judge whether the code changes generated by a model are correct, each problem comes with two test sets:",
+      "semantic_similarity_score": 92.6,
+      "backtranslation_similarity_score": 92.0,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 98.0,
+      "llm_judge_score": 91.0,
       "issues": [
-        "'출처로 하며 해당 이슈와 연결된' 부분이 다소 직역 느낌",
-        "어투가 약간 장황한 경향"
+        "문장 끝의 콜론이 원문 구조와 다르며, 다음 설명이 이어져야 합니다.",
+        "\"평가판\"은 다소 부자연스럽고 원문의 evaluation에 비해 덜 자연스럽습니다."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "원본 SWE-bench 평가는 2023년에 공개되었습니다. 각 문제는 12개의 오픈 소스 Python 저장소 중 하나에서 해결된 GitHub 이슈를 기반으로 하며, 해당 이슈를 해결한 풀 리퀘스트(PR)와 짝을 이룹니다. 모델이 생성한 코드 변경이 올바른지 판단하기 위해, 각 문제에는 두 가지 테스트 세트가 포함됩니다:",
+      "suggested_revision": "원래의 SWE-bench 평가는 2023년에 공개되었습니다. 각 문제는 12개의 오픈소스 Python 저장소 중 하나에서 해결된 GitHub 이슈에서 가져오며, 해당 풀 리퀘스트(PR)와 짝을 이룹니다. 모델이 생성한 코드 변경 사항이 올바른지 판단하기 위해, 각 문제에는 두 가지 테스트 세트가 함께 제공됩니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 96.2,
+      "overall_score": 93.1,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -392,16 +380,13 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-011",
       "source_en": "Tests that fail on the unmodified codebase but pass if the issue is correctly fixed",
       "reference_ko": "수정되지 않은 코드베이스에서는 실패하지만, 문제가 올바르게 수정되면 통과하는 테스트",
-      "candidate_ko": "수정되지 않은 코드베이스에서는 실패하지만 이슈가 올바르게 수정되었을 때 통과하는 테스트",
-      "backtranslated_en": "Tests that fail on the unmodified codebase but pass when the issue is correctly fixed",
-      "semantic_similarity_score": 95.8,
-      "backtranslation_similarity_score": 99.5,
+      "candidate_ko": "수정되지 않은 코드베이스에서는 실패하지만, 이슈가 올바르게 수정되면 통과하는 테스트",
+      "backtranslated_en": "Tests that fail on the unmodified codebase but pass if the issue is fixed correctly",
+      "semantic_similarity_score": 97.2,
+      "backtranslation_similarity_score": 99.4,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 95.0,
-      "issues": [
-        "'이슈'라는 단어가 '문제'보다 덜 공식적임",
-        "후행 조건문에서 '이슈가 올바르게 수정되었을 때' 부분 표현이 다소 직역 느낌"
-      ],
+      "llm_judge_score": 97.0,
+      "issues": [],
       "judge_needs_human_review": false,
       "suggested_revision": "수정되지 않은 코드베이스에서는 실패하지만, 문제가 올바르게 수정되면 통과하는 테스트",
       "metadata": {
@@ -410,7 +395,7 @@
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 97.1,
+      "overall_score": 98.1,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -418,25 +403,22 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-012",
       "source_en": "Regression tests that pass both before and after the fix to ensure unrelated functionality remains intact.",
       "reference_ko": "버그 수정과 무관한 기존 기능이 손상되지 않고 유지됨을 보장하기 위해, 수정 전후에 모두 통과해야 하는 회귀 테스트",
-      "candidate_ko": "수정 전후 모두 통과하여 관련 없는 기능이 유지되는지 확인하는 회귀 테스트",
-      "backtranslated_en": "Regression tests that pass both before and after modification to ensure unrelated functionality is preserved",
-      "semantic_similarity_score": 66.5,
-      "backtranslation_similarity_score": 89.5,
+      "candidate_ko": "수정 전과 후 모두 통과하여, 관련 없는 기능이 그대로 유지되는지 확인하는 회귀 테스트",
+      "backtranslated_en": "Regression tests that pass both before and after the fix, confirming that unrelated functionality remains intact",
+      "semantic_similarity_score": 67.7,
+      "backtranslation_similarity_score": 95.6,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 90.0,
-      "issues": [
-        "'관련 없는 기능' 표현이 '버그 수정과 무관한 기존 기능'보다 미묘하게 의미가 덜 명확함",
-        "좀 더 공식적이고 명확한 번역 가능"
-      ],
+      "llm_judge_score": 95.0,
+      "issues": [],
       "judge_needs_human_review": false,
-      "suggested_revision": "버그 수정과 무관한 기존 기능이 손상되지 않고 유지됨을 보장하기 위해, 수정 전후에 모두 통과해야 하는 회귀 테스트",
+      "suggested_revision": "수정 전과 후 모두 통과하여, 관련 없는 기능이 그대로 유지되는지 확인하는 회귀 테스트",
       "metadata": {
         "unit_type": "list_item",
         "tag": "LI",
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 84.3,
+      "overall_score": 87.7,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -444,25 +426,22 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-013",
       "source_en": "The model does not see the tests. It has to produce a code change given only the original issue text and the state of the repository before the fix. It passes a problem only if all tests pass after the code change is applied.",
       "reference_ko": "모델에게는 이 테스트 코드가 제공되지 않습니다. 원본 이슈 텍스트와 수정 전 리포지터리 상태만 주어진 환경에서 코드 수정안을 생성해야 합니다. 코드 변경 사항이 적용된 후 모든 테스트를 통과해야만 해당 문제를 통과한 것으로 간주됩니다.",
-      "candidate_ko": "모델은 테스트를 보지 못합니다. 모델은 수정 전 상태의 저장소와 원본 이슈 텍스트만을 바탕으로 코드 변경을 생성해야 합니다. 코드 변경이 적용된 후 모든 테스트를 통과해야만 문제를 통과한 것으로 간주됩니다.",
-      "backtranslated_en": "The model does not see the tests. It must generate the code change based only on the pre-modification repository state and the original issue text. A problem is considered passed only if all tests pass after applying the code change.",
-      "semantic_similarity_score": 77.8,
-      "backtranslation_similarity_score": 91.0,
+      "candidate_ko": "모델은 테스트를 보지 못합니다. 원래 이슈 텍스트와 수정 전 저장소의 상태만을 바탕으로 코드 변경을 만들어야 합니다. 코드 변경을 적용한 뒤 모든 테스트가 통과해야만 해당 문제를 해결한 것으로 간주됩니다.",
+      "backtranslated_en": "The model cannot see the tests. It must produce code changes based only on the original issue text and the pre-fix repository state. After applying the code changes, the problem is considered solved only if all tests pass.",
+      "semantic_similarity_score": 79.8,
+      "backtranslation_similarity_score": 92.1,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 98.0,
-      "issues": [
-        "전반적으로 정확하고 자연스러움",
-        "'원본 이슈 텍스트' 부분 일관성 좋음"
-      ],
+      "llm_judge_score": 96.0,
+      "issues": [],
       "judge_needs_human_review": false,
-      "suggested_revision": "모델에게는 이 테스트 코드가 제공되지 않습니다. 원본 이슈 텍스트와 수정 전 리포지터리 상태만 주어진 환경에서 코드 수정안을 생성해야 합니다. 코드 변경 사항이 적용된 후 모든 테스트를 통과해야만 해당 문제를 통과한 것으로 간주됩니다.",
+      "suggested_revision": "모델은 테스트를 보지 못합니다. 원래 이슈 텍스트와 수정 전 저장소의 상태만을 바탕으로 코드 변경을 만들어야 합니다. 코드 변경을 적용한 뒤 모든 테스트가 통과해야만 해당 문제가 해결된 것으로 간주됩니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 90.5,
+      "overall_score": 90.8,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -470,25 +449,22 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-014",
       "source_en": "We found many issues with that evaluation that could lead to underreporting the capability of models.",
       "reference_ko": "해당 평가에서 모델의 역량을 과소평가하게 만들 수 있는 여러 문제를 발견했습니다.",
-      "candidate_ko": "우리는 이 평가 방식에 모델의 능력을 과소평가할 수 있는 여러 문제점을 발견했습니다.",
-      "backtranslated_en": "We found several issues in this evaluation approach that may underestimate model capabilities.",
-      "semantic_similarity_score": 82.6,
-      "backtranslation_similarity_score": 86.5,
+      "candidate_ko": "우리는 이 평가에 모델의 능력을 과소평가하게 만들 수 있는 여러 문제를 발견했습니다.",
+      "backtranslated_en": "We found several issues with this evaluation that could cause it to underestimate a model's ability.",
+      "semantic_similarity_score": 84.7,
+      "backtranslation_similarity_score": 87.6,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 92.0,
-      "issues": [
-        "'평가 방식'이 원문 'evaluation'보다 한정적 표현",
-        "'여러 문제점' 대신 '여러 문제'가 더 간결"
-      ],
+      "llm_judge_score": 97.0,
+      "issues": [],
       "judge_needs_human_review": false,
-      "suggested_revision": "해당 평가에서 모델의 역량을 과소평가하게 만들 수 있는 여러 문제를 발견했습니다.",
+      "suggested_revision": "우리는 이 평가에 모델의 능력을 과소평가하게 만들 수 있는 여러 문제를 발견했습니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 89.0,
+      "overall_score": 91.4,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -496,25 +472,22 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-015",
       "source_en": "Some unit tests were overly specific or misaligned with the task so correct fixes could be rejected.",
       "reference_ko": "일부 단위 테스트는 지나치게 구체적이거나 작업 목적과 어긋나 있어, 올바른 수정안마저 거부될 수 있었습니다.",
-      "candidate_ko": "일부 단위 테스트가 과도하게 구체적이거나 과제와 맞지 않아 올바른 수정이 거부될 수 있었습니다.",
-      "backtranslated_en": "Some unit tests were overly specific or mismatched to the task, causing correct fixes to be rejected.",
-      "semantic_similarity_score": 82.7,
-      "backtranslation_similarity_score": 96.4,
+      "candidate_ko": "일부 단위 테스트는 지나치게 구체적이거나 과제와 맞지 않아, 올바른 수정도 거부될 수 있었습니다.",
+      "backtranslated_en": "Some unit tests were too specific or mismatched to the task, so even correct fixes could be rejected.",
+      "semantic_similarity_score": 86.6,
+      "backtranslation_similarity_score": 94.3,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 95.0,
-      "issues": [
-        "‘과제’ 대신 ‘작업 목적’이 공식적임",
-        "'과도하게' 대신 '지나치게'가 더 자연스러운 표현"
-      ],
+      "llm_judge_score": 98.0,
+      "issues": [],
       "judge_needs_human_review": false,
-      "suggested_revision": "일부 단위 테스트는 지나치게 구체적이거나 작업 목적과 어긋나 있어, 올바른 수정안마저 거부될 수 있었습니다.",
+      "suggested_revision": "일부 단위 테스트는 지나치게 구체적이거나 과제와 맞지 않아, 올바른 수정도 거부될 수 있었습니다.",
       "metadata": {
         "unit_type": "list_item",
         "tag": "LI",
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 92.4,
+      "overall_score": 94.0,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -522,26 +495,22 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-016",
       "source_en": "Many task statements were underspecified, which could lead to multiple valid interpretations - while the tests only covered a specific one.",
       "reference_ko": "많은 작업 명세가 불충분하여 여러 타당한 해석이 가능했지만, 테스트는 그중 특정 해석 하나만을 다루었습니다.",
-      "candidate_ko": "많은 과제 진술이 불충분하게 명시되어 있어 여러 유효한 해석이 가능하지만 테스트는 특정 하나만을 검증했습니다.",
-      "backtranslated_en": "Many task statements were insufficiently specified, allowing multiple valid interpretations but the tests verified only one specific case.",
-      "semantic_similarity_score": 73.1,
-      "backtranslation_similarity_score": 92.1,
+      "candidate_ko": "많은 과제 설명이 충분히 구체적이지 않아 여러 가지 유효한 해석이 가능했지만, 테스트는 그중 특정한 하나만을 다루고 있었습니다.",
+      "backtranslated_en": "Many task descriptions were not specific enough, allowing multiple valid interpretations, but the tests covered only one particular interpretation of them.",
+      "semantic_similarity_score": 76.9,
+      "backtranslation_similarity_score": 87.3,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 90.0,
-      "issues": [
-        "'진술'보다 '명세'가 더 자연스러운 기술 용어",
-        "'불충분하게 명시되어 있어' 다소 어색한 표현",
-        "'검증했습니다'는 테스트의 의미로는 덜 자연스러움"
-      ],
+      "llm_judge_score": 96.0,
+      "issues": [],
       "judge_needs_human_review": false,
-      "suggested_revision": "많은 작업 명세가 불충분하여 여러 타당한 해석이 가능하지만, 테스트는 그중 특정한 하나만을 다루었습니다.",
+      "suggested_revision": "많은 작업 명세가 충분히 구체적이지 않아 여러 가지 유효한 해석이 가능했지만, 테스트는 그중 특정한 하나만을 다루고 있었습니다.",
       "metadata": {
         "unit_type": "list_item",
         "tag": "LI",
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 87.0,
+      "overall_score": 88.7,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -549,26 +518,25 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-017",
       "source_en": "Depending on setup of the environment (for example Linux vs Windows, or the python version), some tests could spuriously fail",
       "reference_ko": "환경 설정(예: Linux와 Windows의 차이, 또는 Python 버전)에 따라 일부 테스트가 실제 오류가 없는데도 실패할 수 있었습니다.",
-      "candidate_ko": "환경 설정(예: Linux 대 Windows, 파이썬 버전)에 따라 일부 테스트가 일시적으로 실패할 수 있습니다.",
-      "backtranslated_en": "Some tests may temporarily fail depending on environment settings (e.g., Linux vs Windows, Python version).",
-      "semantic_similarity_score": 85.0,
-      "backtranslation_similarity_score": 82.2,
+      "candidate_ko": "환경 설정에 따라(예: Linux vs Windows, 또는 python 버전) 일부 테스트가 우연히 실패할 수 있습니다",
+      "backtranslated_en": "Depending on the environment setup (e.g., Linux vs Windows, or the python version), some tests may fail by chance.",
+      "semantic_similarity_score": 86.5,
+      "backtranslation_similarity_score": 89.1,
       "terminology_consistency_score": 100.0,
       "llm_judge_score": 92.0,
       "issues": [
-        "'일시적으로 실패' 표현이 원문의 'spuriously fail' 의미를 완전하지 않음",
-        "'환경 설정'에서 '설정' 보다는 '환경' 혹은 '구성'이 자연스러움",
-        "문장 마무리가 영어 현재형을 직역해 다소 딱딱함"
+        "영문 현재형(\"can\")에 비해 한국어가 과거형처럼 읽힐 수 있습니다.",
+        "\"우연히 실패\"는 원문의 \"spuriously fail\" 의미를 잘 전달하지만, 공식 문체에서는 \"오탐으로 실패\"가 더 자연스럽습니다."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "환경 구성(예: Linux와 Windows, 파이썬 버전)에 따라 일부 테스트가 실제 오류 없이도 실패할 수 있습니다.",
+      "suggested_revision": "환경 설정(예: Linux와 Windows의 차이 또는 Python 버전)에 따라 일부 테스트가 오탐으로 실패할 수 있습니다.",
       "metadata": {
         "unit_type": "list_item",
         "tag": "LI",
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 88.6,
+      "overall_score": 90.8,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -576,19 +544,18 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-018",
       "source_en": "We created SWE-bench Verified in 2024 to address these issues. We worked with expert software engineers to review 1,699 SWE-bench problems and filter out problems that had these issues. Each problem was reviewed by three experts independently. This review process resulted in SWE-bench Verified, a curated set of 500 problems.",
       "reference_ko": "이러한 문제를 해결하기 위해 2024년에 SWE-bench Verified를 구축했습니다. 전문 소프트웨어 엔지니어와 협력하여 1,699개의 SWE-bench 문제를 검토하고, 이러한 문제가 있는 항목을 걸러냈습니다. 각 문제는 3명의 전문가가 독립적으로 검토했습니다. 이 검토 과정을 거쳐 엄선된 500개의 문제 세트인 SWE-bench Verified가 만들어졌습니다.",
-      "candidate_ko": "2024년에 이러한 문제를 해결하기 위해 SWE-bench Verified를 만들었습니다. 전문가 소프트웨어 엔지니어들과 협력하여 1,699개의 SWE-bench 문제를 검토하고 문제점을 가진 문제를 필터링했습니다. 각 문제는 세 명의 전문가가 독립적으로 검토했습니다. 이 검토 과정을 통해 500개의 문제가 선정된 SWE-bench Verified가 탄생했습니다.",
-      "backtranslated_en": "In 2024, we created SWE-bench Verified to address these issues. We collaborated with expert software engineers to review 1,699 SWE-bench problems and filter out problematic ones. Each problem was independently reviewed by three experts. This review process resulted in the selection of 500 problems forming SWE-bench Verified.",
-      "semantic_similarity_score": 96.4,
-      "backtranslation_similarity_score": 98.8,
+      "candidate_ko": "우리는 이러한 문제를 해결하기 위해 2024년에 SWE-bench Verified를 만들었습니다. 우리는 전문 소프트웨어 엔지니어들과 함께 1,699개의 SWE-bench 문제를 검토하고, 이러한 문제가 있는 항목을 걸러냈습니다. 각 문제는 세 명의 전문가가 독립적으로 검토했습니다. 이 검토 과정을 통해 500개 문제로 구성된 선별된 세트인 SWE-bench Verified가 만들어졌습니다.",
+      "backtranslated_en": "We created SWE-bench Verified in 2024 to address these issues. Together with professional software engineers, we reviewed 1,699 SWE-bench problems and filtered out the items with these issues. Each problem was independently reviewed by three experts. This review process produced SWE-bench Verified, a curated set of 500 problems.",
+      "semantic_similarity_score": 96.7,
+      "backtranslation_similarity_score": 99.1,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 95.0,
+      "llm_judge_score": 93.0,
       "issues": [
-        "'필터링했습니다'가 다소 직역 느낌",
-        "'문제점을 가진 문제' 표현 반복적임",
-        "'탄생했습니다'가 문서 스타일에는 다소 구어체"
+        "\"우리는\" 반복이 다소 직설적입니다.",
+        "\"선별된 세트\"는 자연스럽지만, 원문의 \"curated set\"에 맞춰 \"엄선된 세트\"도 가능합니다."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "2024년에 이러한 문제를 해결하기 위해 SWE-bench Verified를 만들었습니다. 전문가 소프트웨어 엔지니어들과 협력하여 1,699개의 SWE-bench 문제를 검토하고 문제가 있는 문제를 걸러냈습니다. 각 문제는 세 명의 전문가가 독립적으로 검토했습니다. 이 검토 과정을 통해 500개의 문제가 선정된 SWE-bench Verified가 만들어졌습니다.",
+      "suggested_revision": "이러한 문제를 해결하기 위해 2024년에 SWE-bench Verified를 만들었습니다. 전문 소프트웨어 엔지니어들과 함께 1,699개의 SWE-bench 문제를 검토하고, 이러한 문제가 있는 항목을 걸러냈습니다. 각 문제는 세 명의 전문가가 독립적으로 검토했습니다. 이 검토 과정을 통해 500개 문제로 구성된 엄선된 세트인 SWE-bench Verified가 만들어졌습니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -600,7 +567,7 @@
           }
         ]
       },
-      "overall_score": 97.1,
+      "overall_score": 96.7,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -608,15 +575,13 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-019",
       "source_en": "Too narrow and too wide tests",
       "reference_ko": "너무 제한적이거나 너무 광범위한 테스트",
-      "candidate_ko": "너무 좁거나 너무 넓은 테스트",
-      "backtranslated_en": "Tests that are too narrow or too broad.",
-      "semantic_similarity_score": 73.4,
-      "backtranslation_similarity_score": 74.9,
+      "candidate_ko": "너무 좁고 너무 넓은 테스트",
+      "backtranslated_en": "Tests that are too narrow and too broad",
+      "semantic_similarity_score": 65.0,
+      "backtranslation_similarity_score": 81.2,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 98.0,
-      "issues": [
-        "약간 덜 공식적인 '좁거나 넓은' 대신 '제한적이거나 광범위한'이 더 적합"
-      ],
+      "llm_judge_score": 96.0,
+      "issues": [],
       "judge_needs_human_review": false,
       "suggested_revision": "너무 제한적이거나 너무 광범위한 테스트",
       "metadata": {
@@ -625,7 +590,7 @@
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 85.1,
+      "overall_score": 83.6,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -633,19 +598,18 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-020",
       "source_en": "While SWE-bench Verified is a big improvement over the initial version, residual issues remain. We conducted an audit of 138 SWE-bench Verified problems that OpenAI o3 did not consistently solve over 64 independent runs. Each case was independently reviewed by at least six experienced software engineers. If an expert flagged an issue, it was re-verified by an additional team.",
       "reference_ko": "SWE-bench Verified가 초기 버전에 비해 크게 개선되긴 했지만, 여전히 문제가 남아있습니다. 64회의 독립적인 실행에서 OpenAI o3가 일관되게 해결하지 못한 138개의 SWE-bench Verified 문제를 대상으로 감사를 진행했습니다. 각 사례는 최소 6명의 숙련된 소프트웨어 엔지니어가 독립적으로 검토했습니다. 전문가가 문제를 지적하면 별도의 팀에서 이를 재검증했습니다.",
-      "candidate_ko": "SWE-bench Verified가 초기 버전에 비해 크게 개선되었지만, 잔여 문제가 여전히 존재합니다. OpenAI o3가 64회의 독립 실행에서 일관되게 해결하지 못한 138개의 SWE-bench Verified 문제를 감사했습니다. 각 사례는 최소 6명의 경험 많은 소프트웨어 엔지니어가 독립적으로 검토했습니다. 전문가가 문제를 발견하면 추가 팀이 다시 검증했습니다.",
-      "backtranslated_en": "While SWE-bench Verified greatly improved over the initial version, residual issues remain. OpenAI o3 audited 138 SWE-bench Verified problems that it consistently failed to solve across 64 independent runs. Each case was independently reviewed by at least six experienced software engineers. If experts found a problem, additional teams re-verified it.",
-      "semantic_similarity_score": 95.8,
-      "backtranslation_similarity_score": 97.7,
+      "candidate_ko": "SWE-bench Verified는 초기 버전에 비해 큰 개선이었지만, 여전히 일부 문제가 남아 있습니다. 우리는 OpenAI o3가 64회의 독립 실행에서 일관되게 해결하지 못한 138개의 SWE-bench Verified 문제를 감사했습니다. 각 사례는 최소 6명의 숙련된 소프트웨어 엔지니어가 독립적으로 검토했습니다. 전문가가 문제를 지적하면, 추가 팀이 이를 다시 검증했습니다.",
+      "backtranslated_en": "SWE-bench Verified was a major improvement over the initial version, but some issues still remain. We audited 138 SWE-bench Verified problems that OpenAI o3 could not consistently solve across 64 independent runs. Each case was independently reviewed by at least 6 experienced software engineers. When an expert flagged a problem, an additional team re-verified it.",
+      "semantic_similarity_score": 96.8,
+      "backtranslation_similarity_score": 97.3,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 96.0,
+      "llm_judge_score": 95.0,
       "issues": [
-        "'잔여 문제가 여전히 존재합니다' 중복 어감",
-        "'감사했습니다' 대신 '감사를 진행했습니다'가 더 자연스러움",
-        "'추가 팀'보다는 '별도의 팀'이 더 적절한 용어"
+        "\"감사했습니다\"는 원문의 audit를 잘 옮겼지만, 문맥상 \"감사를 실시했습니다\"가 더 자연스럽습니다.",
+        "\"여전히 일부 문제가 남아 있습니다\"는 무난하지만 원문에 더 가깝게는 \"잔여 문제가 남아 있습니다\"도 가능합니다."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "SWE-bench Verified가 초기 버전에 비해 크게 개선되었지만, 여전히 일부 문제가 남아 있습니다. 64회의 독립 실행에서 OpenAI o3가 일관되게 해결하지 못한 138개의 SWE-bench Verified 문제를 대상으로 감사를 진행했습니다. 각 사례는 최소 6명의 경험 많은 소프트웨어 엔지니어가 독립적으로 검토했습니다. 전문가가 문제를 발견하면 별도의 팀이 다시 검증했습니다.",
+      "suggested_revision": "SWE-bench Verified는 초기 버전에 비해 큰 개선이었지만, 여전히 잔여 문제가 남아 있습니다. 우리는 OpenAI o3가 64회의 독립 실행에서 일관되게 해결하지 못한 138개의 SWE-bench Verified 문제를 감사했습니다. 각 사례는 최소 6명의 숙련된 소프트웨어 엔지니어가 독립적으로 검토했습니다. 전문가가 문제를 지적하면 추가 팀이 이를 다시 검증했습니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -657,7 +621,7 @@
           }
         ]
       },
-      "overall_score": 97.0,
+      "overall_score": 96.9,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -665,26 +629,24 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-021",
       "source_en": "We found that 59.4% of the 138 problems contained material issues in test design and/or problem description, rendering them extremely difficult or impossible even for the most capable model or human to solve.",
       "reference_ko": "그 결과, 138개의 문제 중 59.4%가 테스트 설계 및/또는 문제 설명에 중대한 결함을 포함하고 있어, 가장 뛰어난 모델이나 사람조차도 해결하는 것이 매우 어렵거나 불가능하다는 사실을 발견했습니다.",
-      "candidate_ko": "138개 문제 중 59.4%가 테스트 설계 및/또는 문제 설명에서 중대한 문제를 포함하고 있어, 가장 능력 있는 모델이나 인간도 해결하기 매우 어렵거나 불가능했습니다.",
-      "backtranslated_en": "Among the 138 problems, 59.4% included significant issues in test design and/or problem descriptions, making them very difficult or impossible to solve even for the most capable models or humans.",
-      "semantic_similarity_score": 89.5,
-      "backtranslation_similarity_score": 93.7,
+      "candidate_ko": "감사한 138개 문제 중 59.4%에서 테스트 설계 및/또는 문제 설명에 중대한 문제가 발견되어, 가장 뛰어난 모델이나 인간에게도 해결이 매우 어렵거나 불가능한 것으로 나타났습니다.",
+      "backtranslated_en": "In 59.4% of the 138 audited problems, major issues were found in the test design and/or problem description, making them very difficult or impossible even for the best models or humans to solve.",
+      "semantic_similarity_score": 89.3,
+      "backtranslation_similarity_score": 89.1,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 95.0,
+      "llm_judge_score": 90.0,
       "issues": [
-        "Minor stylistic difference in phrasing",
-        "'중대한 결함' vs '중대한 문제' - minor terminology nuance",
-        "Candidate slightly less formal than reference"
+        "\"감사한\"은 문맥상 \"감사 대상\"이 더 자연스럽습니다."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "138개 문제 중 59.4%가 테스트 설계 및/또는 문제 설명에 중대한 결함을 포함하고 있어, 가장 뛰어난 모델이나 인간조차도 해결하기 매우 어렵거나 불가능했습니다.",
+      "suggested_revision": "감사 대상 138개 문제 중 59.4%에서 테스트 설계 및/또는 문제 설명에 중대한 문제가 발견되어, 가장 뛰어난 모델이나 인간에게도 해결이 매우 어렵거나 불가능한 것으로 나타났습니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 93.8,
+      "overall_score": 91.1,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -692,22 +654,91 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-022",
       "source_en": "35.5% of the audited tasks have strict test cases that enforce specific implementation details, invalidating many functionally correct submissions, which we call narrow test cases.",
       "reference_ko": "감사 대상 작업의 35.5%에는 특정 구현 세부 사항을 강제하여 기능적으로 올바른 다수의 제출물을 무효화하는 엄격한 테스트 케이스가 포함되어 있으며, 이를 제한적인 테스트 케이스라고 부릅니다.",
-      "candidate_ko": "감사한 작업의 35.5%는 특정 구현 세부사항을 엄격히 요구하는 테스트 케이스를 포함하여, 기능적으로 올바른 많은 제출물을 무효화하는 좁은 테스트 케이스입니다.",
-      "backtranslated_en": "35.5% of the audited problems included test cases that strictly require specific implementation details, invalidating many functionally correct submissions; these are narrow test cases.",
-      "semantic_similarity_score": 93.2,
-      "backtranslation_similarity_score": 89.3,
+      "candidate_ko": "감사한 작업의 35.5%는 특정 구현 세부사항을 강제하는 엄격한 테스트 케이스를 포함하고 있어, 기능적으로는 올바른 많은 제출물을 무효화했으며, 이를 우리는 좁은 테스트 케이스라고 부릅니다.",
+      "backtranslated_en": "35.5% of the audited tasks included strict test cases that enforced specific implementation details, invalidating many functionally correct submissions; we call these narrow test cases.",
+      "semantic_similarity_score": 92.8,
+      "backtranslation_similarity_score": 97.9,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 90.0,
-      "issues": [
-        "'좁은 테스트 케이스' vs '제한적인 테스트 케이스' - terminology variation",
-        "Candidate uses '감사한 작업' which is less natural than '감사 대상 작업'",
-        "Some wording slightly less formal/natural"
-      ],
+      "llm_judge_score": 94.0,
+      "issues": [],
       "judge_needs_human_review": false,
-      "suggested_revision": "감사 대상 작업의 35.5%에는 특정 구현 세부 사항을 엄격히 요구하는 테스트 케이스가 포함되어 있어, 기능적으로 올바른 많은 제출물을 무효화하는 좁은 테스트 케이스입니다.",
+      "suggested_revision": "감사 대상 작업의 35.5%는 특정 구현 세부사항을 강제하는 엄격한 테스트 케이스를 포함하고 있어, 기능적으로는 올바른 많은 제출물을 무효화했으며, 이를 우리는 좁은 테스트 케이스라고 부릅니다.",
       "metadata": {
         "unit_type": "list_item",
         "tag": "LI",
+        "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
+        "terminology_details": []
+      },
+      "overall_score": 95.5,
+      "review_reasons": [],
+      "needs_human_review": false
+    },
+    {
+      "id": "why-we-no-longer-evaluate-swe-bench-verified.block-023",
+      "source_en": "18.8% of the audited tasks have tests that check for additional functionality that wasn’t specified in the problem description, which we call wide test cases.",
+      "reference_ko": "감사 대상 작업의 18.8%에는 문제 설명에 명시되지 않은 추가 기능을 검사하는 테스트가 포함되어 있으며, 이를 광범위한 테스트 케이스라고 부릅니다.",
+      "candidate_ko": "감사한 작업의 18.8%는 문제 설명에 명시되지 않은 추가 기능을 검증하는 테스트를 포함하고 있으며, 이를 우리는 넓은 테스트 케이스라고 부릅니다.",
+      "backtranslated_en": "18.8% of the audited tasks included tests that verified extra functionality not specified in the problem description; we call these broad test cases.",
+      "semantic_similarity_score": 91.5,
+      "backtranslation_similarity_score": 93.4,
+      "terminology_consistency_score": 100.0,
+      "llm_judge_score": 93.0,
+      "issues": [
+        "\"넓은 테스트 케이스\"는 원문의 \"wide test cases\"를 잘 옮겼지만, 참고 번역의 \"광범위한 테스트 케이스\"보다 다소 덜 관용적입니다."
+      ],
+      "judge_needs_human_review": false,
+      "suggested_revision": "감사 대상 작업의 18.8%는 문제 설명에 명시되지 않은 추가 기능을 검증하는 테스트를 포함하고 있으며, 이를 우리는 광범위한 테스트 케이스라고 부릅니다.",
+      "metadata": {
+        "unit_type": "list_item",
+        "tag": "LI",
+        "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
+        "terminology_details": []
+      },
+      "overall_score": 93.7,
+      "review_reasons": [],
+      "needs_human_review": false
+    },
+    {
+      "id": "why-we-no-longer-evaluate-swe-bench-verified.block-024",
+      "source_en": "The remaining 5.1% of tasks had miscellaneous issues that were not well grouped with this taxonomy.",
+      "reference_ko": "나머지 5.1%의 작업에는 이 분류 기준에 명확하게 속하지 않는 기타 문제가 있었습니다.",
+      "candidate_ko": "나머지 5.1%의 작업에는 이 분류 체계로는 잘 묶이지 않는 기타 문제가 있었습니다.",
+      "backtranslated_en": "The remaining 5.1% of tasks had other issues that did not fit this classification scheme well.",
+      "semantic_similarity_score": 91.7,
+      "backtranslation_similarity_score": 87.4,
+      "terminology_consistency_score": 100.0,
+      "llm_judge_score": 95.0,
+      "issues": [],
+      "judge_needs_human_review": false,
+      "suggested_revision": "나머지 5.1%의 작업에는 이 분류 체계로는 잘 묶이지 않는 기타 문제가 있었습니다.",
+      "metadata": {
+        "unit_type": "list_item",
+        "tag": "LI",
+        "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
+        "terminology_details": []
+      },
+      "overall_score": 92.9,
+      "review_reasons": [],
+      "needs_human_review": false
+    },
+    {
+      "id": "why-we-no-longer-evaluate-swe-bench-verified.block-025",
+      "source_en": "An illustrative example of the first failure mode is pylint-dev__pylint-4551, where the PR introduces a new function `get_annotation` as part of the overall solution. This function name is not mentioned in the problem description, but is imported directly by the tests. While some models might intuit to create such a function, it’s not strictly necessary to implement a function with this specific name to correctly address the problem. Many valid solutions fail the tests on import errors.",
+      "reference_ko": "첫 번째 실패 유형을 잘 보여주는 예는 pylint-dev__pylint-4551 로, 해당 PR에서는 전체 해결책의 일환으로 `get_annotation`이라는 새로운 함수를 도입합니다. 이 함수 이름은 문제 명세에 언급되어 있지 않지만, 테스트 코드에서 직접 임포트합니다. 일부 모델이 스스로 유추하여 이러한 함수를 작성할 수도 있겠지만, 문제를 올바르게 해결하기 위해 이 특정 이름의 함수를 반드시 구현해야 하는 것은 아닙니다. 많은 유효한 해결책이 임포트 오류로 인해 테스트에 실패합니다.",
+      "candidate_ko": "첫 번째 실패 양상의 대표적인 예는 pylint-dev__pylint-4551로, 이 PR은 전체 해결책의 일부로 새로운 함수 `get_annotation`을 추가합니다. 이 함수명은 문제 설명에는 언급되지 않지만, 테스트에서 직접 import합니다. 일부 모델은 이런 함수를 만들어야 한다고 직관적으로 판단할 수도 있지만, 해당 문제를 올바르게 해결하는 데 꼭 이 특정 이름의 함수를 구현할 필요는 없습니다. 많은 유효한 해법이 import 오류로 테스트에 실패합니다.",
+      "backtranslated_en": "A representative example of the first failure mode is pylint-dev__pylint-4551, where this PR adds a new function `get_annotation` as part of the overall fix. The function name is not mentioned in the issue description, but the tests import it directly. Some models may intuitively think such a function should be created, but correctly solving the issue does not require implementing a function with this exact name. Many valid solutions fail tests with an import error.",
+      "semantic_similarity_score": 85.8,
+      "backtranslation_similarity_score": 95.8,
+      "terminology_consistency_score": 100.0,
+      "llm_judge_score": 92.0,
+      "issues": [
+        "\"해당 문제\"는 원문과 비교해 약간 의미가 좁아질 수 있어 \"문제\" 또는 \"해당 사안\"이 더 자연스럽습니다."
+      ],
+      "judge_needs_human_review": false,
+      "suggested_revision": "첫 번째 실패 양상의 대표적인 예는 pylint-dev__pylint-4551로, 이 PR은 전체 해결책의 일부로 새로운 함수 `get_annotation`을 추가합니다. 이 함수명은 문제 설명에는 언급되지 않지만, 테스트에서 직접 import합니다. 일부 모델은 이런 함수를 만들어야 한다고 직관적으로 판단할 수도 있지만, 이 특정 이름의 함수를 구현해야만 문제를 올바르게 해결하는 것은 아닙니다. 많은 유효한 해법이 import 오류로 테스트에 실패합니다.",
+      "metadata": {
+        "unit_type": "paragraph",
+        "tag": "P",
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
@@ -716,102 +747,18 @@
       "needs_human_review": false
     },
     {
-      "id": "why-we-no-longer-evaluate-swe-bench-verified.block-023",
-      "source_en": "18.8% of the audited tasks have tests that check for additional functionality that wasn’t specified in the problem description, which we call wide test cases.",
-      "reference_ko": "감사 대상 작업의 18.8%에는 문제 설명에 명시되지 않은 추가 기능을 검사하는 테스트가 포함되어 있으며, 이를 광범위한 테스트 케이스라고 부릅니다.",
-      "candidate_ko": "감사한 작업의 18.8%는 문제 설명에 명시되지 않은 추가 기능을 검사하는 테스트가 포함되어 있으며, 이를 넓은 테스트 케이스라고 부릅니다.",
-      "backtranslated_en": "18.8% of the audited problems included tests checking additional functionality not stated in the problem description; these are called broad test cases.",
-      "semantic_similarity_score": 93.7,
-      "backtranslation_similarity_score": 88.2,
-      "terminology_consistency_score": 100.0,
-      "llm_judge_score": 92.0,
-      "issues": [
-        "'넓은 테스트 케이스' vs '광범위한 테스트 케이스' - slight terminology difference",
-        "'감사한 작업' less natural than '감사 대상 작업'",
-        "Minor style differences"
-      ],
-      "judge_needs_human_review": false,
-      "suggested_revision": "감사 대상 작업의 18.8%에는 문제 설명에 명시되지 않은 추가 기능을 검사하는 테스트가 포함되어 있으며, 이를 광범위한 테스트 케이스라고 부릅니다.",
-      "metadata": {
-        "unit_type": "list_item",
-        "tag": "LI",
-        "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
-        "terminology_details": []
-      },
-      "overall_score": 92.8,
-      "review_reasons": [],
-      "needs_human_review": false
-    },
-    {
-      "id": "why-we-no-longer-evaluate-swe-bench-verified.block-024",
-      "source_en": "The remaining 5.1% of tasks had miscellaneous issues that were not well grouped with this taxonomy.",
-      "reference_ko": "나머지 5.1%의 작업에는 이 분류 기준에 명확하게 속하지 않는 기타 문제가 있었습니다.",
-      "candidate_ko": "나머지 5.1% 작업은 이 분류법으로 명확히 묶기 어려운 기타 문제를 포함하고 있었습니다.",
-      "backtranslated_en": "The remaining 5.1% of problems contained other issues that were difficult to categorize clearly under this classification.",
-      "semantic_similarity_score": 86.1,
-      "backtranslation_similarity_score": 76.7,
-      "terminology_consistency_score": 100.0,
-      "llm_judge_score": 95.0,
-      "issues": [
-        "Minor variation in phrasing",
-        "Candidate is natural and clear",
-        "Slight terminology difference: '분류 기준' vs '분류법'"
-      ],
-      "judge_needs_human_review": false,
-      "suggested_revision": "나머지 5.1%의 작업에는 이 분류 기준에 명확하게 속하지 않는 기타 문제가 있었습니다.",
-      "metadata": {
-        "unit_type": "list_item",
-        "tag": "LI",
-        "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
-        "terminology_details": []
-      },
-      "overall_score": 88.5,
-      "review_reasons": [],
-      "needs_human_review": false
-    },
-    {
-      "id": "why-we-no-longer-evaluate-swe-bench-verified.block-025",
-      "source_en": "An illustrative example of the first failure mode is pylint-dev__pylint-4551, where the PR introduces a new function `get_annotation` as part of the overall solution. This function name is not mentioned in the problem description, but is imported directly by the tests. While some models might intuit to create such a function, it’s not strictly necessary to implement a function with this specific name to correctly address the problem. Many valid solutions fail the tests on import errors.",
-      "reference_ko": "첫 번째 실패 유형을 잘 보여주는 예는 pylint-dev__pylint-4551 로, 해당 PR에서는 전체 해결책의 일환으로 `get_annotation`이라는 새로운 함수를 도입합니다. 이 함수 이름은 문제 명세에 언급되어 있지 않지만, 테스트 코드에서 직접 임포트합니다. 일부 모델이 스스로 유추하여 이러한 함수를 작성할 수도 있겠지만, 문제를 올바르게 해결하기 위해 이 특정 이름의 함수를 반드시 구현해야 하는 것은 아닙니다. 많은 유효한 해결책이 임포트 오류로 인해 테스트에 실패합니다.",
-      "candidate_ko": "첫 번째 실패 모드의 예시는 pylint-dev__pylint-4551로, 이 PR은 전체 해결책의 일부로 새 함수 `get_annotation`을 도입합니다. 이 함수 이름은 문제 설명에 언급되지 않았지만 테스트에서 직접 임포트됩니다. 일부 모델은 이런 함수를 직관적으로 생성할 수 있으나, 문제를 정확히 해결하는 데 이 함수 이름을 꼭 구현해야 하는 것은 아닙니다. 많은 유효한 해결책이 임포트 오류로 테스트에 실패합니다.",
-      "backtranslated_en": "An example of the first failure mode is pylint-dev__pylint-4551, where this PR introduces a new function `get_annotation` as part of the full solution. The function name is not mentioned in the problem statement but is imported directly in the tests. Some models may intuitively generate such a function, but implementing this exact function name is not necessary to fully solve the problem. Many valid solutions fail tests due to import errors.",
-      "semantic_similarity_score": 90.1,
-      "backtranslation_similarity_score": 97.3,
-      "terminology_consistency_score": 100.0,
-      "llm_judge_score": 98.0,
-      "issues": [
-        "Very minor stylistic difference ('문제 명세' vs '문제 설명')",
-        "Overall terminology and style very consistent"
-      ],
-      "judge_needs_human_review": false,
-      "suggested_revision": "첫 번째 실패 유형을 잘 보여주는 예는 pylint-dev__pylint-4551 로, 해당 PR에서는 전체 해결책의 일환으로 `get_annotation`이라는 새로운 함수를 도입합니다. 이 함수 이름은 문제 명세에 언급되어 있지 않지만, 테스트 코드에서 직접 임포트합니다. 일부 모델이 스스로 유추하여 이러한 함수를 작성할 수도 있겠지만, 문제를 올바르게 해결하기 위해 이 특정 이름의 함수를 반드시 구현해야 하는 것은 아닙니다. 많은 유효한 해결책이 임포트 오류로 인해 테스트에 실패합니다.",
-      "metadata": {
-        "unit_type": "paragraph",
-        "tag": "P",
-        "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
-        "terminology_details": []
-      },
-      "overall_score": 95.8,
-      "review_reasons": [],
-      "needs_human_review": false
-    },
-    {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-026",
       "source_en": "An example of too wide test cases is sympy__sympy-18199. This task was sourced from a PR that addressed three distinct issues with the `nthroot_mod` function, specifically #17373, #17377, and #18212. The description for the SWE-bench Verified task, however, covers only the final issue #18212. This creates a mismatch: the PR tests cover all three issues, while the description details only one. In our runs, models often correctly implement the described fix and then fail tests that cover implementation for the other two issues.",
       "reference_ko": "너무 광범위한 테스트 케이스의 예로는 sympy__sympy-18199 가 있습니다. 이 작업은 `nthroot_mod` 함수와 관련된 세 가지 별개의 이슈인 #17373, #17377, #18212 를 해결한 PR에서 가져왔습니다. 하지만 SWE-bench Verified 작업의 설명은 마지막 이슈인 #18212 만을 다룹니다. 이는 불일치를 초래합니다. PR 테스트는 세 가지 이슈를 모두 다루는 반면, 설명은 단 하나의 이슈만 상세히 기술합니다. 실행 과정에서 여러 모델이 종종 설명된 수정 사항을 올바르게 구현하고도 나머지 두 이슈의 구현을 다루는 테스트에서 실패했습니다.",
-      "candidate_ko": "너무 포괄적인 테스트 사례의 예로 sympy__sympy-18199가 있습니다. 이 작업은 `nthroot_mod` 함수의 세 가지 별도 문제인 #17373, #17377, #18212를 다룬 PR에서 가져왔습니다. 그러나 SWE-bench Verified 작업 설명에는 마지막 문제 #18212만 포함되어 있습니다. 이로 인해 PR 테스트는 세 문제를 모두 다루지만 설명은 하나만 상세히 다루어 불일치가 발생합니다. 실제 실행 결과, 모델은 설명된 수정 사항을 올바르게 구현하지만 나머지 두 문제의 테스트에서는 실패하는 경우가 많았습니다.",
-      "backtranslated_en": "An example of an overly broad test case is sympy__sympy-18199. This work derives from a PR addressing three separate issues of the `nthroot_mod` function: #17373, #17377, and #18212. However, the SWE-bench Verified problem description includes only the last issue #18212. This causes a mismatch where the PR tests cover all three issues, but the description details only one. In practice, models correctly implement the described fix but often fail the tests for the other two issues.",
-      "semantic_similarity_score": 89.2,
-      "backtranslation_similarity_score": 93.3,
+      "candidate_ko": "과도하게 넓은 테스트 사례의 예는 sympy__sympy-18199입니다. 이 작업은 `nthroot_mod` 함수의 서로 다른 세 가지 문제, 즉 #17373, #17377, #18212를 다룬 PR에서 가져왔습니다. 그러나 SWE-bench Verified 작업 설명은 마지막 문제 #18212만 다룹니다. 이로 인해 불일치가 생깁니다. PR 테스트는 세 가지 문제를 모두 포괄하지만, 설명은 그중 하나만 상세히 다룹니다. 우리의 실행에서는 모델이 설명된 수정 사항을 올바르게 구현한 뒤, 나머지 두 문제의 구현을 다루는 테스트에서 실패하는 경우가 많았습니다.",
+      "backtranslated_en": "An example of an overly broad test case is sympy__sympy-18199. This task was taken from a PR that addresses three different issues in the `nthroot_mod` function: #17373, #17377, and #18212. However, the SWE-bench Verified task description covers only the last issue, #18212. This creates a mismatch. The PR tests cover all three issues, but the description discusses only one of them in detail. In our runs, after models correctly implemented the described fix, they often failed on tests that covered implementation details of the other two issues.",
+      "semantic_similarity_score": 84.1,
+      "backtranslation_similarity_score": 95.1,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 95.0,
-      "issues": [
-        "'too wide' 번역을 '너무 포괄적인'으로 번역했으나, 원문의 뉘앙스를 자연스럽게 잘 반영함",
-        "'mismatch'를 '불일치가 발생'으로 자연스럽게 표현함",
-        "전반적으로 전문 용어와 스타일이 적절하며 의미 전달이 정확함"
-      ],
+      "llm_judge_score": 97.0,
+      "issues": [],
       "judge_needs_human_review": false,
-      "suggested_revision": "너무 광범위한 테스트 사례의 예로 sympy__sympy-18199가 있습니다. 이 작업은 `nthroot_mod` 함수의 세 가지 별도 문제인 #17373, #17377, #18212를 다룬 PR에서 가져왔습니다. 하지만 SWE-bench Verified 작업 설명에는 마지막 문제 #18212만 포함되어 있습니다. 이로 인해 PR 테스트는 세 문제를 모두 다루지만 설명은 하나만 상세히 다루어 불일치가 발생합니다. 실제 실행 결과, 모델은 설명된 수정 사항을 올바르게 구현하지만 나머지 두 문제의 테스트에서는 실패하는 경우가 많았습니다.",
+      "suggested_revision": "과도하게 넓은 테스트 사례의 예는 sympy__sympy-18199입니다. 이 작업은 `nthroot_mod` 함수의 서로 다른 세 가지 문제, 즉 #17373, #17377, #18212를 다룬 PR에서 가져왔습니다. 그러나 SWE-bench Verified 작업 설명은 마지막 문제 #18212만 다룹니다. 이로 인해 불일치가 생깁니다. PR 테스트는 세 가지 문제를 모두 포괄하지만, 설명은 그중 하나만 상세히 다룹니다. 우리의 실행에서는 모델이 설명된 수정 사항을 올바르게 구현한 뒤, 나머지 두 문제의 구현을 다루는 테스트에서 실패하는 경우가 많았습니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -823,7 +770,7 @@
           }
         ]
       },
-      "overall_score": 93.6,
+      "overall_score": 93.1,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -831,17 +778,13 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-027",
       "source_en": "Contamination",
       "reference_ko": "오염",
-      "candidate_ko": "오염(Contamination)",
+      "candidate_ko": "오염",
       "backtranslated_en": "Contamination",
-      "semantic_similarity_score": 75.8,
+      "semantic_similarity_score": 100.0,
       "backtranslation_similarity_score": 100.0,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 90.0,
-      "issues": [
-        "'오염(Contamination)'으로 병기한 점은 용어 일관성 측면에서 약간 과잉임",
-        "다만 단어 하나이므로 의미 전달에는 문제 없음",
-        "참고용 병기 표현은 스타일 차원에 가깝고 큰 문제는 아님"
-      ],
+      "llm_judge_score": 100.0,
+      "issues": [],
       "judge_needs_human_review": false,
       "suggested_revision": "오염",
       "metadata": {
@@ -855,7 +798,7 @@
           }
         ]
       },
-      "overall_score": 89.7,
+      "overall_score": 100.0,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -863,19 +806,15 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-028",
       "source_en": "SWE-bench Verified and the repositories (code bases and release notes) are both open-source and broadly used and discussed, which makes avoiding contamination difficult for model developers.",
       "reference_ko": "SWE-bench Verified와 해당 리포지터리(코드베이스 및 릴리스 노트)는 모두 오픈 소스이며 널리 사용 및 논의되고 있어, 모델 개발자 입장에서 데이터 오염을 피하기는 어렵습니다.",
-      "candidate_ko": "SWE-bench Verified와 관련 저장소(코드베이스 및 릴리스 노트)는 모두 오픈 소스이며 널리 사용되고 논의되고 있어, 모델 개발자가 오염을 피하기 어렵습니다.",
-      "backtranslated_en": "Both SWE-bench Verified and related repositories (codebase and release notes) are open source, widely used, and discussed, making it difficult for model developers to avoid contamination.",
-      "semantic_similarity_score": 91.6,
-      "backtranslation_similarity_score": 95.8,
+      "candidate_ko": "SWE-bench Verified와 관련 저장소(코드베이스 및 릴리스 노트)는 모두 오픈소스이며 널리 사용되고 논의되기 때문에, 모델 개발자가 오염을 피하기가 어렵습니다.",
+      "backtranslated_en": "Because SWE-bench Verified and the associated repositories (the codebases and release notes) are all open source and widely used and discussed, it is difficult for model developers to avoid contamination.",
+      "semantic_similarity_score": 90.8,
+      "backtranslation_similarity_score": 94.3,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 95.0,
-      "issues": [
-        "'오염'을 그대로 사용해 용어 일관성 유지",
-        "전반적으로 간결하고 자연스러운 번역",
-        "'모델 개발자 입장에서 데이터 오염을 피하기는 어렵습니다'를 '모델 개발자가 오염을 피하기 어렵습니다'로 좀 더 자연스럽게 다듬을 수 있음"
-      ],
+      "llm_judge_score": 98.0,
+      "issues": [],
       "judge_needs_human_review": false,
-      "suggested_revision": "SWE-bench Verified와 관련 저장소(코드베이스 및 릴리스 노트)는 모두 오픈 소스이며 널리 사용되고 논의되고 있어, 모델 개발자가 오염을 피하기 어렵습니다.",
+      "suggested_revision": "SWE-bench Verified와 관련 저장소(코드베이스 및 릴리스 노트)는 모두 오픈소스이며 널리 사용되고 논의되기 때문에, 모델 개발자가 오염을 피하기가 어렵습니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -891,7 +830,7 @@
           }
         ]
       },
-      "overall_score": 94.9,
+      "overall_score": 95.2,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -899,19 +838,15 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-029",
       "source_en": "We first encountered signs of contamination in our own models. For example, when GPT‑5.2 solved 31 tasks we identified to be almost impossible to solve. In django__django-14725 the tests require a specific new parameter `edit_only` which is not explicitly required by the problem statement. While solving the problem, GPT‑5.2 shows in its chain of thought that it has information about the release notes that detail changes to the codebase, and correctly identifies that the `edit_only` parameter was introduced in Django 4.1.",
       "reference_ko": "자체 모델에서 처음으로 오염 징후를 발견했습니다. 예를 들어, 해결이 거의 불가능하다고 판단했던 31개의 작업을 GPT‑5.2가 해결한 경우가 그렇습니다. django__django-14725 에서 테스트는 문제 명세에서 명시적으로 요구하지 않은 `edit_only`라는 특정 새 매개변수를 요구합니다. 문제를 해결하는 동안 GPT‑5.2는 자신의 추론 과정에서 코드베이스의 변경 사항을 상세히 설명하는 릴리스 노트에 대한 정보를 가지고 있음을 보여주며, `edit_only` 매개변수가 Django 4.1에 도입되었다는 사실을 정확하게 파악합니다.",
-      "candidate_ko": "우리는 자체 모델에서 오염의 징후를 처음 발견했습니다. 예를 들어, GPT‑5.2가 거의 불가능하다고 판단된 31개 과제를 해결했습니다. django__django-14725에서는 테스트가 문제 진술에 명시되지 않은 특정 새 매개변수 `edit_only`를 요구합니다. 문제를 해결하는 과정에서 GPT‑5.2는 체인 오브 생각(chain of thought)에서 코드베이스 변경 내용을 상세히 다룬 릴리스 노트 정보를 알고 있음을 보여주고, Django 4.1에서 `edit_only` 매개변수가 도입되었음을 정확히 식별합니다.",
-      "backtranslated_en": "We first discovered signs of contamination in our own models. For example, GPT‑5.2 solved 31 tasks deemed nearly impossible. In django__django-14725, the test requires a specific new parameter `edit_only` not stated in the problem statement. During problem solving, GPT‑5.2’s chain of thought reveals knowledge of release notes detailing codebase changes and precisely identifies that the `edit_only` parameter was introduced in Django 4.1.",
-      "semantic_similarity_score": 90.0,
-      "backtranslation_similarity_score": 97.8,
+      "candidate_ko": "우리는 먼저 자체 모델에서 오염의 징후를 발견했습니다. 예를 들어 GPT‑5.2가 사실상 해결하기 불가능하다고 판단한 31개 과제를 해결했을 때였습니다. django__django-14725에서 테스트는 문제 설명에 명시적으로 요구되지 않은 특정 새 매개변수 `edit_only`를 필요로 합니다. 문제를 해결하는 과정에서 GPT‑5.2는 코드베이스의 변경 사항을 자세히 설명한 릴리스 노트에 대한 정보를 사고 과정에서 드러냈고, `edit_only` 매개변수가 Django 4.1에서 도입되었다는 점을 정확히 식별했습니다.",
+      "backtranslated_en": "We first noticed signs of contamination in our own model. For example, when GPT-5.2 solved 31 tasks that were effectively judged impossible to solve. In django__django-14725, the tests require a specific new parameter `edit_only` that is not explicitly requested in the issue description. While solving the problem, GPT-5.2 revealed in its chain of thought information about release notes that described the codebase changes in detail, and it correctly identified that the `edit_only` parameter was introduced in Django 4.1.",
+      "semantic_similarity_score": 90.6,
+      "backtranslation_similarity_score": 97.1,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 94.0,
-      "issues": [
-        "'체인 오브 생각(chain of thought)' 병기가 다소 부자연스러움; 원문 'chain of thought'에 대한 일관적 한국어 표현 권장",
-        "'오염의 징후', '첫 발견' 등 의미가 정확하며 전문적임",
-        "전반적 문체와 용어 적절하나, 일부 표현을 다듬으면 더욱 자연스러움"
-      ],
+      "llm_judge_score": 95.0,
+      "issues": [],
       "judge_needs_human_review": false,
-      "suggested_revision": "우리는 자체 모델에서 오염의 징후를 처음 발견했습니다. 예를 들어, GPT‑5.2가 거의 불가능하다고 판단된 31개 과제를 해결했습니다. django__django-14725에서는 테스트가 문제 진술에 명시되지 않은 특정 새 매개변수 `edit_only`를 요구합니다. 문제를 해결하는 과정에서 GPT‑5.2는 사고 과정(chain of thought)에서 코드베이스 변경 내용을 상세히 다룬 릴리스 노트 정보를 알고 있음을 보여주고, Django 4.1에서 `edit_only` 매개변수가 도입되었음을 정확히 식별합니다.",
+      "suggested_revision": "우리는 먼저 자체 모델에서 오염의 징후를 발견했습니다. 예를 들어 GPT‑5.2가 사실상 해결하기 불가능하다고 판단한 31개 과제를 해결했을 때였습니다. django__django-14725에서 테스트는 문제 설명에 명시적으로 요구되지 않은 특정 새 매개변수 `edit_only`를 필요로 합니다. 문제를 해결하는 과정에서 GPT‑5.2는 코드베이스의 변경 사항을 자세히 설명한 릴리스 노트에 대한 정보를 사고 과정에서 드러냈고, `edit_only` 매개변수가 Django 4.1에서 도입되었다는 점을 정확히 식별했습니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -923,7 +858,7 @@
           }
         ]
       },
-      "overall_score": 94.7,
+      "overall_score": 95.0,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -931,19 +866,18 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-030",
       "source_en": "To assess how significant contamination is more broadly, we created an automated red-teaming setup. For each SWE-bench Verified question, we tasked GPT‑5 with probing a GPT‑5.2‑Chat, Claude Opus 4.5 and Gemini 3 Flash Preview for contamination. These models were chosen to exclude reasoning models, but we acknowledge there is likely a non-trivial capability gap between them.",
       "reference_ko": "오염이 전반적으로 얼마나 심각한지 평가하기 위해 자동화된 레드팀 테스트 환경을 구축했습니다. 각 SWE-bench Verified 문제에 대해 GPT‑5에 GPT‑5.2‑Chat, Claude Opus 4.5, Gemini 3 Flash Preview의 오염 여부를 조사하도록 지시했습니다. 이러한 모델은 추론 모델을 배제하기 위해 선택되었으나, 이들 사이에는 무시할 수 없는 역량 차이가 존재할 수 있음을 인정합니다.",
-      "candidate_ko": "오염이 보다 광범위하게 얼마나 심각한지 평가하기 위해 자동화된 레드티밍(red-teaming) 환경을 구축했습니다. 각 SWE-bench Verified 문제에 대해 GPT‑5에게 GPT‑5.2‑Chat, Claude Opus 4.5, Gemini 3 Flash Preview 모델들을 대상으로 오염 가능성을 탐색하도록 과제를 부여했습니다. 이 모델들은 추론 모델을 제외하기 위해 선정되었으나, 이들 사이에도 능력 차가 상당할 가능성이 있음을 인정합니다.",
-      "backtranslated_en": "To evaluate how widespread contamination is, we built an automated red-teaming environment. For each SWE-bench Verified problem, GPT‑5 was tasked with probing contamination in GPT‑5.2-Chat, Claude Opus 4.5, and Gemini 3 Flash Preview models. These models were selected to exclude reasoning models, although we acknowledge there may be significant capability differences between them.",
-      "semantic_similarity_score": 93.5,
-      "backtranslation_similarity_score": 96.7,
+      "candidate_ko": "오염이 얼마나 심각한지 더 넓게 평가하기 위해, 우리는 자동 레드팀 환경을 구축했습니다. 각 SWE-bench Verified 질문마다 GPT‑5에게 GPT‑5.2‑Chat, Claude Opus 4.5, Gemini 3 Flash Preview에서 오염 여부를 탐지하도록 했습니다. 이 모델들은 추론 모델을 제외하기 위해 선정했지만, 이들 사이에는 무시할 수 없는 능력 격차가 있을 가능성이 높다는 점도 인정합니다.",
+      "backtranslated_en": "To more broadly assess how serious contamination is, we built an automated red-teaming setup. For each SWE-bench Verified question, we had GPT-5 detect contamination in GPT-5.2-Chat, Claude Opus 4.5, and Gemini 3 Flash Preview. These models were selected to exclude reasoning models, but we also acknowledge that there is likely a nontrivial capability gap among them.",
+      "semantic_similarity_score": 92.8,
+      "backtranslation_similarity_score": 97.1,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 93.0,
+      "llm_judge_score": 94.0,
       "issues": [
-        "'red-teaming'을 '레드티밍'으로 음역하면서 괄호 없이 사용한 점이 다소 이질적임",
-        "'오염 가능성 탐색' 등 의미 전달은 정확함",
-        "전반적으로 용어 정확성 우수하나, '레드팀 테스트 환경' 등으로 자연스럽게 번역 권장"
+        "원문의 “question”은 한국어에서 일반적으로 “문제”가 더 자연스럽습니다.",
+        "“비교적 능력 격차”보다 “무시할 수 없는 역량 격차”가 더 원문에 가깝습니다."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "오염이 보다 광범위하게 얼마나 심각한지 평가하기 위해 자동화된 레드팀 테스트 환경을 구축했습니다. 각 SWE-bench Verified 문제에 대해 GPT‑5에게 GPT‑5.2‑Chat, Claude Opus 4.5, Gemini 3 Flash Preview 모델들을 대상으로 오염 가능성을 탐색하도록 과제를 부여했습니다. 이 모델들은 추론 모델을 제외하기 위해 선정되었으나, 이들 사이에도 능력 차가 상당할 가능성이 있음을 인정합니다.",
+      "suggested_revision": "오염이 얼마나 심각한지 더 넓게 평가하기 위해, 우리는 자동화된 레드팀 테스트 환경을 구축했습니다. 각 SWE-bench Verified 문제마다 GPT‑5에게 GPT‑5.2‑Chat, Claude Opus 4.5, Gemini 3 Flash Preview에서 오염 여부를 탐지하도록 했습니다. 이러한 모델은 추론 모델을 배제하기 위해 선정했지만, 이들 사이에는 무시할 수 없는 역량 격차가 존재할 수 있음을 인정합니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -959,7 +893,7 @@
           }
         ]
       },
-      "overall_score": 95.1,
+      "overall_score": 95.3,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -967,20 +901,18 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-031",
       "source_en": "To probe for contamination, GPT‑5 received: the SWE-bench Verified task’s ID, description, gold patch, and PR tests. Over 15 turns, we allowed GPT‑5 to vary the system/developer prompt, user prompt, and assistant prefill and different elicitation strategies. After each turn, a judge model labeled how much novel task-specific information appeared and each response was labeled for contamination severity from “none” to “strong.” GPT‑5 was allowed to adapt its strategy based on prior turns to iteratively recover task-specific details. For each example of strong contamination, we verified with another judge that GPT‑5 didn’t leak too much information to the target model. Finally, we then manually reviewed the “strong” examples that make up the transcripts in this post.",
       "reference_ko": "오염 여부를 조사하기 위해 GPT‑5는 SWE-bench Verified 작업의 ID, 설명, 골드 패치 및 PR 테스트를 제공받았습니다. 총 15턴에 걸쳐 GPT‑5가 시스템/개발자 프롬프트, 사용자 프롬프트, 어시스턴트 사전 입력 및 다양한 유도 전략을 변경할 수 있도록 허용했습니다. 각 턴이 끝난 후 평가 모델은 작업에 특화된 새로운 정보가 얼마나 나타났는지 판별했으며, 각 응답의 오염 심각도를 '없음'에서 '강함'으로 레이블링했습니다. GPT‑5는 이전 턴을 바탕으로 전략을 조정하여 작업별 세부 정보를 반복적으로 복원할 수 있었습니다. 각 심각한 오염 사례에 대해 또 다른 평가 모델을 통해 GPT‑5가 대상 모델에 너무 많은 정보를 유출하지 않았는지 검증했습니다. 마지막으로 이 게시물의 대화 기록을 구성하는 오염도가 '강함'으로 분류된 사례를 직접 검토했습니다.",
-      "candidate_ko": "오염 여부를 탐지하기 위해 GPT‑5에는 SWE-bench Verified 문제의 ID, 설명, 정답 패치, PR 테스트가 제공되었습니다. 15회 이상의 턴 동안 GPT‑5는 시스템/개발자 프롬프트, 사용자 프롬프트, 어시스턴트 초기화 및 다양한 유도 전략을 변경할 수 있었습니다. 각 턴 후 심사 모델이 새롭고 과제 특정 정보를 얼마나 포함하는지 평가했고, 각 응답에는 '없음'부터 '강함'까지 오염 심각도가 표시되었습니다. GPT‑5는 이전 턴을 바탕으로 전략을 조정할 수 있어 과제 관련 세부 정보를 점진적으로 복구했습니다. 강한 오염 사례마다, 또 다른 심사자가 GPT‑5가 목표 모델에 너무 많은 정보를 유출하지 않았음을 확인했습니다. 마지막으로, 본 게시물의 대화 내용은 강한 오염 사례를 수동 검토하여 구성했습니다.",
-      "backtranslated_en": "To detect contamination, GPT‑5 was given the SWE-bench Verified problem ID, description, ground truth patch, and PR tests. Over more than 15 turns, GPT‑5 could modify system/developer prompts, user prompts, assistant initialization, and various steering strategies. After each turn, the auditing model rated how much new and task-specific information was included, marking contamination severity from 'none' to 'strong'. GPT‑5 could adjust strategy based on prior turns, gradually recovering task-related details. For every strong contamination case, another auditor confirmed GPT‑5 did not leak excessive info to the target model. Finally, the dialogue in this post is constructed from manual reviews of strong contamination cases.",
-      "semantic_similarity_score": 93.3,
-      "backtranslation_similarity_score": 92.7,
-      "terminology_consistency_score": 66.7,
-      "llm_judge_score": 92.0,
+      "candidate_ko": "오염 여부를 탐지하기 위해 GPT‑5에는 SWE-bench Verified 작업의 ID, 설명, 골드 패치, PR 테스트가 제공되었습니다. 15턴에 걸쳐 GPT‑5가 시스템/개발자 프롬프트, 사용자 프롬프트, assistant prefill, 그리고 다양한 유도 전략을 바꿔가며 시도할 수 있도록 했습니다. 각 턴 뒤에는 판정 모델이 새로 등장한 작업별 정보가 얼마나 있는지 라벨링했고, 각 응답에는 “없음”부터 “강함”까지의 오염 심각도 라벨을 부여했습니다. GPT‑5는 이전 턴을 바탕으로 전략을 조정해 작업별 세부 정보를 반복적으로 복원할 수 있었습니다. 강한 오염의 각 사례에 대해서는, GPT‑5가 대상 모델에 과도한 정보를 누설하지 않았음을 다른 판정 모델로 검증했습니다. 마지막으로 이 글에 포함된 대화 기록을 구성하는 “강함” 사례를 수동으로 검토했습니다.",
+      "backtranslated_en": "To detect contamination, GPT-5 was given the SWE-bench Verified task ID, description, gold patch, and PR tests. Over 15 turns, GPT-5 was allowed to vary the system/developer prompt, user prompt, assistant prefill, and various prompting strategies. After each turn, a judge model labeled how much new task-specific information had emerged, and each response was assigned a contamination severity label ranging from “none” to “strong.” GPT-5 could repeatedly recover task-specific details by adapting its strategy based on previous turns. For each case of strong contamination, we verified with another judge model that GPT-5 did not leak excessive information to the target model. Finally, we manually reviewed the “strong” cases that make up the dialogue records included in this article.",
+      "semantic_similarity_score": 94.4,
+      "backtranslation_similarity_score": 95.8,
+      "terminology_consistency_score": 100.0,
+      "llm_judge_score": 88.0,
       "issues": [
-        "Terminology mismatch: expected a consistent rendering for 'gold patch'.",
-        "'오염 여부를 탐지하기 위해'는 '조사하기 위해'가 더 자연스럽고 '탐지'는 다소 기계적임",
-        "'정답 패치'는 '골드 패치'가 전문 용어로 더 일관적임",
-        "'어시스턴트 초기화'는 '어시스턴트 사전 입력'이 원문 의미에 더 근접함"
+        "'assistant prefill'를 영어로 유지해도 되지만, 공식 한국어 문서에서는 용어 통일이 조금 더 자연스러울 수 있습니다.",
+        "'대상 모델에 과도한 정보를 누설하지 않았음'은 원문의 'didn't leak too much information'을 잘 옮겼지만 약간 더 직역에 가깝습니다."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "오염 여부를 조사하기 위해 GPT‑5에는 SWE-bench Verified 작업의 ID, 설명, 골드 패치, PR 테스트가 제공되었습니다. 15회 이상의 턴 동안 GPT‑5는 시스템/개발자 프롬프트, 사용자 프롬프트, 어시스턴트 사전 입력 및 다양한 유도 전략을 변경할 수 있었습니다. 각 턴 후 심사 모델이 새롭고 과제 특정 정보를 얼마나 포함하는지 평가했고, 각 응답에는 '없음'부터 '강함'까지 오염 심각도가 표시되었습니다. GPT‑5는 이전 턴을 바탕으로 전략을 조정할 수 있어 과제 관련 세부 정보를 점진적으로 복구했습니다. 강한 오염 사례마다, 또 다른 심사자가 GPT‑5가 목표 모델에 너무 많은 정보를 유출하지 않았음을 확인했습니다. 마지막으로, 본 게시물의 대화 내용은 강한 오염 사례를 수동 검토하여 구성했습니다.",
+      "suggested_revision": "오염 여부를 탐지하기 위해 GPT‑5에는 SWE-bench Verified 작업의 ID, 설명, 골드 패치, PR 테스트가 제공되었습니다. 15턴에 걸쳐 GPT‑5가 시스템/개발자 프롬프트, 사용자 프롬프트, assistant prefill, 그리고 다양한 유도 전략을 바꿔가며 시도할 수 있도록 했습니다. 각 턴 뒤에는 판정 모델이 새로 등장한 작업별 정보가 얼마나 있는지 라벨링했고, 각 응답에는 “없음”부터 “강함”까지의 오염 심각도 라벨을 부여했습니다. GPT‑5는 이전 턴을 바탕으로 전략을 조정해 작업별 세부 정보를 반복적으로 복원할 수 있었습니다. 강한 오염의 각 사례에 대해서는, GPT‑5가 대상 모델에 과도한 정보를 누설하지 않았는지 다른 판정 모델로 검증했습니다. 마지막으로 이 글에 포함된 대화 기록을 구성하는 “강함” 사례를 수동으로 검토했습니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -996,32 +928,27 @@
           },
           {
             "label": "gold patch",
-            "matched": false
+            "matched": true
           }
         ]
       },
-      "overall_score": 88.8,
-      "review_reasons": [
-        "terminology_consistency_score < 100"
-      ],
-      "needs_human_review": true
+      "overall_score": 93.7,
+      "review_reasons": [],
+      "needs_human_review": false
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-032",
       "source_en": "Below are examples of strong contamination across different model providers.",
       "reference_ko": "아래는 다양한 모델 제공업체 전반에서 나타난 심각한 오염 사례입니다.",
-      "candidate_ko": "아래는 다양한 모델 제공자에서 발견된 강한 오염 사례들입니다.",
-      "backtranslated_en": "Below are examples of strong contamination cases found across various model providers.",
-      "semantic_similarity_score": 81.5,
-      "backtranslation_similarity_score": 95.2,
+      "candidate_ko": "아래는 서로 다른 모델 제공업체 전반에서 나타난 강한 오염 사례들입니다.",
+      "backtranslated_en": "Below are examples of strong contamination across different model providers.",
+      "semantic_similarity_score": 83.8,
+      "backtranslation_similarity_score": 100.0,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 95.0,
-      "issues": [
-        "'모델 제공업체' 대신 '모델 제공자'는 다소 덜 공식적임",
-        "후반부 '예시' 대신 '사례들' 표현은 자연스러움"
-      ],
+      "llm_judge_score": 97.0,
+      "issues": [],
       "judge_needs_human_review": false,
-      "suggested_revision": "아래는 다양한 모델 제공자에서 발견된 강한 오염 사례들입니다.",
+      "suggested_revision": "아래는 다양한 모델 제공업체 전반에서 나타난 강한 오염 사례입니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -1033,7 +960,7 @@
           }
         ]
       },
-      "overall_score": 91.8,
+      "overall_score": 94.2,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -1064,18 +991,18 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-034",
       "source_en": "Given a short snippet from the task description, GPT‑5.2 outputs the exact gold patch. In particular, it knows the exact class and method name, and the new early return condition `if username is None or password is None` that is introduced.",
       "reference_ko": "작업 설명의 짧은 스니펫만 주어져도, GPT‑5.2는 정확한 골드 패치를 출력합니다. 특히, 이 모델은 정확한 클래스 및 메서드 이름과 새롭게 도입된 조기 반환 조건인 `if username is None or password is None`을 알고 있습니다.",
-      "candidate_ko": "작업 설명의 짧은 스니펫만으로 GPT‑5.2는 정확한 정답 패치를 출력합니다. 특히, 정확한 클래스와 메서드 이름, 그리고 새로 도입된 조기 반환 조건인 `if username is None or password is None`을 알고 있습니다.",
-      "backtranslated_en": "With only a short snippet of the task description, GPT‑5.2 outputs the exact correct patch. It specifically knows the correct class and method names and the newly introduced early return condition `if username is None or password is None`.",
-      "semantic_similarity_score": 95.0,
-      "backtranslation_similarity_score": 91.3,
-      "terminology_consistency_score": 0.0,
-      "llm_judge_score": 98.0,
+      "candidate_ko": "과제 설명의 짧은 스니펫만 주어지면, GPT‑5.2는 정확한 골드 패치를 출력합니다. 특히 정확한 클래스와 메서드 이름, 그리고 도입된 새 조기 반환 조건 `if username is None or password is None`을 알고 있습니다.",
+      "backtranslated_en": "If only a short snippet of the task description is provided, GPT‑5.2 outputs the exact gold patch. In particular, it knows the exact class and method names, as well as the newly introduced early return condition `if username is None or password is None`.",
+      "semantic_similarity_score": 93.1,
+      "backtranslation_similarity_score": 96.6,
+      "terminology_consistency_score": 100.0,
+      "llm_judge_score": 96.0,
       "issues": [
-        "Terminology mismatch: expected a consistent rendering for 'gold patch'.",
-        "'정답 패치'보다 '골드 패치'가 번역 스타일과 전문성에 더 부합할 수 있음"
+        "'과제 ID'는 문맥상 무방하지만, 원문과의 용어 일관성 측면에서는 '작업 설명'과 맞춰 '작업'을 쓰는 편이 더 자연스럽습니다.",
+        "'도입된 새 조기 반환 조건'은 의미는 정확하지만 한국어 문장 흐름이 약간 어색합니다."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "작업 설명의 짧은 스니펫만으로 GPT‑5.2는 정확한 골드 패치를 출력합니다. 특히, 정확한 클래스와 메서드 이름, 그리고 새로 도입된 조기 반환 조건인 `if username is None or password is None`을 알고 있습니다.",
+      "suggested_revision": "작업 설명의 짧은 스니펫만 주어지면, GPT‑5.2는 정확한 골드 패치를 출력합니다. 특히 정확한 클래스와 메서드 이름, 그리고 새롭게 도입된 조기 반환 조건 `if username is None or password is None`을 알고 있습니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -1083,27 +1010,27 @@
         "terminology_details": [
           {
             "label": "gold patch",
-            "matched": false
+            "matched": true
           }
         ]
       },
-      "overall_score": 80.7,
-      "review_reasons": [
-        "terminology_consistency_score < 100"
-      ],
-      "needs_human_review": true
+      "overall_score": 95.9,
+      "review_reasons": [],
+      "needs_human_review": false
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-035",
       "source_en": "Task ID: django__django-11451",
       "reference_ko": "작업 ID: django__django-11451",
-      "candidate_ko": "작업 ID: django__django-11451",
+      "candidate_ko": "과제 ID: django__django-11451",
       "backtranslated_en": "Task ID: django__django-11451",
-      "semantic_similarity_score": 100.0,
+      "semantic_similarity_score": 82.8,
       "backtranslation_similarity_score": 100.0,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 100.0,
-      "issues": [],
+      "llm_judge_score": 98.0,
+      "issues": [
+        "'과제 ID'는 자연스럽고 의미도 정확합니다."
+      ],
       "judge_needs_human_review": false,
       "suggested_revision": "작업 ID: django__django-11451",
       "metadata": {
@@ -1112,7 +1039,7 @@
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 100.0,
+      "overall_score": 94.2,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -1143,25 +1070,22 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-037",
       "source_en": "Opus is able to not only recall the exact 4-line functional change the PR introduced, along with the specific filename and method that it touched, but also quotes verbatim the inline comment that was part of the diff.",
       "reference_ko": "Opus는 PR이 도입한 기능을 수정한 4줄의 실제 코드와 수정된 특정 파일명 및 메서드를 정확히 기억해 낼 뿐만 아니라, diff에 포함되어 있던 인라인 주석까지 글자 그대로 인용할 수 있습니다.",
-      "candidate_ko": "Opus는 PR이 도입한 정확한 4줄 기능 변경뿐만 아니라, 영향을 받은 특정 파일명과 메서드를 기억할 뿐만 아니라, 차이(diff)에 포함된 인라인 주석까지도 문자 그대로 인용할 수 있습니다.",
-      "backtranslated_en": "Opus not only remembers the exact 4-line functional change introduced by the PR, but also the specific file names and methods affected, and can even quote verbatim the inline comments included in the diff.",
-      "semantic_similarity_score": 89.7,
-      "backtranslation_similarity_score": 95.4,
+      "candidate_ko": "Opus는 PR이 도입한 정확한 4줄의 기능적 변경 사항뿐만 아니라, 그것이 수정한 구체적인 파일명과 메서드까지 기억할 수 있으며, diff에 포함되어 있던 인라인 주석도 한 글자도 빠짐없이 그대로 인용합니다.",
+      "backtranslated_en": "Opus can remember not only the exact 4-line functional changes introduced by the PR, but also the specific file name and method it fixed, and it quotes the inline comment that was in the diff without missing a single character.",
+      "semantic_similarity_score": 94.7,
+      "backtranslation_similarity_score": 94.9,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 93.0,
-      "issues": [
-        "minor redundancy in grammar ('뿐만 아니라' repeated)",
-        "slight unnatural flow due to wording choices"
-      ],
+      "llm_judge_score": 97.0,
+      "issues": [],
       "judge_needs_human_review": false,
-      "suggested_revision": "Opus는 PR이 도입한 정확한 4줄의 기능 변경과 영향을 받은 특정 파일명 및 메서드를 기억할 뿐 아니라, 차이에 포함된 인라인 주석까지도 문자 그대로 인용할 수 있습니다.",
+      "suggested_revision": "Opus는 PR이 도입한 정확한 4줄의 기능적 변경 사항뿐만 아니라, 그것이 수정한 구체적인 파일명과 메서드까지 기억할 수 있으며, diff에 포함되어 있던 인라인 주석도 한 글자도 빠짐없이 그대로 인용합니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 93.7,
+      "overall_score": 96.2,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -1169,13 +1093,15 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-038",
       "source_en": "Task ID: astropy__astropy-13236",
       "reference_ko": "작업 ID: astropy__astropy-13236",
-      "candidate_ko": "작업 ID: astropy__astropy-13236",
+      "candidate_ko": "과제 ID: astropy__astropy-13236",
       "backtranslated_en": "Task ID: astropy__astropy-13236",
-      "semantic_similarity_score": 100.0,
+      "semantic_similarity_score": 79.1,
       "backtranslation_similarity_score": 100.0,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 100.0,
-      "issues": [],
+      "llm_judge_score": 94.0,
+      "issues": [
+        "'과제'는 문맥상 무난하지만 원문/참조의 '작업'과 용어 일관성이 다릅니다."
+      ],
       "judge_needs_human_review": false,
       "suggested_revision": "작업 ID: astropy__astropy-13236",
       "metadata": {
@@ -1184,7 +1110,7 @@
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 100.0,
+      "overall_score": 91.9,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -1215,19 +1141,19 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-040",
       "source_en": "Gemini 3 Flash, when given no further information regarding the task besides the ID, is able to output verbatim details from the task description and the gold patch. This includes the new regex formula for username validation and the exact line numbers for the change.",
       "reference_ko": "Gemini 3 Flash는 작업 ID 외에 작업에 대한 추가 정보가 주어지지 않았음에도, 작업 설명과 골드 패치의 세부 내용을 글자 그대로 출력할 수 있습니다. 여기에는 사용자 이름 유효성 검사를 위한 새로운 정규식과 변경 사항의 정확한 줄 번호가 포함됩니다.",
-      "candidate_ko": "Gemini 3 Flash는 작업 ID 외에 추가 정보가 주어지지 않아도 작업 설명과 정답 패치의 내용을 문자 그대로 출력할 수 있습니다. 여기에는 사용자명 검증을 위한 새로운 정규식 공식과 변경된 정확한 라인 번호가 포함됩니다.",
-      "backtranslated_en": "Gemini 3 Flash can output the task description and the correct patch verbatim even without additional information besides the task ID. This includes the new regex formula for username validation and the exact changed line numbers.",
-      "semantic_similarity_score": 94.7,
-      "backtranslation_similarity_score": 94.3,
-      "terminology_consistency_score": 0.0,
-      "llm_judge_score": 95.0,
+      "candidate_ko": "Gemini 3 Flash는 과제 ID 외에 추가 정보가 전혀 주어지지 않아도, 과제 설명과 골드 패치의 세부 사항을 그대로 출력할 수 있습니다. 여기에는 사용자 이름 검증을 위한 새 regex 수식과 변경된 정확한 줄 번호가 포함됩니다.",
+      "backtranslated_en": "Gemini 3 Flash can output the task description and the details of the gold patch exactly as-is even when no additional information is given beyond the task ID. This includes the new regex formula for username validation and the changed exact line numbers.",
+      "semantic_similarity_score": 87.6,
+      "backtranslation_similarity_score": 96.2,
+      "terminology_consistency_score": 100.0,
+      "llm_judge_score": 68.0,
       "issues": [
-        "Terminology mismatch: expected a consistent rendering for 'gold patch'.",
-        "'정답 패치' term less appropriate than '골드 패치'",
-        "'공식' less natural than '식' in regex context"
+        "\"regex\"는 번역어로 남기기보다 한국어 문맥에 맞게 \"정규식\"으로 통일하는 편이 자연스럽습니다.",
+        "\"골드 패치\"는 의미는 전달되지만 기술 문서에서는 \"정답 패치\" 또는 원문 용어 일관성을 더 점검할 여지가 있습니다.",
+        "\"변경된 정확한 줄 번호\"는 어색하므로 \"변경 사항의 정확한 줄 번호\"처럼 다듬는 것이 좋습니다."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "Gemini 3 Flash는 작업 ID 외에 추가 정보가 주어지지 않아도 작업 설명과 골드 패치의 내용을 문자 그대로 출력할 수 있습니다. 여기에는 사용자명 검증을 위한 새로운 정규식 식과 변경된 정확한 라인 번호가 포함됩니다.",
+      "suggested_revision": "Gemini 3 Flash는 과제 ID 외에 추가 정보가 전혀 주어지지 않아도, 과제 설명과 골드 패치의 세부 사항을 그대로 출력할 수 있습니다. 여기에는 사용자 이름 검증을 위한 새로운 정규식과 변경 사항의 정확한 줄 번호가 포함됩니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -1235,13 +1161,13 @@
         "terminology_details": [
           {
             "label": "gold patch",
-            "matched": false
+            "matched": true
           }
         ]
       },
-      "overall_score": 80.5,
+      "overall_score": 85.7,
       "review_reasons": [
-        "terminology_consistency_score < 100"
+        "llm_judge_score < 75"
       ],
       "needs_human_review": true
     },
@@ -1249,13 +1175,16 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-041",
       "source_en": "Task ID: django__django-11099",
       "reference_ko": "작업 ID: django__django-11099",
-      "candidate_ko": "작업 ID: django__django-11099",
-      "backtranslated_en": "Work ID: django__django-11099",
-      "semantic_similarity_score": 100.0,
-      "backtranslation_similarity_score": 84.0,
+      "candidate_ko": "Task ID: django__django-11099",
+      "backtranslated_en": "Task ID: django__django-11099",
+      "semantic_similarity_score": 82.5,
+      "backtranslation_similarity_score": 100.0,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 100.0,
-      "issues": [],
+      "llm_judge_score": 58.0,
+      "issues": [
+        "Falls back to English instead of Korean, which is inappropriate for the target publication.",
+        "Terminology/style mismatch: should use Korean translation for Task ID."
+      ],
       "judge_needs_human_review": false,
       "suggested_revision": "작업 ID: django__django-11099",
       "metadata": {
@@ -1264,9 +1193,11 @@
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 96.0,
-      "review_reasons": [],
-      "needs_human_review": false
+      "overall_score": 82.2,
+      "review_reasons": [
+        "llm_judge_score < 75"
+      ],
+      "needs_human_review": true
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-042",
@@ -1295,19 +1226,18 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-043",
       "source_en": "From this audit of SWE-bench Verified, we see two broader lessons for evaluation design. First, benchmarks sourced from publicly available material carry contamination risk, where training-data exposure can silently inflate scores. If publicly crawled data is used in benchmark construction, model developers should perform additional tests for contamination. Benchmarks, and even their solutions, posted publicly can end up in training data. Extra care should be taken both in how datasets are posted (i.e. password protected) and training data filtering (i.e. strict adherence to canary strings).",
       "reference_ko": "이번 SWE-bench Verified 감사를 통해, 평가 설계에 대한 두 가지 포괄적인 교훈을 얻을 수 있었습니다. 첫째, 공개적으로 이용 가능한 자료에서 추출한 벤치마크는 오염 위험을 수반하며, 이 경우 학습 데이터 노출이 알게 모르게 점수를 부풀릴 수 있습니다. 벤치마크 구축에 공개적으로 크롤링한 데이터를 사용하는 경우, 모델 개발자는 오염 여부를 확인하기 위한 추가 테스트를 수행해야 합니다. 공개적으로 게시된 벤치마크와 그 해답조차도 결국 학습 데이터에 포함될 수 있습니다. 데이터세트를 게시하는 방식(예: 비밀번호 보호) 및 학습 데이터 필터링(예: 카나리아 문자열 엄수) 양쪽 모두에 각별한 주의를 기울여야 합니다.",
-      "candidate_ko": "SWE-bench Verified 감사를 통해, 평가 설계에 관한 두 가지 중요한 교훈을 얻었습니다. 첫째, 공개된 자료를 출처로 한 벤치마크는 훈련 데이터에 노출되어 점수가 은밀하게 부풀려질 수 있는 오염 위험을 내포합니다. 공개 크롤링한 데이터가 벤치마크 구성에 사용된다면, 모델 개발자는 추가 오염 검사를 수행해야 합니다. 벤치마크와 그 솔루션조차 공개 게시될 경우 훈련 데이터에 포함될 수 있으므로, 데이터셋 게시 방식(예: 비밀번호 보호)과 훈련 데이터 필터링(예: 카나리 문자열 엄격 적용)에 특별한 주의가 필요합니다.",
-      "backtranslated_en": "Through the SWE-bench Verified audit, we learned two key lessons about evaluation design. First, benchmarks sourced from publicly available materials risk contamination because the training data may have been exposed to them, potentially inflating scores covertly. If publicly crawled data was used to build the benchmark, model creators must perform additional contamination checks. Since benchmarks and their solutions might also be publicly posted and included in training data, special care is required in how datasets are published (e.g., password protection) and how training data is filtered (e.g., strict use of canary strings).",
-      "semantic_similarity_score": 88.7,
-      "backtranslation_similarity_score": 97.2,
+      "candidate_ko": "SWE-bench Verified에 대한 이 감사 결과에서, 평가 설계에 관한 두 가지 더 넓은 교훈을 얻을 수 있습니다. 첫째, 공개적으로 उपलब्ध한 자료에서 출처를 얻은 벤치마크는 오염 위험을 수반하며, 학습 데이터 노출이 점수를 조용히 부풀릴 수 있습니다. 벤치마크 구축에 공개적으로 크롤링된 데이터를 사용하는 경우, 모델 개발자는 오염 여부를 추가로 테스트해야 합니다. 벤치마크와 그 해답까지도 공개되면 학습 데이터에 포함될 수 있습니다. 데이터셋 게시 방식(예: 비밀번호 보호)과 학습 데이터 필터링(예: 카나리 문자열의 엄격한 준수) 모두에서 추가적인 주의가 필요합니다.",
+      "backtranslated_en": "In this audit of SWE-bench Verified, we can draw two broader lessons about evaluation design. First, benchmarks sourced from publicly available materials carry a contamination risk, and exposure to training data can quietly inflate scores. If a benchmark uses publicly crawled data, model developers should test further for contamination. If even the benchmark and its answers are public, they may end up in the training data. Extra care is needed both in how datasets are published (e.g., password protection) and in how training data is filtered (e.g., strict adherence to canary strings).",
+      "semantic_similarity_score": 94.0,
+      "backtranslation_similarity_score": 97.6,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 95.0,
+      "llm_judge_score": 86.0,
       "issues": [
-        "'카나리아 문자열' 표현이 원문의 'canary strings'와 용어 일치 필요",
-        "'특별한'보다 '각별한'이 원문 의미에 더 부합",
-        "'솔루션' 대신 '해답'이 더 자연스러움"
+        "Minor encoding issue: '공개적으로 उपलब्ध한' contains stray non-Korean characters.",
+        "Slight phrasing awkwardness compared with the reference, but meaning is preserved."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "SWE-bench Verified 감사를 통해, 평가 설계에 관해 두 가지 중요한 교훈을 얻었습니다. 첫째, 공개된 자료를 출처로 한 벤치마크는 훈련 데이터에 노출되어 점수가 은밀하게 부풀려질 수 있는 오염 위험을 내포합니다. 공개 크롤링 데이터가 벤치마크 구성에 사용된다면, 모델 개발자는 추가 오염 검사를 수행해야 합니다. 벤치마크와 그 해답조차 공개 게시될 경우 훈련 데이터에 포함될 수 있으므로, 데이터셋 게시 방식(예: 비밀번호 보호)과 훈련 데이터 필터링(예: 카나리아 문자열 엄격 준수)에 각별한 주의가 필요합니다.",
+      "suggested_revision": "SWE-bench Verified에 대한 이 감사 결과에서, 평가 설계에 관한 두 가지 더 넓은 교훈을 얻을 수 있습니다. 첫째, 공개적으로 이용 가능한 자료에서 출처를 얻은 벤치마크는 오염 위험을 수반하며, 학습 데이터 노출이 점수를 조용히 부풀릴 수 있습니다. 벤치마크 구축에 공개적으로 크롤링된 데이터를 사용하는 경우, 모델 개발자는 오염 여부를 추가로 테스트해야 합니다. 벤치마크와 그 해답까지도 공개되면 학습 데이터에 포함될 수 있습니다. 데이터셋 게시 방식(예: 비밀번호 보호)과 학습 데이터 필터링(예: 카나리 문자열의 엄격한 준수) 모두에서 추가적인 주의가 필요합니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -1327,7 +1257,7 @@
           }
         ]
       },
-      "overall_score": 94.4,
+      "overall_score": 93.4,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -1335,25 +1265,25 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-044",
       "source_en": "Second, automated scoring is tricky to get right; perfect test cases should fully verify correct functionality, being both agnostic to specific unimportant implementation details and also robust to shortcut solutions. These problems are inherently complex and difficult to solve. Catching these problems took multiple extensive human labeling campaigns.",
       "reference_ko": "둘째, 자동화된 채점을 제대로 구현하는 것은 까다롭습니다. 완벽한 테스트 케이스라면 중요하지 않은 세부 구현 방식에 구애받지 않으면서도, 편법적인 해결책을 방어할 만큼 견고하게 기능의 정상 작동 여부를 온전히 검증해야 합니다. 이러한 문제는 본질적으로 복잡하고 해결하기 어렵습니다. 이러한 문제를 찾아내는 데는 여러 차례에 걸친 대규모 수동 레이블링 작업이 필요했습니다.",
-      "candidate_ko": "둘째, 자동 채점은 정확하게 구현하기 어렵습니다. 완벽한 테스트 케이스는 올바른 기능을 완전하게 검증해야 하며, 중요하지 않은 구체적인 구현 세부 사항에 무관심하고 편법 해결책에도 견고해야 합니다. 이러한 문제들은 본질적으로 복잡하고 해결이 어렵습니다. 이러한 문제를 발견하려면 여러 차례의 대규모 인간 라벨링 캠페인이 필요했습니다.",
-      "backtranslated_en": "Second, automating grading accurately is difficult. Perfect test cases need to fully verify correct functionality, ignore irrelevant implementation specifics, and be robust to workaround solutions. These challenges are inherently complex and hard to solve. Identifying them required multiple large-scale human labeling campaigns.",
-      "semantic_similarity_score": 82.1,
-      "backtranslation_similarity_score": 86.5,
+      "candidate_ko": "둘째, 자동 채점은 제대로 구현하기가 까다롭습니다. 완벽한 테스트 케이스는 올바른 기능을 완전히 검증해야 하며, 특정한 중요하지 않은 구현 세부사항에는 구애받지 않으면서도 지름길식 해결책에는 견고해야 합니다. 이러한 문제는 본질적으로 복잡하고 해결하기 어렵습니다. 이러한 문제를 찾아내는 데에는 여러 차례에 걸친 대규모 인간 라벨링 캠페인이 필요했습니다.",
+      "backtranslated_en": "Second, automatic scoring is tricky to implement correctly. A perfect test case must fully verify correct functionality, while not being tied to specific unimportant implementation details and still being robust against shortcut solutions. These problems are inherently complex and difficult to solve. Finding them required multiple large-scale human labeling campaigns.",
+      "semantic_similarity_score": 84.2,
+      "backtranslation_similarity_score": 94.5,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 97.0,
+      "llm_judge_score": 93.0,
       "issues": [
-        "'무관심'보다 '구애받지 않으면서'가 더 자연스러운 표현",
-        "'편법 해결책'보다 '편법적인 해결책'이 원문 의미에 더 부합"
+        "'인간 라벨링 캠페인' is understandable but less natural than a Korean publication style.",
+        "Some phrasing is slightly more literal than the reference, though accurate."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "둘째, 자동 채점은 정확하게 구현하기 어렵습니다. 완벽한 테스트 케이스는 올바른 기능을 완전하게 검증해야 하며, 중요하지 않은 구체적인 구현 세부 사항에 구애받지 않으면서 편법적인 해결책에도 견고해야 합니다. 이러한 문제들은 본질적으로 복잡하고 해결이 어렵습니다. 이러한 문제를 발견하려면 여러 차례의 대규모 인간 라벨링 캠페인이 필요했습니다.",
+      "suggested_revision": "둘째, 자동 채점은 제대로 구현하기가 까다롭습니다. 완벽한 테스트 케이스는 올바른 기능을 완전히 검증해야 하며, 특정한 중요하지 않은 구현 세부사항에는 구애받지 않으면서도 지름길식 해결책에는 견고해야 합니다. 이러한 문제는 본질적으로 복잡하고 해결하기 어렵습니다. 이러한 문제를 찾아내는 데에는 여러 차례에 걸친 대규모 수동 레이블링 작업이 필요했습니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 90.4,
+      "overall_score": 91.8,
       "review_reasons": [],
       "needs_human_review": false
     },
@@ -1361,19 +1291,18 @@
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-045",
       "source_en": "We have incorporated these findings into our recent evaluation efforts. In the last months we’ve chosen to report results from the public split of SWE-Bench Pro. We recommend other model developers do the same. SWE-bench Pro is not perfect, but empirically seems to suffer less from contamination issues. Our contamination pipeline found some cases of contamination, but these cases were significantly rarer and less egregious than SWE-bench Verified, and no model was able to produce a complete verbatim gold patch.",
       "reference_ko": "이러한 발견 사항을 최근의 내부 평가 작업에 반영했습니다. 최근 몇 달 동안 SWE-bench Pro의 공개 평가 데이터 결과를 보고하기로 결정했습니다. 다른 모델 개발자 역시 동일한 조치를 취하기를 권장합니다. SWE-bench Pro가 완벽하지는 않지만, 경험적으로 볼 때 오염 문제의 영향을 덜 받는 것으로 보입니다. 내부 오염 검증 파이프라인에서 일부 오염 사례가 발견되긴 했으나, 이러한 사례는 SWE-bench Verified에 비해 훨씬 드물고 덜 심각했으며, 어떤 모델도 글자 그대로 완벽하게 일치하는 골드 패치를 생성하지는 못했습니다.",
-      "candidate_ko": "우리는 이러한 발견을 최근 평가 작업에 반영했습니다. 지난 몇 달간 SWE-Bench Pro의 공개 분할 결과만 보고하기로 결정했으며, 다른 모델 개발자들도 동일한 방식을 권장합니다. SWE-bench Pro가 완벽하지는 않지만, 경험적으로 오염 문제는 상대적으로 적은 것으로 보입니다. 당사의 오염 탐지 파이프라인에서 일부 오염 사례를 발견했으나 SWE-bench Verified에 비해 훨씬 드물고 경미했으며, 어떤 모델도 완전 동일한 금본위 패치를 생성하지 못했습니다.",
-      "backtranslated_en": "We have incorporated these findings into recent evaluations. Over the past months, we decided to report only public split results of SWE-Bench Pro and encourage other model developers to do the same. While SWE-bench Pro is not perfect, empirically it appears to have fewer contamination issues. Our contamination detection pipeline found some cases, but they were much rarer and milder than in SWE-bench Verified, and no model produced completely identical gold standard patches.",
-      "semantic_similarity_score": 90.9,
-      "backtranslation_similarity_score": 96.9,
-      "terminology_consistency_score": 75.0,
-      "llm_judge_score": 95.0,
+      "candidate_ko": "우리는 이러한 결과를 최근의 평가 작업에 반영했습니다. 지난 몇 달 동안 우리는 SWE-Bench Pro의 공개 분할(public split) 결과를 보고하는 방식을 선택했습니다. 다른 모델 개발자들도 그렇게 하기를 권장합니다. SWE-bench Pro가 완벽하지는 않지만, 경험적으로는 오염 문제의 영향을 덜 받는 것으로 보입니다. 우리의 오염 파이프라인은 일부 오염 사례를 찾아냈지만, 그러한 사례는 SWE-bench Verified보다 훨씬 드물고 덜 심각했으며, 어떤 모델도 완전한 원문 그대로의 골드 패치를 만들어낼 수 없었습니다.",
+      "backtranslated_en": "We have reflected these findings in our recent evaluation work. Over the past few months, we have chosen to report results on the public split of SWE-Bench Pro. We encourage other model developers to do the same. SWE-bench Pro is not perfect, but empirically it appears to be less affected by contamination issues. Our contamination pipeline did find some contaminated cases, but such cases were much rarer and less severe than in SWE-bench Verified, and no model was able to produce an exact, verbatim gold patch.",
+      "semantic_similarity_score": 91.5,
+      "backtranslation_similarity_score": 97.5,
+      "terminology_consistency_score": 100.0,
+      "llm_judge_score": 84.0,
       "issues": [
-        "Terminology mismatch: expected a consistent rendering for 'gold patch'.",
-        "'금본위 패치'는 '골드 패치'의 직역으로 이해 어려움, '골드 패치'나 '골드 표준 패치'가 적절",
-        "'상대적으로 적은'보다 '더 적은' 또는 '덜 심각한' 표현 권장"
+        "'공개 분할(public split)' is slightly awkward and overly literal.",
+        "'원문 그대로의 골드 패치' is understandable but less idiomatic than '글자 그대로 일치하는 골드 패치'."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "우리는 이러한 발견을 최근 평가 작업에 반영했습니다. 지난 몇 달간 SWE-Bench Pro의 공개 분할 결과만 보고하기로 했으며, 다른 모델 개발자들도 동일한 방식을 권장합니다. SWE-bench Pro가 완벽하지는 않지만, 경험적으로 오염 문제는 SWE-bench Verified보다 덜 심각한 것으로 보입니다. 당사의 오염 탐지 파이프라인에서 일부 오염 사례를 발견했으나 SWE-bench Verified에 비해 훨씬 드물고 경미했으며, 어떤 모델도 완전 동일한 골드 패치를 생성하지 못했습니다.",
+      "suggested_revision": "우리는 이러한 결과를 최근의 평가 작업에 반영했습니다. 지난 몇 달 동안 우리는 SWE-bench Pro의 공개 분할 결과를 보고하는 방식을 선택했습니다. 다른 모델 개발자들도 그렇게 하기를 권장합니다. SWE-bench Pro가 완벽하지는 않지만, 경험적으로는 오염 문제의 영향을 덜 받는 것으로 보입니다. 우리의 오염 파이프라인은 일부 오염 사례를 찾아냈지만, 그러한 사례는 SWE-bench Verified보다 훨씬 드물고 덜 심각했으며, 어떤 모델도 글자 그대로 일치하는 골드 패치를 만들어내지 못했습니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
@@ -1393,40 +1322,37 @@
           },
           {
             "label": "gold patch",
-            "matched": false
+            "matched": true
           }
         ]
       },
-      "overall_score": 91.2,
-      "review_reasons": [
-        "terminology_consistency_score < 100"
-      ],
-      "needs_human_review": true
+      "overall_score": 92.0,
+      "review_reasons": [],
+      "needs_human_review": false
     },
     {
       "id": "why-we-no-longer-evaluate-swe-bench-verified.block-046",
       "source_en": "We will continue to invest in original, privately authored benchmarks and ask for help from the industry and academia to do the same. In GDPVal, tasks are privately authored by domain experts, reducing exposure risk, and solutions are graded holistically by trained reviewers. This approach is resource-intensive, but increasingly necessary to measure genuine capability improvements.",
       "reference_ko": "독창적이고 비공개로 작성된 벤치마크에 지속적으로 투자할 것이며, 업계와 학계에도 이에 동참해 줄 것을 요청합니다. GDPVal에서는 도메인 전문가가 비공개로 작업을 작성하여 노출 위험을 줄이고, 훈련된 평가자가 솔루션을 종합적으로 채점합니다. 이러한 접근 방식은 리소스가 많이 소모되지만, 실질적인 역량 향상을 측정하기 위해 점차 필수적인 요소가 되고 있습니다.",
-      "candidate_ko": "우리는 앞으로도 독자적으로 작성한 비공개 벤치마크에 투자를 지속하고, 산업계와 학계의 협력을 요청할 예정입니다. GDPVal에서는 도메인 전문가가 비공개로 작업을 작성해 노출 위험을 줄이고, 훈련된 리뷰어가 솔루션을 총체적으로 평가합니다. 이 방식은 자원이 많이 들지만, 진정한 역량 향상을 측정하기 위해 점점 더 필요해지고 있습니다.",
-      "backtranslated_en": "We will continue investing in privately authored benchmarks and seek collaboration with industry and academia. In GDPVal, domain experts author tasks privately to reduce exposure risk, and trained reviewers holistically evaluate solutions. Though resource intensive, this approach is increasingly necessary to truly measure capability improvements.",
-      "semantic_similarity_score": 87.6,
-      "backtranslation_similarity_score": 95.8,
+      "candidate_ko": "우리는 앞으로도 독창적이고 비공개로 작성된 벤치마크에 계속 투자할 것이며, 업계와 학계에도 같은 노력을 부탁드립니다. GDPVal에서는 도메인 전문가가 과제를 비공개로 작성해 노출 위험을 줄이고, 해결 결과는 훈련된 리뷰어가 총체적으로 평가합니다. 이 접근 방식은 자원 집약적이지만, 진정한 역량 향상을 측정하기 위해 점점 더 필요해지고 있습니다.",
+      "backtranslated_en": "We will continue to invest in original, privately written benchmarks, and we ask industry and academia to do the same. In GDPVal, domain experts privately write the tasks to reduce exposure risk, and the solutions are holistically evaluated by trained reviewers. This approach is resource-intensive, but it is increasingly necessary to measure true capability gains.",
+      "semantic_similarity_score": 87.7,
+      "backtranslation_similarity_score": 96.9,
       "terminology_consistency_score": 100.0,
-      "llm_judge_score": 90.0,
+      "llm_judge_score": 96.0,
       "issues": [
-        "'독자적으로 작성한' is less common than '독창적이고' for 'original'",
-        "'리뷰어' is a loanword; '평가자' might be more formal",
-        "Slight nuance difference between '총체적으로' and '종합적으로' in evaluation context"
+        "의미 전달이 정확하고 용어도 자연스럽습니다.",
+        "\"같은 노력을 부탁드립니다\"는 원문의 \"ask for help\"보다 약간 더 직접적이지만 허용 가능한 수준입니다."
       ],
       "judge_needs_human_review": false,
-      "suggested_revision": "우리는 앞으로도 독창적이고 비공개로 작성된 벤치마크에 지속적으로 투자하고, 산업계와 학계의 협력을 요청할 예정입니다. GDPVal에서는 도메인 전문가가 비공개로 작업을 작성하여 노출 위험을 줄이고, 훈련된 평가자가 솔루션을 종합적으로 평가합니다. 이 방식은 자원이 많이 소모되지만, 진정한 역량 향상을 측정하기 위해 점점 더 필요해지고 있습니다.",
+      "suggested_revision": "우리는 앞으로도 독창적이고 비공개로 작성된 벤치마크에 계속 투자할 것이며, 업계와 학계에도 같은 노력을 부탁드립니다. GDPVal에서는 도메인 전문가가 과제를 비공개로 작성해 노출 위험을 줄이고, 해결 결과는 훈련된 리뷰어가 총체적으로 평가합니다. 이 접근 방식은 자원 집약적이지만, 진정한 역량 향상을 측정하기 위해 점점 더 필요해지고 있습니다.",
       "metadata": {
         "unit_type": "paragraph",
         "tag": "P",
         "pair_slug": "why-we-no-longer-evaluate-swe-bench-verified",
         "terminology_details": []
       },
-      "overall_score": 92.2,
+      "overall_score": 94.3,
       "review_reasons": [],
       "needs_human_review": false
     }

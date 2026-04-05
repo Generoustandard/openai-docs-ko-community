@@ -94,7 +94,13 @@ Notes:
 
 The repository keeps sample artifacts for the current demo pair under `docs/pairs/`, `data/processed/`, and `reports/`.
 
-The checked-in candidate and evaluation artifacts currently reflect an earlier run from `2026-03-31` using `gpt-4.1-mini`. They are preserved as historical sample outputs rather than silently rewritten. The recommended current MVP demo configuration is `gpt-5.4-mini` for generation, backtranslation, and judging.
+The checked-in sample candidate, evaluation, and report artifacts have been refreshed for the current Phase 1 MVP demo configuration:
+
+- `generation_model`: `gpt-5.4-mini`
+- `backtranslation_model`: `gpt-5.4-mini`
+- `judge_model`: `gpt-5.4-mini`
+
+Their recorded timestamps and metadata should be treated as the provenance source for the current checked-in demo run.
 
 Key sample files:
 
