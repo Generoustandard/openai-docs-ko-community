@@ -45,6 +45,10 @@ def _format_provenance(meta: dict, config: dict) -> str:
     embedding_model = config.get("embedding_model", "n/a")
     generated_at = meta.get("generated_at", "n/a")
     evaluated_at = meta.get("evaluated_at", "n/a")
+    run_label = meta.get("run_label")
+    pipeline_label = meta.get("pipeline_label")
+    prompt_label = meta.get("prompt_label")
+    candidate_field = config.get("candidate_field")
 
     lines = [
         f"- generated_at: `{generated_at}`",
@@ -54,6 +58,14 @@ def _format_provenance(meta: dict, config: dict) -> str:
         f"- judge_model: `{judge_model}`",
         f"- embedding_model: `{embedding_model}`",
     ]
+    if candidate_field:
+        lines.append(f"- candidate_field: `{candidate_field}`")
+    if run_label:
+        lines.append(f"- run_label: `{run_label}`")
+    if pipeline_label:
+        lines.append(f"- pipeline_label: `{pipeline_label}`")
+    if prompt_label:
+        lines.append(f"- prompt_label: `{prompt_label}`")
 
     recorded_models = [generation_model, backtranslation_model, judge_model]
     if any(model not in {"n/a", RECOMMENDED_MVP_MODEL} for model in recorded_models):

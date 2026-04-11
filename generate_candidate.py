@@ -6,6 +6,9 @@ from pathlib import Path
 from mvp.openai_utils import build_client, chunked, invoke_json_model, load_records_payload, save_json, utc_timestamp
 
 
+DEFAULT_PROMPT_LABEL = "official_openai_style_translation_v1"
+
+
 TRANSLATION_SCHEMA = {
     "type": "object",
     "properties": {
@@ -43,6 +46,13 @@ def main() -> None:
         help="OpenAI model used for translation.",
     )
     parser.add_argument("--batch-size", type=int, default=8, help="Number of blocks translated per request.")
+    parser.add_argument("--run-label", default=None, help="Optional label for comparing multiple generation runs.")
+    parser.add_argument("--pipeline-label", default=None, help="Optional label for the generation pipeline.")
+    parser.add_argument(
+        "--prompt-label",
+        default=DEFAULT_PROMPT_LABEL,
+        help="Optional label for the translation prompt or prompt family.",
+    )
     args = parser.parse_args()
 
     input_path = Path(args.input)
@@ -95,6 +105,9 @@ def main() -> None:
             **meta,
             "generated_at": utc_timestamp(),
             "generation_model": args.model,
+            "run_label": args.run_label,
+            "pipeline_label": args.pipeline_label,
+            "prompt_label": args.prompt_label,
             "records": enriched_records,
         },
     )

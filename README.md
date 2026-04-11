@@ -26,12 +26,14 @@ Current evaluation roles:
 | `source_en` | Official English source text from OpenAI |
 | `reference_ko` | Official Korean translation published by OpenAI |
 | `candidate_ko` | A newly generated Korean translation produced by the pipeline |
+| `improved_candidate_ko` | An optional follow-up revision produced after evaluation or review |
 | `reviewed_golden` | A human-reviewed example that may later be promoted for regression testing or deeper evaluation |
 
 Important constraints:
 
 - `reference_ko` is a reference, not automatically a golden sample.
 - `candidate_ko` is never stored as golden.
+- `improved_candidate_ko` is still a candidate output, not a golden sample.
 - Only manual review by the maintainer or community reviewers can promote an item to `reviewed_golden`.
 
 ### Phase 2 Expansion
@@ -48,6 +50,27 @@ Phase 2 is a later extension of the same framework, not the current MVP:
 
 Official `openai.com` English-Korean page pairs provide a clearer reference path for validating the evaluation design. That makes it easier to test alignment, scoring, reporting, and human review rules before moving to developers documentation, where the reference signal is weaker.
 
+## Evaluation Framing
+
+This repository now supports two compatible evaluation layers:
+
+- Official document-pair evaluation: compare `candidate_ko` against the official `reference_ko` for the current Phase 1 `openai.com` page pair.
+- Golden-example evaluation: compare generated Korean against a small curated `reviewed_golden` set at the word, sentence, and paragraph levels under `docs/golden/`.
+
+The main quantitative signals align with the OpenAI-suggested direction:
+
+- Korean-side cosine similarity: compare generated Korean to a reference-like target.
+  For the Phase 1 pair MVP, that target is `reference_ko`.
+  For lightweight regression checks, that target is the curated golden Korean example.
+- Backtranslation cosine similarity: compare `source_en` against English translated back from the generated Korean.
+- Metadata for comparison: preserve model labels and optional `run_label`, `pipeline_label`, and `prompt_label` fields so later runs can be compared across models, prompts, and pipelines.
+
+Important distinction:
+
+- `reference_ko` is the official page-level reference for the current Phase 1 pair evaluation.
+- `reviewed_golden` is a small curated or human-reviewed target set used for sanity checks and regression-style comparison.
+- Neither raw `candidate_ko` nor optional `improved_candidate_ko` is treated as golden automatically.
+
 ## Current Demo Pair
 
 - English: [why-we-no-longer-evaluate-swe-bench-verified](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/)
@@ -57,7 +80,18 @@ Official `openai.com` English-Korean page pairs provide a clearer reference path
 
 - Candidate generation: produce `candidate_ko` from aligned `source_en` blocks.
 - Evaluation workflow support: run backtranslation, LLM judging, scoring, and reporting.
-- Iterative improvement path: provide a base for future agent loops that re-run evaluation, surface review queues, and support human-reviewed promotion to `reviewed_golden`.
+- Iterative improvement path: support a `candidate_ko -> evaluation -> improved_candidate_ko -> human review` direction while keeping small golden-set checks available for regression and comparison.
+
+## Improvement-Loop Direction
+
+The current Phase 1 MVP validates evaluation on raw `candidate_ko` first. The next step is a lightweight improvement path:
+
+- evaluate `candidate_ko`
+- optionally produce `improved_candidate_ko`
+- re-evaluate if needed
+- promote only manually reviewed items toward `reviewed_golden`
+
+This future step is compatible with the same cosine-similarity, backtranslation, and reviewed-golden checks described above.
 
 ## Recommended Command Sequence
 
@@ -90,6 +124,28 @@ Notes:
 - The script defaults now point to `gpt-5.4-mini`, but the commands above keep the recommended configuration explicit for reviewers.
 - On Windows, use `py -3 -X utf8` if `python -X utf8` is not available on `PATH`.
 
+## Golden Example Checks
+
+The curated or future-curated reviewed-golden layer lives under [docs/golden/README.md](docs/golden/README.md) and is organized as:
+
+- [docs/golden/words.json](docs/golden/words.json)
+- [docs/golden/sentences.json](docs/golden/sentences.json)
+- [docs/golden/paragraphs.json](docs/golden/paragraphs.json)
+
+These examples are intended for lightweight comparison and regression checks, not as substitutes for the Phase 1 official page reference.
+
+Example golden-set run:
+
+```powershell
+python -X utf8 run_golden_eval.py --golden-set sentences --generation-model gpt-5.4-mini --backtranslation-model gpt-5.4-mini --embedding-model text-embedding-3-small --run-label sentences-baseline --pipeline-label baseline --prompt-label official_openai_style_translation_v1
+```
+
+If you already have revised outputs, you can evaluate a different field from an input file:
+
+```powershell
+python -X utf8 run_golden_eval.py --golden-set paragraphs --input path/to/candidates.json --candidate-field improved_candidate_ko --backtranslation-model gpt-5.4-mini --embedding-model text-embedding-3-small --run-label paragraphs-improved
+```
+
 ## Checked-In Sample Artifacts
 
 The repository keeps sample artifacts for the current demo pair under `docs/pairs/`, `data/processed/`, and `reports/`.
@@ -119,4 +175,4 @@ Key sample files:
 
 ## Existing Experimental Assets
 
-Existing files under `docs/golden/` and `evals/` are preserved as experimental or future-expansion assets. They are not the primary path for the current Phase 1 official document-pair MVP, and they should not be deleted during this cleanup.
+Existing files under `docs/golden/` and `evals/` are preserved. The curated files under `docs/golden/` now support the lightweight reviewed-golden evaluation layer, while `evals/` remains a legacy experimental path rather than the main Phase 1 MVP flow.

@@ -65,6 +65,13 @@ POSITIVE_ISSUE_PATTERNS = (
 )
 
 
+def _candidate_text(record: dict, candidate_field: str) -> str:
+    candidate = record.get(candidate_field)
+    if not candidate or not isinstance(candidate, str):
+        raise ValueError(f"Missing string field '{candidate_field}' for {record.get('id', 'unknown-record')}")
+    return candidate
+
+
 def _create_embeddings(client, model: str, texts: list[str]) -> list[list[float]]:
     response = client.embeddings.create(model=model, input=texts)
     return [item.embedding for item in response.data]
@@ -217,8 +224,16 @@ def main() -> None:
     parser.add_argument("--backtranslation-model", default="gpt-5.4-mini")
     parser.add_argument("--judge-model", default="gpt-5.4-mini")
     parser.add_argument("--embedding-model", default="text-embedding-3-small")
+    parser.add_argument(
+        "--candidate-field",
+        default="candidate_ko",
+        help="Record field to evaluate. Use `improved_candidate_ko` for a follow-up improvement pass.",
+    )
     parser.add_argument("--batch-size", type=int, default=8)
     parser.add_argument("--judge-batch-size", type=int, default=5)
+    parser.add_argument("--run-label", default=None, help="Optional label for comparing evaluation runs.")
+    parser.add_argument("--pipeline-label", default=None, help="Optional label for the evaluated pipeline.")
+    parser.add_argument("--prompt-label", default=None, help="Optional label for the prompt family.")
     args = parser.parse_args()
 
     input_path = Path(args.input)
@@ -236,7 +251,7 @@ def main() -> None:
             "items": [
                 {
                     "id": record["id"],
-                    "candidate_ko": record["candidate_ko"],
+                    "candidate_ko": _candidate_text(record, args.candidate_field),
                 }
                 for record in batch
             ]
@@ -278,7 +293,7 @@ def main() -> None:
                     "id": record["id"],
                     "source_en": record["source_en"],
                     "reference_ko": record["reference_ko"],
-                    "candidate_ko": record["candidate_ko"],
+                    "candidate_ko": _candidate_text(record, args.candidate_field),
                     "backtranslated_en": backtranslated_by_id[record["id"]],
                 }
                 for record in batch
@@ -306,7 +321,11 @@ def main() -> None:
 
     source_embeddings = _create_embeddings(client, args.embedding_model, [record["source_en"] for record in records])
     reference_embeddings = _create_embeddings(client, args.embedding_model, [record["reference_ko"] for record in records])
-    candidate_embeddings = _create_embeddings(client, args.embedding_model, [record["candidate_ko"] for record in records])
+    candidate_embeddings = _create_embeddings(
+        client,
+        args.embedding_model,
+        [_candidate_text(record, args.candidate_field) for record in records],
+    )
     backtranslated_embeddings = _create_embeddings(
         client,
         args.embedding_model,
@@ -315,11 +334,12 @@ def main() -> None:
 
     evaluated_records = []
     for index, record in enumerate(records):
+        candidate_text = _candidate_text(record, args.candidate_field)
         semantic_cosine = cosine_similarity(reference_embeddings[index], candidate_embeddings[index])
         backtranslation_cosine = cosine_similarity(source_embeddings[index], backtranslated_embeddings[index])
         terminology_score, terminology_issues, terminology_details = score_terminology(
             source_en=record["source_en"],
-            candidate_ko=record["candidate_ko"],
+            candidate_ko=candidate_text,
         )
 
         judgment = judgments_by_id.get(record["id"])
@@ -330,7 +350,7 @@ def main() -> None:
             "id": record["id"],
             "source_en": record["source_en"],
             "reference_ko": record["reference_ko"],
-            "candidate_ko": record["candidate_ko"],
+            "candidate_ko": candidate_text,
             "backtranslated_en": backtranslated_by_id[record["id"]],
             "semantic_similarity_score": cosine_to_score(semantic_cosine),
             "backtranslation_similarity_score": cosine_to_score(backtranslation_cosine),
@@ -343,6 +363,7 @@ def main() -> None:
                 "unit_type": record.get("unit_type"),
                 "tag": record.get("source_meta", {}).get("tag"),
                 "pair_slug": record.get("source_meta", {}).get("pair_slug"),
+                "candidate_source_field": args.candidate_field,
                 "terminology_details": terminology_details,
             },
         }
@@ -358,12 +379,20 @@ def main() -> None:
         evaluated_records.append(merged)
 
     output_path = Path(args.output or f"reports/{input_path.stem}.eval.json")
+    output_meta = dict(meta)
+    if args.run_label:
+        output_meta["run_label"] = args.run_label
+    if args.pipeline_label:
+        output_meta["pipeline_label"] = args.pipeline_label
+    if args.prompt_label:
+        output_meta["prompt_label"] = args.prompt_label
     save_json(
         output_path,
         {
-            **meta,
+            **output_meta,
             "evaluated_at": utc_timestamp(),
             "config": {
+                "candidate_field": args.candidate_field,
                 "backtranslation_model": args.backtranslation_model,
                 "judge_model": args.judge_model,
                 "embedding_model": args.embedding_model,
