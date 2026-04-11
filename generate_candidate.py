@@ -32,26 +32,26 @@ TRANSLATION_SCHEMA = {
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Generate candidate Korean translations from aligned English source blocks.",
+        description="정렬된 영어 원문 블록에서 후보 한국어 번역을 생성합니다.",
     )
-    parser.add_argument("--input", required=True, help="Aligned input JSON created by align_units.py.")
+    parser.add_argument("--input", required=True, help="`align_units.py`가 만든 정렬 입력 JSON 경로.")
     parser.add_argument(
         "--output",
         default=None,
-        help="Output path. Defaults to data/processed/<input-stem>.candidates.json",
+        help="출력 경로. 기본값은 `data/processed/<input-stem>.candidates.json`입니다.",
     )
     parser.add_argument(
         "--model",
         default="gpt-5.4-mini",
-        help="OpenAI model used for translation.",
+        help="번역에 사용할 OpenAI 모델.",
     )
-    parser.add_argument("--batch-size", type=int, default=8, help="Number of blocks translated per request.")
-    parser.add_argument("--run-label", default=None, help="Optional label for comparing multiple generation runs.")
-    parser.add_argument("--pipeline-label", default=None, help="Optional label for the generation pipeline.")
+    parser.add_argument("--batch-size", type=int, default=8, help="한 요청에서 번역할 블록 수.")
+    parser.add_argument("--run-label", default=None, help="여러 생성 실행을 비교하기 위한 optional label.")
+    parser.add_argument("--pipeline-label", default=None, help="생성 파이프라인을 구분하기 위한 optional label.")
     parser.add_argument(
         "--prompt-label",
         default=DEFAULT_PROMPT_LABEL,
-        help="Optional label for the translation prompt or prompt family.",
+        help="번역 프롬프트 또는 프롬프트 계열을 구분하기 위한 optional label.",
     )
     args = parser.parse_args()
 
@@ -111,7 +111,7 @@ def main() -> None:
             "records": enriched_records,
         },
     )
-    print(f"Wrote {len(enriched_records)} candidate translations to {output_path}")
+    print(f"{len(enriched_records)}개의 candidate 번역을 {output_path}에 저장했습니다.")
 
 
 if __name__ == "__main__":

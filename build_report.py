@@ -79,13 +79,13 @@ def _format_provenance(meta: dict, config: dict) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Build a human-readable markdown report from evaluation JSON.",
+        description="평가 JSON에서 사람이 읽기 쉬운 markdown 보고서를 생성합니다.",
     )
-    parser.add_argument("--input", required=True, help="Evaluation JSON created by run_eval.py.")
+    parser.add_argument("--input", required=True, help="`run_eval.py`가 만든 evaluation JSON 경로.")
     parser.add_argument(
         "--output",
         default=None,
-        help="Output markdown path. Defaults to reports/<input-stem>.md",
+        help="출력 markdown 경로. 기본값은 `reports/<input-stem>.md`입니다.",
     )
     args = parser.parse_args()
 
@@ -139,7 +139,7 @@ def main() -> None:
     output_path = Path(args.output or f"reports/{input_path.stem}.md")
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(report, encoding="utf-8")
-    print(f"Wrote markdown report to {output_path}")
+    print(f"Markdown 보고서를 {output_path}에 저장했습니다.")
 
 
 if __name__ == "__main__":

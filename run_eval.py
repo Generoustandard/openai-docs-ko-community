@@ -213,13 +213,13 @@ def _build_summary(records: list[dict]) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Run the official document-pair evaluation pipeline on generated candidate translations.",
+        description="생성된 candidate 번역에 대해 공식 문서 쌍 평가 파이프라인을 실행합니다.",
     )
-    parser.add_argument("--input", required=True, help="Candidate JSON created by generate_candidate.py.")
+    parser.add_argument("--input", required=True, help="`generate_candidate.py`가 만든 candidate JSON 경로.")
     parser.add_argument(
         "--output",
         default=None,
-        help="Output path. Defaults to reports/<input-stem>.eval.json",
+        help="출력 경로. 기본값은 `reports/<input-stem>.eval.json`입니다.",
     )
     parser.add_argument("--backtranslation-model", default="gpt-5.4-mini")
     parser.add_argument("--judge-model", default="gpt-5.4-mini")
@@ -227,13 +227,13 @@ def main() -> None:
     parser.add_argument(
         "--candidate-field",
         default="candidate_ko",
-        help="Record field to evaluate. Use `improved_candidate_ko` for a follow-up improvement pass.",
+        help="평가할 record field. 후속 개선안을 평가할 때는 `improved_candidate_ko`를 사용합니다.",
     )
     parser.add_argument("--batch-size", type=int, default=8)
     parser.add_argument("--judge-batch-size", type=int, default=5)
-    parser.add_argument("--run-label", default=None, help="Optional label for comparing evaluation runs.")
-    parser.add_argument("--pipeline-label", default=None, help="Optional label for the evaluated pipeline.")
-    parser.add_argument("--prompt-label", default=None, help="Optional label for the prompt family.")
+    parser.add_argument("--run-label", default=None, help="여러 평가 실행을 비교하기 위한 optional label.")
+    parser.add_argument("--pipeline-label", default=None, help="평가 대상 파이프라인을 구분하기 위한 optional label.")
+    parser.add_argument("--prompt-label", default=None, help="프롬프트 계열을 구분하기 위한 optional label.")
     args = parser.parse_args()
 
     input_path = Path(args.input)
@@ -409,7 +409,7 @@ def main() -> None:
         },
     )
 
-    print(f"Wrote {len(evaluated_records)} evaluation records to {output_path}")
+    print(f"{len(evaluated_records)}개의 평가 결과를 {output_path}에 저장했습니다.")
 
 
 if __name__ == "__main__":

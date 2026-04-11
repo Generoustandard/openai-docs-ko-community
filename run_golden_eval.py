@@ -180,32 +180,32 @@ def _build_summary(records: list[dict], *, include_backtranslation: bool) -> dic
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Run a lightweight evaluation against curated golden examples.",
+        description="curated golden 예시에 대해 경량 평가를 실행합니다.",
     )
     parser.add_argument("--golden-set", required=True, choices=sorted(UNIT_LEVELS))
     parser.add_argument(
         "--input",
         default=None,
-        help="Optional candidate JSON with matching ids. If omitted, candidates are generated from the golden source_en texts.",
+        help="matching id를 가진 optional candidate JSON 경로. 생략하면 golden `source_en`에서 새 candidate를 생성합니다.",
     )
     parser.add_argument(
         "--output",
         default=None,
-        help="Output path. Defaults to reports/golden.<golden-set>.eval.json",
+        help="출력 경로. 기본값은 `reports/golden.<golden-set>.eval.json`입니다.",
     )
     parser.add_argument(
         "--candidate-field",
         default="candidate_ko",
-        help="Field to read from --input. Use `improved_candidate_ko` for a follow-up improvement pass.",
+        help="`--input`에서 읽을 field. 후속 개선안을 평가할 때는 `improved_candidate_ko`를 사용합니다.",
     )
     parser.add_argument("--generation-model", default="gpt-5.4-mini")
     parser.add_argument("--embedding-model", default="text-embedding-3-small")
     parser.add_argument("--backtranslation-model", default="gpt-5.4-mini")
     parser.add_argument("--batch-size", type=int, default=8)
-    parser.add_argument("--skip-backtranslation", action="store_true")
-    parser.add_argument("--run-label", default=None)
-    parser.add_argument("--pipeline-label", default=None)
-    parser.add_argument("--prompt-label", default=DEFAULT_PROMPT_LABEL)
+    parser.add_argument("--skip-backtranslation", action="store_true", help="backtranslation 유사도 계산을 건너뜁니다.")
+    parser.add_argument("--run-label", default=None, help="여러 golden 평가 실행을 비교하기 위한 optional label.")
+    parser.add_argument("--pipeline-label", default=None, help="평가 대상 파이프라인을 구분하기 위한 optional label.")
+    parser.add_argument("--prompt-label", default=DEFAULT_PROMPT_LABEL, help="프롬프트 계열을 구분하기 위한 optional label.")
     args = parser.parse_args()
 
     repo_root = Path(__file__).resolve().parent
@@ -355,7 +355,7 @@ def main() -> None:
             "records": evaluated_records,
         },
     )
-    print(f"Wrote {len(evaluated_records)} golden evaluation records to {output_path}")
+    print(f"{len(evaluated_records)}개의 golden 평가 결과를 {output_path}에 저장했습니다.")
 
 
 if __name__ == "__main__":

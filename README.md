@@ -1,114 +1,114 @@
 # OpenAI Docs Korean Community
 
-This repository is a Phase 1 MVP for evaluating Korean translation quality on official OpenAI English-Korean document pairs hosted on `openai.com`.
+이 저장소는 `openai.com`에 게시된 공식 OpenAI 영어-한국어 문서 쌍을 기준으로 한국어 번역 품질을 평가하기 위한 Phase 1 MVP입니다.
 
-The MVP exists to validate the evaluation framework on a clean reference setup before extending the same framework to `developers.openai.com`, where Korean references are limited and reference-less evaluation plus community review will matter more.
+이 MVP의 목적은 먼저 reference가 분명한 공식 EN-KO 페이지 쌍에서 평가 프레임워크를 검증한 뒤, 같은 틀을 `developers.openai.com`으로 확장하는 것입니다. 개발자 문서 영역은 한국어 reference가 제한적이기 때문에, 이후에는 reference-less evaluation과 커뮤니티 리뷰가 더 중요해집니다.
 
-Codex is used here to generate `candidate_ko`, support the evaluation workflow, and prepare the project for future agent-assisted improvement loops.
+이 저장소에서 Codex는 `candidate_ko` 생성, 평가 워크플로 지원, 그리고 이후 에이전트 기반 개선 루프를 준비하는 데 사용됩니다.
 
-## Phase Scope
+## Phase 범위
 
 ### Phase 1 MVP
 
-Phase 1 is intentionally narrow:
+Phase 1은 의도적으로 범위를 좁게 잡고 있습니다.
 
-- collect one official English page as `source_en`
-- collect its official Korean counterpart as `reference_ko`
-- align stable paragraph-level evaluation units
-- generate a new Korean translation as `candidate_ko`
-- compare `candidate_ko` against `reference_ko`
-- save machine-readable results and a human-readable report
+- 공식 영어 페이지를 `source_en`으로 수집
+- 해당 페이지의 공식 한국어 페이지를 `reference_ko`로 수집
+- 안정적인 문단 단위 평가 블록으로 정렬
+- 새로운 한국어 번역 `candidate_ko` 생성
+- `candidate_ko`를 `reference_ko`와 비교
+- 기계 판독용 결과와 사람이 읽는 보고서 저장
 
-Current evaluation roles:
+현재 평가 역할은 다음과 같습니다.
 
-| Role | Meaning |
+| 역할 | 의미 |
 | --- | --- |
-| `source_en` | Official English source text from OpenAI |
-| `reference_ko` | Official Korean translation published by OpenAI |
-| `candidate_ko` | A newly generated Korean translation produced by the pipeline |
-| `improved_candidate_ko` | An optional follow-up revision produced after evaluation or review |
-| `reviewed_golden` | A human-reviewed example that may later be promoted for regression testing or deeper evaluation |
+| `source_en` | OpenAI 공식 영어 원문 |
+| `reference_ko` | OpenAI가 게시한 공식 한국어 번역 |
+| `candidate_ko` | 파이프라인이 새로 생성한 한국어 번역 |
+| `improved_candidate_ko` | 평가 또는 검토 이후에 만든 후속 개선안 |
+| `reviewed_golden` | 회귀 테스트나 심화 평가용으로 사람이 검토해 둘 수 있는 예시 |
 
-Important constraints:
+중요한 원칙:
 
-- `reference_ko` is a reference, not automatically a golden sample.
-- `candidate_ko` is never stored as golden.
-- `improved_candidate_ko` is still a candidate output, not a golden sample.
-- Only manual review by the maintainer or community reviewers can promote an item to `reviewed_golden`.
+- `reference_ko`는 reference이지 자동으로 golden이 아닙니다.
+- `candidate_ko`는 golden으로 저장하지 않습니다.
+- `improved_candidate_ko`도 여전히 candidate 출력이며 golden이 아닙니다.
+- 유지보수자 또는 커뮤니티 검토자가 수동 검토한 경우에만 `reviewed_golden`으로 승격할 수 있습니다.
 
-### Phase 2 Expansion
+### Phase 2 확장
 
-Phase 2 is a later extension of the same framework, not the current MVP:
+Phase 2는 현재 MVP가 아니라, 같은 프레임워크의 다음 확장 단계입니다.
 
-- ingestion for `developers.openai.com`
-- reference-less evaluation where Korean references do not exist
-- stronger community review and promotion workflows
-- broader candidate generation paths
-- expansion of curated `reviewed_golden` assets
+- `developers.openai.com` 수집 경로 추가
+- 한국어 reference가 없는 문서에 대한 reference-less evaluation
+- 더 강한 커뮤니티 리뷰 및 승격 워크플로
+- 더 다양한 candidate 생성 경로
+- curated `reviewed_golden` 자산 확장
 
-## Why Start With Official EN-KO Page Pairs
+## 왜 공식 EN-KO 페이지 쌍부터 시작하는가
 
-Official `openai.com` English-Korean page pairs provide a clearer reference path for validating the evaluation design. That makes it easier to test alignment, scoring, reporting, and human review rules before moving to developers documentation, where the reference signal is weaker.
+공식 `openai.com` 영어-한국어 페이지 쌍은 평가 설계를 검증하기에 더 명확한 reference 경로를 제공합니다. 덕분에 개발자 문서처럼 reference 신호가 약한 영역으로 넘어가기 전에, 정렬, 점수화, 보고서 생성, 사람 검토 규칙을 더 분명하게 점검할 수 있습니다.
 
-## Evaluation Framing
+## 평가 프레이밍
 
-This repository now supports two compatible evaluation layers:
+이 저장소는 현재 서로 호환되는 두 가지 평가 레이어를 가집니다.
 
-- Official document-pair evaluation: compare `candidate_ko` against the official `reference_ko` for the current Phase 1 `openai.com` page pair.
-- Golden-example evaluation: compare generated Korean against a small curated `reviewed_golden` set at the word, sentence, and paragraph levels under `docs/golden/`.
+- 공식 문서 쌍 평가: 현재 Phase 1 `openai.com` 페이지 쌍에 대해 `candidate_ko`를 공식 `reference_ko`와 비교
+- golden 예시 평가: `docs/golden/` 아래의 단어, 문장, 문단 수준 curated `reviewed_golden` 세트와 생성 결과를 비교
 
-The main quantitative signals align with the OpenAI-suggested direction:
+핵심 정량 신호는 OpenAI가 제안한 방향과 맞춰져 있습니다.
 
-- Korean-side cosine similarity: compare generated Korean to a reference-like target.
-  For the Phase 1 pair MVP, that target is `reference_ko`.
-  For lightweight regression checks, that target is the curated golden Korean example.
-- Backtranslation cosine similarity: compare `source_en` against English translated back from the generated Korean.
-- Metadata for comparison: preserve model labels and optional `run_label`, `pipeline_label`, and `prompt_label` fields so later runs can be compared across models, prompts, and pipelines.
+- 한국어 측 cosine similarity: 생성된 한국어와 reference에 가까운 한국어 target을 비교
+  Phase 1 공식 문서 쌍 MVP에서는 그 target이 `reference_ko`입니다.
+  경량 회귀 체크에서는 curated golden 한국어가 target입니다.
+- backtranslation cosine similarity: `source_en`과 생성 한국어를 다시 영어로 옮긴 결과를 비교
+- 비교용 메타데이터: `run_label`, `pipeline_label`, `prompt_label` 같은 값을 남겨 두어 이후 모델, 프롬프트, 파이프라인 비교에 활용
 
-Important distinction:
+구분해야 할 점:
 
-- `reference_ko` is the official page-level reference for the current Phase 1 pair evaluation.
-- `reviewed_golden` is a small curated or human-reviewed target set used for sanity checks and regression-style comparison.
-- Neither raw `candidate_ko` nor optional `improved_candidate_ko` is treated as golden automatically.
+- `reference_ko`는 현재 Phase 1 공식 페이지 평가를 위한 페이지 단위 reference입니다.
+- `reviewed_golden`은 sanity check와 regression-style comparison을 위한 소규모 human-reviewed target 세트입니다.
+- raw `candidate_ko`나 `improved_candidate_ko`는 자동으로 golden 취급하지 않습니다.
 
-## Current Demo Pair
+## 현재 데모 문서 쌍
 
-- English: [why-we-no-longer-evaluate-swe-bench-verified](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/)
-- Korean: [why-we-no-longer-evaluate-swe-bench-verified (ko-KR)](https://openai.com/ko-KR/index/why-we-no-longer-evaluate-swe-bench-verified/)
+- 영어: [why-we-no-longer-evaluate-swe-bench-verified](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/)
+- 한국어: [why-we-no-longer-evaluate-swe-bench-verified (ko-KR)](https://openai.com/ko-KR/index/why-we-no-longer-evaluate-swe-bench-verified/)
 
-## Where Codex Is Used
+## Codex가 사용되는 위치
 
-- Candidate generation: produce `candidate_ko` from aligned `source_en` blocks.
-- Evaluation workflow support: run backtranslation, LLM judging, scoring, and reporting.
-- Iterative improvement path: support a `candidate_ko -> evaluation -> improved_candidate_ko -> human review` direction while keeping small golden-set checks available for regression and comparison.
+- Candidate 생성: 정렬된 `source_en` 블록에서 `candidate_ko` 생성
+- 평가 워크플로 지원: backtranslation, LLM judging, 점수화, 보고서 생성
+- 반복 개선 경로: 작은 golden-set 체크를 유지하면서 `candidate_ko -> evaluation -> improved_candidate_ko -> human review` 방향을 지원
 
-## Improvement-Loop Direction
+## Improvement-Loop 방향
 
-The current Phase 1 MVP validates evaluation on raw `candidate_ko` first. The next step is a lightweight improvement path:
+현재 Phase 1 MVP는 먼저 raw `candidate_ko` 평가를 검증하는 데 집중합니다. 다음 단계는 아래와 같은 경량 개선 경로입니다.
 
-- evaluate `candidate_ko`
-- optionally produce `improved_candidate_ko`
-- re-evaluate if needed
-- promote only manually reviewed items toward `reviewed_golden`
+- `candidate_ko` 평가
+- 필요하면 `improved_candidate_ko` 생성
+- 필요하면 다시 평가
+- 사람이 검토한 항목만 `reviewed_golden` 후보로 승격
 
-This future step is compatible with the same cosine-similarity, backtranslation, and reviewed-golden checks described above.
+이 다음 단계 역시 같은 cosine similarity, backtranslation, reviewed-golden 체크와 호환됩니다.
 
-## Recommended Command Sequence
+## 권장 실행 순서
 
-Prerequisites:
+사전 조건:
 
 - Python 3.11+
-- Chrome installed
-- `OPENAI_API_KEY` set
+- Chrome 설치
+- `OPENAI_API_KEY` 설정
 - `pip install -r requirements.txt`
 
-Recommended MVP demo configuration:
+현재 권장 MVP 데모 설정:
 
 - `generation_model`: `gpt-5.4-mini`
 - `backtranslation_model`: `gpt-5.4-mini`
 - `judge_model`: `gpt-5.4-mini`
 
-Recommended run sequence:
+권장 실행 순서:
 
 ```powershell
 python -X utf8 collect_pair.py --slug why-we-no-longer-evaluate-swe-bench-verified --source-url https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/ --reference-url https://openai.com/ko-KR/index/why-we-no-longer-evaluate-swe-bench-verified/
@@ -118,47 +118,47 @@ python -X utf8 run_eval.py --input data/processed/why-we-no-longer-evaluate-swe-
 python -X utf8 build_report.py --input reports/why-we-no-longer-evaluate-swe-bench-verified.aligned.candidates.eval.json --output reports/why-we-no-longer-evaluate-swe-bench-verified.report.md
 ```
 
-Notes:
+참고:
 
-- `collect_pair.py` uses Chrome and is safest in non-headless mode for the current `openai.com` pages.
-- The script defaults now point to `gpt-5.4-mini`, but the commands above keep the recommended configuration explicit for reviewers.
-- On Windows, use `py -3 -X utf8` if `python -X utf8` is not available on `PATH`.
+- `collect_pair.py`는 현재 `openai.com` 페이지에 대해 Chrome 기반 비헤드리스 실행이 가장 안전합니다.
+- 스크립트 기본값도 `gpt-5.4-mini`를 가리키지만, 검토자가 보기에 명확하도록 위 명령에서는 권장 설정을 명시적으로 적었습니다.
+- Windows에서는 `python -X utf8` 대신 `py -3 -X utf8`를 써도 됩니다.
 
 ## Golden Example Checks
 
-The curated or future-curated reviewed-golden layer lives under [docs/golden/README.md](docs/golden/README.md) and is organized as:
+curated 또는 future-curated reviewed-golden 레이어는 [docs/golden/README.md](docs/golden/README.md)에 설명되어 있으며, 다음 자산으로 구성됩니다.
 
 - [docs/golden/words.json](docs/golden/words.json)
 - [docs/golden/sentences.json](docs/golden/sentences.json)
 - [docs/golden/paragraphs.json](docs/golden/paragraphs.json)
 
-These examples are intended for lightweight comparison and regression checks, not as substitutes for the Phase 1 official page reference.
+이 예시들은 Phase 1 공식 페이지 reference를 대체하는 것이 아니라, 경량 비교와 회귀 체크를 위한 평가 자산입니다.
 
-Example golden-set run:
+예시 golden-set 실행:
 
 ```powershell
 python -X utf8 run_golden_eval.py --golden-set sentences --generation-model gpt-5.4-mini --backtranslation-model gpt-5.4-mini --embedding-model text-embedding-3-small --run-label sentences-baseline --pipeline-label baseline --prompt-label official_openai_style_translation_v1
 ```
 
-If you already have revised outputs, you can evaluate a different field from an input file:
+이미 후속 개선 출력이 있다면, 입력 파일의 다른 필드를 평가할 수도 있습니다.
 
 ```powershell
 python -X utf8 run_golden_eval.py --golden-set paragraphs --input path/to/candidates.json --candidate-field improved_candidate_ko --backtranslation-model gpt-5.4-mini --embedding-model text-embedding-3-small --run-label paragraphs-improved
 ```
 
-## Checked-In Sample Artifacts
+## 체크인된 샘플 산출물
 
-The repository keeps sample artifacts for the current demo pair under `docs/pairs/`, `data/processed/`, and `reports/`.
+현재 데모 문서 쌍에 대한 샘플 산출물은 `docs/pairs/`, `data/processed/`, `reports/` 아래에 유지됩니다.
 
-The checked-in sample candidate, evaluation, and report artifacts have been refreshed for the current Phase 1 MVP demo configuration:
+체크인된 샘플 candidate, evaluation, report 산출물은 현재 Phase 1 MVP 데모 설정 기준으로 갱신되어 있습니다.
 
 - `generation_model`: `gpt-5.4-mini`
 - `backtranslation_model`: `gpt-5.4-mini`
 - `judge_model`: `gpt-5.4-mini`
 
-Their recorded timestamps and metadata should be treated as the provenance source for the current checked-in demo run.
+현재 체크인된 데모 실행의 provenance는 각 산출물에 기록된 timestamp와 metadata를 기준으로 봐야 합니다.
 
-Key sample files:
+주요 샘플 파일:
 
 - [docs/pairs/why-we-no-longer-evaluate-swe-bench-verified/pair_manifest.json](docs/pairs/why-we-no-longer-evaluate-swe-bench-verified/pair_manifest.json)
 - [data/processed/why-we-no-longer-evaluate-swe-bench-verified.aligned.json](data/processed/why-we-no-longer-evaluate-swe-bench-verified.aligned.json)
@@ -166,13 +166,13 @@ Key sample files:
 - [reports/why-we-no-longer-evaluate-swe-bench-verified.aligned.candidates.eval.json](reports/why-we-no-longer-evaluate-swe-bench-verified.aligned.candidates.eval.json)
 - [reports/why-we-no-longer-evaluate-swe-bench-verified.report.md](reports/why-we-no-longer-evaluate-swe-bench-verified.report.md)
 
-## Repository Map
+## 저장소 안내
 
-- [AGENTS.md](AGENTS.md): repository operating notes
-- [PLAN.md](PLAN.md): current project stage and next steps
-- [EVAL_SPEC.md](EVAL_SPEC.md): Phase 1 evaluation specification
-- [evals/README.md](evals/README.md): preserved legacy experimental evaluation path
+- [AGENTS.md](AGENTS.md): 저장소 운영 메모
+- [PLAN.md](PLAN.md): 현재 단계와 다음 작업
+- [EVAL_SPEC.md](EVAL_SPEC.md): Phase 1 평가 명세
+- [evals/README.md](evals/README.md): 보존 중인 레거시 실험 평가 경로
 
-## Existing Experimental Assets
+## 기존 실험 자산
 
-Existing files under `docs/golden/` and `evals/` are preserved. The curated files under `docs/golden/` now support the lightweight reviewed-golden evaluation layer, while `evals/` remains a legacy experimental path rather than the main Phase 1 MVP flow.
+`docs/golden/`과 `evals/` 아래의 기존 파일은 그대로 보존합니다. `docs/golden/`의 curated 파일은 이제 lightweight reviewed-golden 평가 레이어를 지원하고, `evals/`는 메인 Phase 1 MVP가 아니라 레거시 실험 경로로 남겨 둡니다.
