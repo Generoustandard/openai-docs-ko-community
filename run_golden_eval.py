@@ -59,11 +59,22 @@ UNIT_LEVELS = {
     "sentences": "sentence",
     "paragraphs": "paragraph",
 }
+REVIEW_TARGET_ROLE = "reviewed_golden_candidate"
 
 
 def _create_embeddings(client, model: str, texts: list[str]) -> list[list[float]]:
     response = client.embeddings.create(model=model, input=texts)
     return [item.embedding for item in response.data]
+
+
+def _select_review_targets(records: list[dict], *, golden_set: str) -> tuple[list[dict], int]:
+    selected = [record for record in records if record.get("target_role") == REVIEW_TARGET_ROLE]
+    if not selected:
+        raise ValueError(
+            f"{golden_set} does not contain any records marked as '{REVIEW_TARGET_ROLE}'. "
+            "Mark a small reviewed subset before running golden evaluation."
+        )
+    return selected, len(records) - len(selected)
 
 
 def _retry_missing_backtranslations(
@@ -180,13 +191,13 @@ def _build_summary(records: list[dict], *, include_backtranslation: bool) -> dic
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="curated golden 예시에 대해 경량 평가를 실행합니다.",
+        description="각 golden 파일에서 reviewed_golden_candidate로 표시된 항목만 대상으로 경량 평가를 실행합니다.",
     )
     parser.add_argument("--golden-set", required=True, choices=sorted(UNIT_LEVELS))
     parser.add_argument(
         "--input",
         default=None,
-        help="matching id를 가진 optional candidate JSON 경로. 생략하면 golden `source_en`에서 새 candidate를 생성합니다.",
+        help="matching id를 가진 optional candidate JSON 경로. 생략하면 선택된 review target의 `source_en`에서 새 candidate를 생성합니다.",
     )
     parser.add_argument(
         "--output",
@@ -209,7 +220,8 @@ def main() -> None:
     args = parser.parse_args()
 
     repo_root = Path(__file__).resolve().parent
-    golden_records = load_goldens(repo_root)[args.golden_set]
+    golden_pool = load_goldens(repo_root)[args.golden_set]
+    golden_records, example_only_count = _select_review_targets(golden_pool, golden_set=args.golden_set)
     client = build_client()
 
     input_meta: dict = {}
@@ -248,6 +260,8 @@ def main() -> None:
                 "candidate_ko": candidates_by_id[golden_record["id"]],
                 "notes": golden_record["notes"],
                 "tags": golden_record["tags"],
+                "target_role": golden_record["target_role"],
+                "review_status": golden_record["review_status"],
             }
         )
 
@@ -316,6 +330,8 @@ def main() -> None:
             ),
             "notes": record["notes"],
             "tags": record["tags"],
+            "target_role": record["target_role"],
+            "review_status": record["review_status"],
         }
         if args.skip_backtranslation:
             evaluated_record["backtranslated_en"] = None
@@ -345,6 +361,10 @@ def main() -> None:
             "golden_target_field": "improved_ko",
             "evaluated_at": utc_timestamp(),
             "config": {
+                "selection_rule": f"target_role={REVIEW_TARGET_ROLE}",
+                "source_pool_count": len(golden_pool),
+                "review_target_count": len(golden_records),
+                "example_only_count": example_only_count,
                 "source_mode": source_mode,
                 "candidate_field": args.candidate_field,
                 "generation_model": None if args.input else args.generation_model,
@@ -355,7 +375,7 @@ def main() -> None:
             "records": evaluated_records,
         },
     )
-    print(f"{len(evaluated_records)}개의 golden 평가 결과를 {output_path}에 저장했습니다.")
+    print(f"{len(evaluated_records)}개의 reviewed golden candidate 평가 결과를 {output_path}에 저장했습니다.")
 
 
 if __name__ == "__main__":

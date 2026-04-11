@@ -8,7 +8,13 @@
       "영어 수동형을 그대로 따르지 않고 한국어 문서에서 흔히 쓰는 권고 문장으로 바꿨습니다.",
       "제품 이름을 문맥에 맞게 보완해 독자가 무엇을 사용하라는 뜻인지 더 분명하게 만들었습니다."
     ],
-    "tags": ["responses-api", "recommendation", "readability"]
+    "tags": [
+      "responses-api",
+      "recommendation",
+      "readability"
+    ],
+    "target_role": "example_only",
+    "review_status": "example_bank"
   },
   {
     "id": "sentences.responses.tools-01",
@@ -19,7 +25,13 @@
       "직역체인 '오케스트레이션'을 설명 중심 표현으로 바꿔 문장을 덜 딱딱하게 만들었습니다.",
       "행위 주체와 결과를 한국어 어순에 맞게 재배치해 읽기 흐름을 개선했습니다."
     ],
-    "tags": ["tools", "orchestration", "natural-korean"]
+    "tags": [
+      "tools",
+      "orchestration",
+      "natural-korean"
+    ],
+    "target_role": "reviewed_golden_candidate",
+    "review_status": "pending_human_review"
   },
   {
     "id": "sentences.responses.migration-01",
@@ -30,7 +42,13 @@
       "같은 의미를 더 짧고 부드러운 한국어 동사 구조로 다시 썼습니다.",
       "문장 초점이 '부담을 줄인 도입 방식'에 맞도록 정보 순서를 조정했습니다."
     ],
-    "tags": ["migration", "workflow", "style"]
+    "tags": [
+      "migration",
+      "workflow",
+      "style"
+    ],
+    "target_role": "example_only",
+    "review_status": "example_bank"
   },
   {
     "id": "sentences.eval.caution-01",
@@ -41,7 +59,13 @@
       "평가 지표의 한계를 설명하는 문장이라, 말뜻이 바로 들어오도록 구어적 문서 문체로 조정했습니다.",
       "핵심 경고 메시지가 앞에 오도록 표현을 바꿔 이해를 돕습니다."
     ],
-    "tags": ["eval", "limitations", "readability"]
+    "tags": [
+      "eval",
+      "limitations",
+      "readability"
+    ],
+    "target_role": "example_only",
+    "review_status": "example_bank"
   },
   {
     "id": "sentences.dataset.scope-01",
@@ -52,7 +76,13 @@
       "명령형 직역 대신 가이드 문서에 어울리는 권고형 문장으로 바꿨습니다.",
       "curated의 의미를 단순 음차가 아니라 '선별된'으로 풀어 독해 부담을 줄였습니다."
     ],
-    "tags": ["dataset", "mvp", "guidance"]
+    "tags": [
+      "dataset",
+      "mvp",
+      "guidance"
+    ],
+    "target_role": "example_only",
+    "review_status": "example_bank"
   },
   {
     "id": "sentences.translation.policy-01",
@@ -63,6 +93,12 @@
       "단순 지시문보다 원칙 설명에 가까운 표현으로 바꿔 문서 톤을 안정시켰습니다.",
       "translate를 문맥에 맞게 '풀어 쓰다'로 바꿔 직역보다 재서술의 의미를 살렸습니다."
     ],
-    "tags": ["translation-policy", "product-name", "style"]
+    "tags": [
+      "translation-policy",
+      "product-name",
+      "style"
+    ],
+    "target_role": "reviewed_golden_candidate",
+    "review_status": "pending_human_review"
   }
 ]

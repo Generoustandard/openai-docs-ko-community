@@ -5,7 +5,9 @@ from pathlib import Path
 
 
 DATA_FILES = ("words.json", "sentences.json", "paragraphs.json")
-REQUIRED_FIELDS = {"id", "source_en", "improved_ko", "notes", "tags"}
+REQUIRED_FIELDS = {"id", "source_en", "improved_ko", "notes", "tags", "target_role", "review_status"}
+TARGET_ROLES = {"reviewed_golden_candidate", "example_only"}
+REVIEW_STATUSES = {"pending_human_review", "example_bank"}
 
 
 def _resolve_golden_dir(base_dir: str | Path) -> Path:
@@ -32,6 +34,10 @@ def _validate_record(record: dict, path: Path, index: int) -> None:
         raise ValueError(f"{path} record #{index} must use a list of strings for 'notes'.")
     if not isinstance(record["tags"], list) or not all(isinstance(tag, str) for tag in record["tags"]):
         raise ValueError(f"{path} record #{index} must use a list of strings for 'tags'.")
+    if record["target_role"] not in TARGET_ROLES:
+        raise ValueError(f"{path} record #{index} must use one of {sorted(TARGET_ROLES)} for 'target_role'.")
+    if record["review_status"] not in REVIEW_STATUSES:
+        raise ValueError(f"{path} record #{index} must use one of {sorted(REVIEW_STATUSES)} for 'review_status'.")
 
 
 def load_goldens(base_dir: str | Path) -> dict[str, list[dict]]:
